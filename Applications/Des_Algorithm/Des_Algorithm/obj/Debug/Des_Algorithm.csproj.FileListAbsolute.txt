@@ -1,0 +1,46 @@
+c:\users\al3x3i\documents\visual studio 2012\Projects\Des_Algorithm\Des_Algorithm\bin\Debug\Des_Algorithm.exe.config
+c:\users\al3x3i\documents\visual studio 2012\Projects\Des_Algorithm\Des_Algorithm\bin\Debug\Des_Algorithm.exe
+c:\users\al3x3i\documents\visual studio 2012\Projects\Des_Algorithm\Des_Algorithm\bin\Debug\Des_Algorithm.pdb
+c:\users\al3x3i\documents\visual studio 2012\Projects\Des_Algorithm\Des_Algorithm\obj\Debug\Des_Algorithm.Form1.resources
+c:\users\al3x3i\documents\visual studio 2012\Projects\Des_Algorithm\Des_Algorithm\obj\Debug\Des_Algorithm.Properties.Resources.resources
+c:\users\al3x3i\documents\visual studio 2012\Projects\Des_Algorithm\Des_Algorithm\obj\Debug\Des_Algorithm.csproj.GenerateResource.Cache
+c:\users\al3x3i\documents\visual studio 2012\Projects\Des_Algorithm\Des_Algorithm\obj\Debug\Des_Algorithm.exe
+c:\users\al3x3i\documents\visual studio 2012\Projects\Des_Algorithm\Des_Algorithm\obj\Debug\Des_Algorithm.pdb
+c:\users\al3x3i\documents\visual studio 2012\Projects\Des_Algorithm\Des_Algorithm\obj\Debug\Des_Algorithm.csprojResolveAssemblyReference.cache
+C:\Users\Al3x3i\Documents\Study ei1a\Homework\CRY\Des_Algorithm\Des_Algorithm\bin\Debug\Des_Algorithm.exe.config
+C:\Users\Al3x3i\Documents\Study ei1a\Homework\CRY\Des_Algorithm\Des_Algorithm\obj\Debug\Des_Algorithm.exe
+C:\Users\Al3x3i\Documents\Study ei1a\Homework\CRY\Des_Algorithm\Des_Algorithm\obj\Debug\Des_Algorithm.pdb
+C:\Users\Al3x3i\Documents\Study ei1a\Homework\CRY\Des_Algorithm\Des_Algorithm\bin\Debug\Des_Algorithm.exe
+C:\Users\Al3x3i\Documents\Study ei1a\Homework\CRY\Des_Algorithm\Des_Algorithm\bin\Debug\Des_Algorithm.pdb
+C:\Users\Al3x3i\Documents\Study ei1a\Homework\CRY\Des_Algorithm\Des_Algorithm\obj\Debug\Des_Algorithm.csprojResolveAssemblyReference.cache
+C:\Users\Al3x3i\Documents\Study ei1a\Homework\CRY\Des_Algorithm\Des_Algorithm\obj\Debug\Des_Algorithm.Form1.resources
+C:\Users\Al3x3i\Documents\Study ei1a\Homework\CRY\Des_Algorithm\Des_Algorithm\obj\Debug\Des_Algorithm.Properties.Resources.resources
+C:\Users\Al3x3i\Documents\Study ei1a\Homework\CRY\Des_Algorithm\Des_Algorithm\obj\Debug\Des_Algorithm.csproj.GenerateResource.Cache
+C:\Users\Gerard\Desktop\Des_Algorithm\Des_Algorithm\bin\Debug\Des_Algorithm.exe.config
+C:\Users\Gerard\Desktop\Des_Algorithm\Des_Algorithm\obj\Debug\Des_Algorithm.exe
+C:\Users\Gerard\Desktop\Des_Algorithm\Des_Algorithm\obj\Debug\Des_Algorithm.pdb
+C:\Users\Gerard\Desktop\Des_Algorithm\Des_Algorithm\bin\Debug\Des_Algorithm.exe
+C:\Users\Gerard\Desktop\Des_Algorithm\Des_Algorithm\bin\Debug\Des_Algorithm.pdb
+C:\Users\Gerard\Desktop\Des_Algorithm\Des_Algorithm\obj\Debug\Des_Algorithm.csprojResolveAssemblyReference.cache
+C:\Users\Gerard\Desktop\Des_Algorithm\Des_Algorithm\obj\Debug\Des_Algorithm.Form1.resources
+C:\Users\Gerard\Desktop\Des_Algorithm\Des_Algorithm\obj\Debug\Des_Algorithm.Properties.Resources.resources
+C:\Users\Gerard\Desktop\Des_Algorithm\Des_Algorithm\obj\Debug\Des_Algorithm.csproj.GenerateResource.Cache
+C:\Users\Al3x3i\Documents\Study ei1a\Homework\CRY\Des_Algorithm_V2\Des_Algorithm\bin\Debug\Des_Algorithm.exe.config
+C:\Users\Al3x3i\Documents\Study ei1a\Homework\CRY\Des_Algorithm_V2\Des_Algorithm\obj\Debug\Des_Algorithm.exe
+C:\Users\Al3x3i\Documents\Study ei1a\Homework\CRY\Des_Algorithm_V2\Des_Algorithm\obj\Debug\Des_Algorithm.pdb
+C:\Users\Al3x3i\Documents\Study ei1a\Homework\CRY\Des_Algorithm_V2\Des_Algorithm\bin\Debug\Des_Algorithm.exe
+C:\Users\Al3x3i\Documents\Study ei1a\Homework\CRY\Des_Algorithm_V2\Des_Algorithm\bin\Debug\Des_Algorithm.pdb
+C:\Users\Al3x3i\Documents\Study ei1a\Homework\CRY\Des_Algorithm_V2\Des_Algorithm\obj\Debug\Des_Algorithm.csprojResolveAssemblyReference.cache
+C:\Users\Al3x3i\Documents\Study ei1a\Homework\CRY\Des_Algorithm_V2\Des_Algorithm\obj\Debug\Des_Algorithm.Form1.resources
+C:\Users\Al3x3i\Documents\Study ei1a\Homework\CRY\Des_Algorithm_V2\Des_Algorithm\obj\Debug\Des_Algorithm.Properties.Resources.resources
+C:\Users\Al3x3i\Documents\Study ei1a\Homework\CRY\Des_Algorithm_V2\Des_Algorithm\obj\Debug\Des_Algorithm.csproj.GenerateResource.Cache
+C:\Users\Al3x3i\Documents\Study ei1a\Homework\CRY\Des_Algorithm_V3\Des_Algorithm\obj\Debug\Des_Algorithm.Form1.resources
+C:\Users\Al3x3i\Documents\Study ei1a\Homework\CRY\Des_Algorithm_V3\Des_Algorithm\obj\Debug\Des_Algorithm.Properties.Resources.resources
+C:\Users\Al3x3i\Documents\Study ei1a\Homework\CRY\Des_Algorithm_V3\Des_Algorithm\obj\Debug\Des_Algorithm.csproj.GenerateResource.Cache
+C:\Users\Al3x3i\Documents\Study ei1a\Homework\CRY\Des_Algorithm_V3\Des_Algorithm\bin\Debug\Des_Algorithm.exe.config
+C:\Users\Al3x3i\Documents\Study ei1a\Homework\CRY\Des_Algorithm_V3\Des_Algorithm\bin\Debug\Des_Algorithm.exe
+C:\Users\Al3x3i\Documents\Study ei1a\Homework\CRY\Des_Algorithm_V3\Des_Algorithm\bin\Debug\Des_Algorithm.pdb
+C:\Users\Al3x3i\Documents\Study ei1a\Homework\CRY\Des_Algorithm_V3\Des_Algorithm\obj\Debug\Des_Algorithm.exe
+C:\Users\Al3x3i\Documents\Study ei1a\Homework\CRY\Des_Algorithm_V3\Des_Algorithm\obj\Debug\Des_Algorithm.pdb
+C:\Users\Al3x3i\Documents\Study ei1a\Homework\CRY\Des_Algorithm_V3\Des_Algorithm\obj\Debug\Des_Algorithm.Splash.resources
+C:\Users\Al3x3i\Documents\Study ei1a\Homework\CRY\Des_Algorithm_V3\Des_Algorithm\obj\Debug\Des_Algorithm.csprojResolveAssemblyReference.cache

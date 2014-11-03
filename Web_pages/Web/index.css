@@ -1,0 +1,346 @@
+@charset "utf-8";
+/* CSS Document */
+body{
+	margin:0;
+	background:#ececec;
+	font-family:Verdana, Gadget, sans-serif;
+	
+}
+
+.Bodyplus .Top {
+	background:#A0C2EC;
+	border-bottom:3px solid red ;
+	padding:20px 0;
+	height: 100px;
+	width:960px;
+	min-width:100%;
+}
+
+.Bodyplus .Top .Navigation {
+	margin:0 auto;
+	width:960px;
+	background-image: url("images/Logo.png");
+	background-repeat: no-repeat;
+	display:block;
+	
+}
+.Bodyplus .Top .Navigation .HeadButtons{
+    position:absolute;
+    
+}
+.Bodyplus .Top .Navigation .HeadButtons .test{
+        
+        
+        
+}
+.Bodyplus .Top .Navigation .HeadButtons a{
+        top:-25px;
+        left:830px;
+        position:relative;
+        text-decoration: none;
+        line-height: 28px;
+        padding:0 15px 0;
+        background:url(images/headbutton.png);
+        background-size:110px 30px;
+        background-repeat:no-repeat;
+        height: 30px;
+        width:110px;
+        cursor: pointer;
+        font-size:16px;
+        font-weight:bold;
+        display:block;
+        margin-top:10px;
+	color:#fff;   
+}
+
+.navbar{
+        width:660px;
+
+}
+.navbar .holder{
+	height:64px;
+	width:800px;
+	
+	padding-top:65px;
+	padding-left: 220px;
+	
+}
+
+.navbar .holder ul{
+	list-style:none;
+	margin:0;
+	padding:0;
+	//line-height:0;
+}
+
+
+.navbar .holder ul li a{
+	text-decoration:none;
+	float:left;
+	margin-right:5px;
+	
+	font-size:16px;
+	font-weight:bold;
+	color:#000;
+	border:2px solid #000;
+	border-bottom:0.2px solid red;
+	border-top-left-radius:15px;
+	border-top-right-radius:15px;
+	
+	padding:20px 20px 15px 20px;
+	width:135px;
+	text-align:center;
+	display:block;
+	background:#69F;
+}
+
+.navbar .holder ul li a:hover{
+	background:#F90;
+	color:white;
+	text-shadow:1px 1px 1px #000;
+	border:2px solid red;
+	border-bottom:none;
+}
+	
+.holder ul li a#onlink{
+	background:#ececec;
+	color:#000;
+	border:2px solid red;
+	border-bottom:4px solid #ececec;
+	
+}
+.holder ul li a#onlink:hover{
+	background:#ececec;
+	color:#69f;
+	text-shadow:1px	1px 1px white;
+	border-bottom:4px solid #ececec;
+}
+
+.Bodyplus .Middle{
+	margin:0 auto;
+	
+	width:960px;
+	margin-top:30px;
+	min-height:100%;
+}
+.Middle .Submenu{
+	width:180px;
+	border-radius: 25px;
+	background:#A0C2EC;
+	float:left;
+}
+
+.Middle .Submenu ul{
+	font-size:16px;
+	font-weight:bold;
+	list-style:none;
+	padding:0;
+	margin-left:20px;
+	display:block;
+}
+.Middle .Submenu ul li{
+    position:relative;
+    margin-bottom: 20px;
+    
+}
+.Middle .Submenu ul ul{
+    position:absolute;
+    display:none;
+}
+.Middle .Submenu ul ul{
+    position:absolute;
+    display:none;
+}
+.Middle .Submenu ul li:hover ul{
+    width:89%;
+    position:absolute;
+    display:block; 
+    left:140px;
+    top:-80px;
+    padding-top: 20px;
+    border-radius:25px;
+    background:#369;
+}
+
+.Middle .Submenu ul li a{
+	text-decoration:none;
+	font-size:16px;
+	font-weight:bold;
+	color:#000;
+	border-radius:15px;
+	border:2px solid #69F;
+	padding:10px;
+	width:120px;
+	text-align:center;
+	display:block;
+	background:#69F;
+}
+.Middle .Submenu ul li a:hover{
+	background:#F90;
+	color:white;
+	text-shadow:1px 1px 1px #000;
+}
+.Middle .Submenu ul li li ul a:hover{   //submenu info, sitemap
+	background:#F90;
+	color:red;
+	text-shadow:1px 1px 1px #000;
+}
+.Middle .Submenu ul li a#onlink:hover{
+	background:#ececec;
+	color:#69f;
+	text-shadow:1px	1px 1px white;	
+}
+
+
+.Middle .Submenu ul li a#onlink{
+	background:#ececec;
+	color:#000;
+	text-shadow:1px	1px 1px white;
+}
+
+
+
+.Middle .Content{
+	margin-left:200px;
+	background:#A0C2EC;
+	border-radius:25px 25px 10px 10px ;
+	padding-bottom:100px;
+	min-height:800px;
+}
+
+.Middle .Content .Location p{
+	padding:30px 0 0 30px;
+	
+}
+
+.Middle .Content .About p{
+	padding: 0px 0 0 30px;	
+}
+
+.Middle .Content h4{
+	padding:30px 0 0 30px;
+}
+
+.Middle .Content .Location_image{
+	float:right;
+	width:400px;
+	height:300px;
+	margin:30px 10px 10px;
+	background-image: url("images/Location.jpg");
+	background-repeat: no-repeat;	
+}
+.Middle .Content .About_image{
+	float:right;
+	width:400px;
+	height:250px;
+	margin:30px 10px 10px;
+	background-image: url("images/About.jpg");
+	background-repeat: no-repeat;
+}
+
+
+
+
+ /*registration*/
+ 
+ .greeting_message{
+    padding-top :50px;
+    margin:auto;
+    width:600px;
+    text-align:center;
+    color:#505050;;
+}
+
+.Middle .Content .fieldset{
+       padding-top: 20px;
+}
+
+.Middle .Content .fieldset ul{
+    
+	list-style:none;
+        
+	padding:0;
+	color: #505050;
+	border-radius:30px;
+}
+.Middle .Content .fieldset ul li {
+        
+	clear:both;
+	width: 340px;
+	text-align: right;
+	margin-right: 20px;
+}
+
+.Middle .Content .fieldset .input, .fieldset ul li, .gender{
+	
+	float:left;
+	font-size: 16px;
+	margin-top:20px;
+}
+
+.Middle .Content .fieldset .input:focus{
+	background-color: #efffe0;
+}
+
+
+.Middle .Content .fieldset .gender{
+	width: 95px;
+}
+
+.Middle .Content .fieldset .fieldSubmit {
+	padding:20px;
+	margin:0 auto;
+	clear:both;
+}
+
+.Middle .Content .fieldset .fieldSubmit .submit{
+	margin:0 auto 0;
+	color:red;
+	width:100px;
+	display:block;
+	clear:both;
+}
+.Middle .Content h1{
+    
+    
+}
+ /*registration*/
+
+
+.Bodyplus .Footer{
+	width:960px;
+	margin:-25px auto 0;
+	padding:0px;
+	
+}
+.Bodyplus .Footer .Contact{
+	
+	width:760px;
+	height:25px;
+	margin-left:200px;
+	border-radius:0 0 10px 10px;
+	background:#69F;
+	text-align:center;
+	letter-spacing: 0.0625em;
+}
+	#container {
+	width:100%;
+	display:block;
+	padding-top:100px;
+}
+	#gallery{
+	margin:0 auto;
+	border-radius:20px;
+	padding: 30px;
+        background: #e1eef5;
+}
+
+  
+  
+  
+  
+  
+  
+
+ 
+     

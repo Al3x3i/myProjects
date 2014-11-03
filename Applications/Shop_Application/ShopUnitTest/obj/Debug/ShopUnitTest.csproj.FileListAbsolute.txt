@@ -1,0 +1,120 @@
+E:\Shop Application(V6)\ShopUnitTest\bin\Debug\Form1.resx
+E:\Shop Application(V6)\ShopUnitTest\bin\Debug\Resource1.resx
+E:\Shop Application(V6)\ShopUnitTest\bin\Debug\Form1.cs
+E:\Shop Application(V6)\ShopUnitTest\bin\Debug\Form1.Designer.cs
+E:\Shop Application(V6)\ShopUnitTest\bin\Debug\Resource1.Designer.cs
+E:\Shop Application(V6)\ShopUnitTest\bin\Debug\ShopUnitTest.dll
+E:\Shop Application(V6)\ShopUnitTest\bin\Debug\ShopUnitTest.pdb
+E:\Shop Application(V6)\ShopUnitTest\bin\Debug\WindowsFormsApplication66.exe
+E:\Shop Application(V6)\ShopUnitTest\bin\Debug\MySql.Data.dll
+E:\Shop Application(V6)\ShopUnitTest\bin\Debug\Phidget21.NET.dll
+E:\Shop Application(V6)\ShopUnitTest\bin\Debug\WindowsFormsApplication66.pdb
+E:\Shop Application(V6)\ShopUnitTest\obj\Debug\ShopUnitTest.csprojResolveAssemblyReference.cache
+E:\Shop Application(V6)\ShopUnitTest\obj\Debug\ShopUnitTest.dll
+E:\Shop Application(V6)\ShopUnitTest\obj\Debug\ShopUnitTest.pdb
+C:\Users\Al3x3i\Dropbox\ProP Project\Software Applications\Shop Application(V6)\ShopUnitTest\bin\Debug\Form1.resx
+C:\Users\Al3x3i\Dropbox\ProP Project\Software Applications\Shop Application(V6)\ShopUnitTest\bin\Debug\Resource1.resx
+C:\Users\Al3x3i\Dropbox\ProP Project\Software Applications\Shop Application(V6)\ShopUnitTest\bin\Debug\Form1.cs
+C:\Users\Al3x3i\Dropbox\ProP Project\Software Applications\Shop Application(V6)\ShopUnitTest\bin\Debug\Form1.Designer.cs
+C:\Users\Al3x3i\Dropbox\ProP Project\Software Applications\Shop Application(V6)\ShopUnitTest\bin\Debug\Resource1.Designer.cs
+C:\Users\Al3x3i\Dropbox\ProP Project\Software Applications\Shop Application(V6)\ShopUnitTest\bin\Debug\ShopUnitTest.dll
+C:\Users\Al3x3i\Dropbox\ProP Project\Software Applications\Shop Application(V6)\ShopUnitTest\bin\Debug\ShopUnitTest.pdb
+C:\Users\Al3x3i\Dropbox\ProP Project\Software Applications\Shop Application(V6)\ShopUnitTest\bin\Debug\WindowsFormsApplication66.exe
+C:\Users\Al3x3i\Dropbox\ProP Project\Software Applications\Shop Application(V6)\ShopUnitTest\bin\Debug\MySql.Data.dll
+C:\Users\Al3x3i\Dropbox\ProP Project\Software Applications\Shop Application(V6)\ShopUnitTest\bin\Debug\WindowsFormsApplication66.pdb
+C:\Users\Al3x3i\Dropbox\ProP Project\Software Applications\Shop Application(V6)\ShopUnitTest\obj\Debug\ShopUnitTest.csprojResolveAssemblyReference.cache
+C:\Users\Al3x3i\Dropbox\ProP Project\Software Applications\Shop Application(V6)\ShopUnitTest\obj\Debug\ShopUnitTest.dll
+C:\Users\Al3x3i\Dropbox\ProP Project\Software Applications\Shop Application(V6)\ShopUnitTest\obj\Debug\ShopUnitTest.pdb
+C:\Users\Al3x3i\Documents\Study ei1a\Homework\PROP\Shop Application(V7)\ShopUnitTest\bin\Debug\Form1.resx
+C:\Users\Al3x3i\Documents\Study ei1a\Homework\PROP\Shop Application(V7)\ShopUnitTest\bin\Debug\Resource1.resx
+C:\Users\Al3x3i\Documents\Study ei1a\Homework\PROP\Shop Application(V7)\ShopUnitTest\bin\Debug\Form1.cs
+C:\Users\Al3x3i\Documents\Study ei1a\Homework\PROP\Shop Application(V7)\ShopUnitTest\bin\Debug\Form1.Designer.cs
+C:\Users\Al3x3i\Documents\Study ei1a\Homework\PROP\Shop Application(V7)\ShopUnitTest\bin\Debug\Resource1.Designer.cs
+C:\Users\Al3x3i\Documents\Study ei1a\Homework\PROP\Shop Application(V7)\ShopUnitTest\bin\Debug\ShopUnitTest.dll
+C:\Users\Al3x3i\Documents\Study ei1a\Homework\PROP\Shop Application(V7)\ShopUnitTest\bin\Debug\ShopUnitTest.pdb
+C:\Users\Al3x3i\Documents\Study ei1a\Homework\PROP\Shop Application(V7)\ShopUnitTest\bin\Debug\WindowsFormsApplication66.exe
+C:\Users\Al3x3i\Documents\Study ei1a\Homework\PROP\Shop Application(V7)\ShopUnitTest\bin\Debug\MySql.Data.dll
+C:\Users\Al3x3i\Documents\Study ei1a\Homework\PROP\Shop Application(V7)\ShopUnitTest\bin\Debug\Phidget21.NET.dll
+C:\Users\Al3x3i\Documents\Study ei1a\Homework\PROP\Shop Application(V7)\ShopUnitTest\bin\Debug\WindowsFormsApplication66.pdb
+C:\Users\Al3x3i\Documents\Study ei1a\Homework\PROP\Shop Application(V7)\ShopUnitTest\obj\Debug\ShopUnitTest.csprojResolveAssemblyReference.cache
+C:\Users\Al3x3i\Documents\Study ei1a\Homework\PROP\Shop Application(V7)\ShopUnitTest\obj\Debug\ShopUnitTest.dll
+C:\Users\Al3x3i\Documents\Study ei1a\Homework\PROP\Shop Application(V7)\ShopUnitTest\obj\Debug\ShopUnitTest.pdb
+C:\Users\Al3x3i\Documents\Study ei1a\Homework\PROP\Shop Application(V7)\ShopUnitTest\bin\Debug\Resources\no-icon-hi.png
+C:\Users\Al3x3i\Documents\Study ei1a\Homework\PROP\Shop Application(V7)\ShopUnitTest\bin\Debug\Resources\ok-icon-hi.png
+C:\Users\Al3x3i\Documents\Study ei1a\Homework\Shop Application(V7)\ShopUnitTest\bin\Debug\Form1.resx
+C:\Users\Al3x3i\Documents\Study ei1a\Homework\Shop Application(V7)\ShopUnitTest\bin\Debug\Resource1.resx
+C:\Users\Al3x3i\Documents\Study ei1a\Homework\Shop Application(V7)\ShopUnitTest\bin\Debug\Form1.cs
+C:\Users\Al3x3i\Documents\Study ei1a\Homework\Shop Application(V7)\ShopUnitTest\bin\Debug\Form1.Designer.cs
+C:\Users\Al3x3i\Documents\Study ei1a\Homework\Shop Application(V7)\ShopUnitTest\bin\Debug\Resource1.Designer.cs
+C:\Users\Al3x3i\Documents\Study ei1a\Homework\Shop Application(V7)\ShopUnitTest\bin\Debug\Resources\no-icon-hi.png
+C:\Users\Al3x3i\Documents\Study ei1a\Homework\Shop Application(V7)\ShopUnitTest\bin\Debug\Resources\ok-icon-hi.png
+C:\Users\Al3x3i\Documents\Study ei1a\Homework\Shop Application(V7)\ShopUnitTest\bin\Debug\ShopUnitTest.dll
+C:\Users\Al3x3i\Documents\Study ei1a\Homework\Shop Application(V7)\ShopUnitTest\bin\Debug\ShopUnitTest.pdb
+C:\Users\Al3x3i\Documents\Study ei1a\Homework\Shop Application(V7)\ShopUnitTest\bin\Debug\WindowsFormsApplication66.exe
+C:\Users\Al3x3i\Documents\Study ei1a\Homework\Shop Application(V7)\ShopUnitTest\bin\Debug\MySql.Data.dll
+C:\Users\Al3x3i\Documents\Study ei1a\Homework\Shop Application(V7)\ShopUnitTest\bin\Debug\WindowsFormsApplication66.pdb
+C:\Users\Al3x3i\Documents\Study ei1a\Homework\Shop Application(V7)\ShopUnitTest\obj\Debug\ShopUnitTest.csprojResolveAssemblyReference.cache
+C:\Users\Al3x3i\Documents\Study ei1a\Homework\Shop Application(V7)\ShopUnitTest\obj\Debug\ShopUnitTest.dll
+C:\Users\Al3x3i\Documents\Study ei1a\Homework\Shop Application(V7)\ShopUnitTest\obj\Debug\ShopUnitTest.pdb
+C:\Users\Al3x3i\Documents\Study ei1a\Homework\PROP\Shop Application(V8)\ShopUnitTest\bin\Debug\Form1.resx
+C:\Users\Al3x3i\Documents\Study ei1a\Homework\PROP\Shop Application(V8)\ShopUnitTest\bin\Debug\Resource1.resx
+C:\Users\Al3x3i\Documents\Study ei1a\Homework\PROP\Shop Application(V8)\ShopUnitTest\bin\Debug\Form1.cs
+C:\Users\Al3x3i\Documents\Study ei1a\Homework\PROP\Shop Application(V8)\ShopUnitTest\bin\Debug\Form1.Designer.cs
+C:\Users\Al3x3i\Documents\Study ei1a\Homework\PROP\Shop Application(V8)\ShopUnitTest\bin\Debug\Resource1.Designer.cs
+C:\Users\Al3x3i\Documents\Study ei1a\Homework\PROP\Shop Application(V8)\ShopUnitTest\bin\Debug\Resources\no-icon-hi.png
+C:\Users\Al3x3i\Documents\Study ei1a\Homework\PROP\Shop Application(V8)\ShopUnitTest\bin\Debug\Resources\ok-icon-hi.png
+C:\Users\Al3x3i\Documents\Study ei1a\Homework\PROP\Shop Application(V8)\ShopUnitTest\bin\Debug\ShopUnitTest.dll
+C:\Users\Al3x3i\Documents\Study ei1a\Homework\PROP\Shop Application(V8)\ShopUnitTest\bin\Debug\ShopUnitTest.pdb
+C:\Users\Al3x3i\Documents\Study ei1a\Homework\PROP\Shop Application(V8)\ShopUnitTest\bin\Debug\WindowsFormsApplication66.exe
+C:\Users\Al3x3i\Documents\Study ei1a\Homework\PROP\Shop Application(V8)\ShopUnitTest\bin\Debug\MySql.Data.dll
+C:\Users\Al3x3i\Documents\Study ei1a\Homework\PROP\Shop Application(V8)\ShopUnitTest\bin\Debug\Phidget21.NET.dll
+C:\Users\Al3x3i\Documents\Study ei1a\Homework\PROP\Shop Application(V8)\ShopUnitTest\bin\Debug\WindowsFormsApplication66.pdb
+C:\Users\Al3x3i\Documents\Study ei1a\Homework\PROP\Shop Application(V8)\ShopUnitTest\obj\Debug\ShopUnitTest.csprojResolveAssemblyReference.cache
+C:\Users\Al3x3i\Documents\Study ei1a\Homework\PROP\Shop Application(V8)\ShopUnitTest\obj\Debug\ShopUnitTest.dll
+C:\Users\Al3x3i\Documents\Study ei1a\Homework\PROP\Shop Application(V8)\ShopUnitTest\obj\Debug\ShopUnitTest.pdb
+C:\Users\Al3x3i\Documents\Study ei1a\Homework\PROP\Shop Application(LAST)\ShopUnitTest\bin\Debug\Form1.resx
+C:\Users\Al3x3i\Documents\Study ei1a\Homework\PROP\Shop Application(LAST)\ShopUnitTest\bin\Debug\Resource1.resx
+C:\Users\Al3x3i\Documents\Study ei1a\Homework\PROP\Shop Application(LAST)\ShopUnitTest\bin\Debug\Form1.cs
+C:\Users\Al3x3i\Documents\Study ei1a\Homework\PROP\Shop Application(LAST)\ShopUnitTest\bin\Debug\Form1.Designer.cs
+C:\Users\Al3x3i\Documents\Study ei1a\Homework\PROP\Shop Application(LAST)\ShopUnitTest\bin\Debug\Resource1.Designer.cs
+C:\Users\Al3x3i\Documents\Study ei1a\Homework\PROP\Shop Application(LAST)\ShopUnitTest\bin\Debug\Resources\no-icon-hi.png
+C:\Users\Al3x3i\Documents\Study ei1a\Homework\PROP\Shop Application(LAST)\ShopUnitTest\bin\Debug\Resources\ok-icon-hi.png
+C:\Users\Al3x3i\Documents\Study ei1a\Homework\PROP\Shop Application(LAST)\ShopUnitTest\bin\Debug\ShopUnitTest.dll
+C:\Users\Al3x3i\Documents\Study ei1a\Homework\PROP\Shop Application(LAST)\ShopUnitTest\bin\Debug\ShopUnitTest.pdb
+C:\Users\Al3x3i\Documents\Study ei1a\Homework\PROP\Shop Application(LAST)\ShopUnitTest\bin\Debug\WindowsFormsApplication66.exe
+C:\Users\Al3x3i\Documents\Study ei1a\Homework\PROP\Shop Application(LAST)\ShopUnitTest\bin\Debug\MySql.Data.dll
+C:\Users\Al3x3i\Documents\Study ei1a\Homework\PROP\Shop Application(LAST)\ShopUnitTest\bin\Debug\Phidget21.NET.dll
+C:\Users\Al3x3i\Documents\Study ei1a\Homework\PROP\Shop Application(LAST)\ShopUnitTest\bin\Debug\WindowsFormsApplication66.pdb
+C:\Users\Al3x3i\Documents\Study ei1a\Homework\PROP\Shop Application(LAST)\ShopUnitTest\obj\Debug\ShopUnitTest.csprojResolveAssemblyReference.cache
+C:\Users\Al3x3i\Documents\Study ei1a\Homework\PROP\Shop Application(LAST)\ShopUnitTest\obj\Debug\ShopUnitTest.dll
+C:\Users\Al3x3i\Documents\Study ei1a\Homework\PROP\Shop Application(LAST)\ShopUnitTest\obj\Debug\ShopUnitTest.pdb
+C:\Users\Al3x3i\Desktop\final handin\Shop Application(LAST)\ShopUnitTest\bin\Debug\Form1.resx
+C:\Users\Al3x3i\Desktop\final handin\Shop Application(LAST)\ShopUnitTest\bin\Debug\Resource1.resx
+C:\Users\Al3x3i\Desktop\final handin\Shop Application(LAST)\ShopUnitTest\bin\Debug\Form1.cs
+C:\Users\Al3x3i\Desktop\final handin\Shop Application(LAST)\ShopUnitTest\bin\Debug\Form1.Designer.cs
+C:\Users\Al3x3i\Desktop\final handin\Shop Application(LAST)\ShopUnitTest\bin\Debug\Resource1.Designer.cs
+C:\Users\Al3x3i\Desktop\final handin\Shop Application(LAST)\ShopUnitTest\bin\Debug\Resources\no-icon-hi.png
+C:\Users\Al3x3i\Desktop\final handin\Shop Application(LAST)\ShopUnitTest\bin\Debug\Resources\ok-icon-hi.png
+C:\Users\Al3x3i\Desktop\final handin\Shop Application(LAST)\ShopUnitTest\bin\Debug\ShopUnitTest.dll
+C:\Users\Al3x3i\Desktop\final handin\Shop Application(LAST)\ShopUnitTest\bin\Debug\ShopUnitTest.pdb
+C:\Users\Al3x3i\Desktop\final handin\Shop Application(LAST)\ShopUnitTest\bin\Debug\WindowsFormsApplication66.exe
+C:\Users\Al3x3i\Desktop\final handin\Shop Application(LAST)\ShopUnitTest\bin\Debug\MySql.Data.dll
+C:\Users\Al3x3i\Desktop\final handin\Shop Application(LAST)\ShopUnitTest\bin\Debug\WindowsFormsApplication66.pdb
+C:\Users\Al3x3i\Desktop\final handin\Shop Application(LAST)\ShopUnitTest\obj\Debug\ShopUnitTest.csprojResolveAssemblyReference.cache
+C:\Users\Al3x3i\Desktop\final handin\Shop Application(LAST)\ShopUnitTest\obj\Debug\ShopUnitTest.dll
+C:\Users\Al3x3i\Desktop\final handin\Shop Application(LAST)\ShopUnitTest\obj\Debug\ShopUnitTest.pdb
+C:\Users\Al3x3i\Documents\GitHub\Applications\Shop Application\ShopUnitTest\bin\Debug\Form1.resx
+C:\Users\Al3x3i\Documents\GitHub\Applications\Shop Application\ShopUnitTest\bin\Debug\Resource1.resx
+C:\Users\Al3x3i\Documents\GitHub\Applications\Shop Application\ShopUnitTest\bin\Debug\Form1.cs
+C:\Users\Al3x3i\Documents\GitHub\Applications\Shop Application\ShopUnitTest\bin\Debug\Form1.Designer.cs
+C:\Users\Al3x3i\Documents\GitHub\Applications\Shop Application\ShopUnitTest\bin\Debug\Resource1.Designer.cs
+C:\Users\Al3x3i\Documents\GitHub\Applications\Shop Application\ShopUnitTest\bin\Debug\Resources\no-icon-hi.png
+C:\Users\Al3x3i\Documents\GitHub\Applications\Shop Application\ShopUnitTest\bin\Debug\Resources\ok-icon-hi.png
+C:\Users\Al3x3i\Documents\GitHub\Applications\Shop Application\ShopUnitTest\bin\Debug\ShopUnitTest.dll
+C:\Users\Al3x3i\Documents\GitHub\Applications\Shop Application\ShopUnitTest\bin\Debug\ShopUnitTest.pdb
+C:\Users\Al3x3i\Documents\GitHub\Applications\Shop Application\ShopUnitTest\bin\Debug\WindowsFormsApplication66.exe
+C:\Users\Al3x3i\Documents\GitHub\Applications\Shop Application\ShopUnitTest\bin\Debug\MySql.Data.dll
+C:\Users\Al3x3i\Documents\GitHub\Applications\Shop Application\ShopUnitTest\bin\Debug\WindowsFormsApplication66.pdb
+C:\Users\Al3x3i\Documents\GitHub\Applications\Shop Application\ShopUnitTest\obj\Debug\ShopUnitTest.csprojResolveAssemblyReference.cache
+C:\Users\Al3x3i\Documents\GitHub\Applications\Shop Application\ShopUnitTest\obj\Debug\ShopUnitTest.dll
+C:\Users\Al3x3i\Documents\GitHub\Applications\Shop Application\ShopUnitTest\obj\Debug\ShopUnitTest.pdb
