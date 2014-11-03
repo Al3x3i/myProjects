@@ -3,7 +3,7 @@ myProjects
 This Reposotory for showing programming code of my projects.
 
 Applications_folder:
-1)Des_Algorithm - this application is created to encrypt message uses DES algorithm(reads 2 bytes)
+1)Des_Algorithm - application is created to encrypt message uses DES algorithm(reads 2 bytes)
 2)Shopping_Application - application for small shops to make purchases (no connection to DataBase, needs RFID reader)
 
 Web_pages:
