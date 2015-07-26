@@ -1,6 +1,6 @@
 myProjects
 =======
-This Reposotory for showing programming code of my projects..
+Welcome to my repository. Here You can find my completed projects during internship and study program.
 
 Applications_folder:
 1)Des_Algorithm - application is created to encrypt message uses DES algorithm(reads 2 bytes)
@@ -8,10 +8,10 @@ Applications_folder:
 
 Web_pages:
 1) One day in my life(in Spanish)  
-http://athena.fhict.nl/users/i289476/Portfolio/Web/index.php
+http://athena.fhict.nl/users/i289476/Portfolio/Spanish/
 
 2) Web page about my village
-Web http://athena.fhict.nl/users/i289476/Portfolio/Web/index.php
+http://athena.fhict.nl/users/i289476/Portfolio/Web/
 Login: admin, Password:admin
 
 3) PersonalWebPage
