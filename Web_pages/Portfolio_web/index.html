@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="keywords" content ="Aleksei,Sasin,ICT,C#,WCF,PHP,Java,SQL,
+              Android,HTML,CSS,Fontys">
+        <meta name="description" content="This is Alekse Sasin portfolio website,
+              ICT Software developer">
+        <meta name="author" content="Aleksei Sasin">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link type="text/css" href="CSS/index.css" rel="stylesheet">
+        <link type="text/css" href="CSS/experience.css" rel="stylesheet">
+        <script src="JS/loader.js"></script>
+        <script  type="text/javascript">
+            function loadContent(item)
+            {
+               switch(item) {
+                case 'home':
+                    $("#content").load("home.html");
+                    break;
+                case 'cv':
+                    $("#content").load("cv.html");
+                    break;
+                case 'experience':
+                    $("#content").load("experience.html");
+                    break;
+                case 'about':
+                    $("#content").load("about.html");
+                    break;
+                default:
+                     $("#content").load("about.html");
+                  }
+            }
+            function loadInternProject(item)
+            {
+               switch(item) {
+                case 'crm':
+                    $("#project_content").load("Projects/crm.html");
+                    var project_content = document.getElementById('project_content');
+                    var all_projects = document.getElementById('inner_container');
+                    all_projects.style.display= "none";
+                    project_content.style.display="block";
+                    break;
+                case 'ura':
+                    $("#project_content").load("Projects/ura.html");
+                    var project_content = document.getElementById('project_content');
+                    var all_projects = document.getElementById('inner_container');
+                    all_projects.style.display= "none";
+                    project_content.style.display="block";
+                    break;
+                case 'data_reader':
+                    $("#project_content").load("Projects/data_reader.html");
+                    var project_content = document.getElementById('project_content');
+                    var all_projects = document.getElementById('inner_container');
+                    all_projects.style.display= "none";
+                    project_content.style.display="block";
+                    break;
+                case 'testing':
+                    $("#project_content").load("Projects/testing.html");
+                    var project_content = document.getElementById('project_content');
+                    var all_projects = document.getElementById('inner_container');
+                    all_projects.style.display= "none";
+                    project_content.style.display="block";
+                    break;
+                    
+                default:
+                     $("#inner_container").load("about.html");
+                  }
+            }
+            function loadStudyProject(item)
+            {
+               switch(item) {
+                   case 'traffic':
+                    $("#project_content").load("Projects/traffic.html");
+                    var project_content = document.getElementById('project_content');
+                    var all_projects = document.getElementById('inner_container');
+                    all_projects.style.display= "none";
+                    project_content.style.display="block";
+                    break;
+                case 'web':
+                    $("#project_content").load("Projects/web.html");
+                    var project_content = document.getElementById('project_content');
+                    var all_projects = document.getElementById('inner_container');
+                    all_projects.style.display= "none";
+                    project_content.style.display="block";
+                    break;
+                case 'des':
+                    $("#project_content").load("Projects/des.html");
+                    var project_content = document.getElementById('project_content');
+                    var all_projects = document.getElementById('inner_container');
+                    all_projects.style.display= "none";
+                    project_content.style.display="block";
+                    break;
+                case 'shop':
+                    $("#project_content").load("Projects/shop.html");
+                    var project_content = document.getElementById('project_content');
+                    var all_projects = document.getElementById('inner_container');
+                    all_projects.style.display= "none";
+                    project_content.style.display="block";
+                    break;
+                default:
+                     $("#inner_container").load("about.html");
+                  }
+            }
+        </script>
+    </head>
+    <body>
+        <div id="wrapper">
+            <!--Header and Navigation -->
+            <header>
+                <div id="header_innerGroud">
+                    <p id="header_title">
+                        Aleksei Sasin <br>
+                        <span id ="title_inner">ICT developer</span>
+                    </p>
+                    <nav>
+                        <ul>
+                            <li><a href="javascript:loadContent('cv')">CV</a></li>
+                            <li><a href="javascript:loadContent('about')">About me</a></li>
+                            <li><a href="javascript:loadContent('experience')">Experience</a></li>
+                            <li><a id="home_icon" href="javascript:loadContent('home')">Home</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </header>
+            <div id="page">
+                <div id="content">
+                    <script>loadContent("home");</script>
+                </div>   
+            </div>
+            <footer>
+                <div id="footer_content">2015 &copy</div>
+            </footer>
+        </div>
+    </body>
+</html>

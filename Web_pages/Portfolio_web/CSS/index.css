@@ -1,0 +1,195 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Jul 18, 2015, 5:32:51 PM
+    Author     : Aleksei
+*/
+
+html{
+    height: 100%;
+}
+body{
+    background-color: #F0F0F0;
+    margin:0;
+    height: 100%;
+    width:100%;
+    font-family: 'palatino linotype', 'book antiqua', serif;
+}
+#wrapper{
+    height: 100%;
+}
+header{
+    margin:0;
+    width: 100%;
+    margin: 0 auto;
+    height: 100px;
+    background: #0063A6;
+    border-bottom: solid 5px #0090D2; 
+}
+header #header_innerGroud{
+    width:850px;
+    margin:auto;
+}
+header #header_title{
+    margin: 0px;
+    padding-top: 15px;
+    margin-left: 20px;
+    color: #fff;
+    font-size: 24px;
+    margin-bottom: -20px;
+}
+#header_title #title_inner{
+    font-family: 'Quicksand','Helvetica Neue',Arial,sans-serif;
+    margin: 20px;
+    font-size: 18px;
+    font-style:italic;
+    position: relative;
+    top:-5px;
+}
+/*Naviagtion bar */
+nav{
+    padding-top: 15px;
+}
+nav ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;   
+}
+nav ul li{
+   float:right;
+}
+nav ul li a{
+    padding: 0 20px;
+    background: #0063A6;
+    color: #fff;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+nav ul li a:hover{
+   text-decoration:underline; 
+}
+/*Page section */
+#page{
+    min-height: 850px;
+    width:920px;
+    box-shadow: 0 0 20px #666666;
+    margin:auto;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    overflow: hidden;
+    /*add space for footer */
+    padding-bottom: 40px;
+    margin:0 auto -20px;
+}
+#page #content{
+    margin:auto;
+    width:850px;
+    font-size: 18px;
+}
+/* Home page */
+#homepage #main_small_col{
+    width: 30%;
+    float:left;
+}
+#page #main_small_col #my_photo{
+    margin-top: 20px;
+}
+#facebook{
+    position: relative;
+    top:-40px;
+    left:60px;
+}
+#linkeding{
+    position: relative;
+    top:-40px;
+    left:80px;
+}
+#page #main_small_col #contact{
+    width:98%;
+    border-bottom: solid 3px #0090D2;
+}
+#page #main_small_col #email{
+    background: url("../Images/phone_email.png") no-repeat;
+    padding-left: 25px;
+    padding-bottom: 4px;
+    background-size: 8%;
+    background-position:0 -26px;
+    line-height: 1.4em;
+    color:#0063A6;
+}
+#page #main_small_col #phone{
+    margin-top: -10px;
+    background: url("../Images/phone_email.png") no-repeat;
+    background-size: 8%;
+    padding-bottom: 4px;
+    padding-left: 25px;
+    line-height: 1.3em;
+}
+#homepage #main_big_col{
+    float: right;
+    width:68%;  
+}
+#homepage #me_context h2{
+    border-bottom: solid 3px #0090D2;
+}
+
+
+/*About me */
+#page #about{
+    float: right;
+}
+#page #about_image{
+    margin-top: 20px;
+}
+#page #about h2{
+    border-bottom: solid 3px #0090D2; 
+}
+/*Cv Form */
+#page #cvHeader{
+
+  font-family:calibri;
+  border-bottom: solid 3px #0090D2; 
+}
+#page #cvFieldset{
+    margin:auto;
+    float:right;
+}
+#cvFieldset #cvLabelHeader{
+  font-weight: bold;
+}
+#cvFieldset ul{
+  list-style:none;
+  padding-top:20px;
+  font-size: 18px;
+}
+#cvFieldset ul li {
+  margin-left: 90px;
+  display: inline-table;
+  width: 690px;
+  height:30px;
+}
+#cvFieldset ul label{
+  width:500px;
+  float: right;
+}
+#cvFieldset #itemCV {
+  margin-bottom: 10px;
+}
+/* Footer */
+footer{
+    margin:auto;
+    margin-top: -20px;
+    width: 920px;
+    height:20px;
+    background:#0063A6;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+footer #footer_content{
+    text-align: center;
+    color: #CCCCCC;
+    letter-spacing: 0.0625em;
+}

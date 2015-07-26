@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="16dp"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="16dp"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:id="@+id/employee_result">
+
+    <EditText
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:hint="First Name"
+        android:maxLines="1"
+        android:inputType="text"
+        android:id="@+id/edit_FindEmployeeFirstName"
+        android:background="@drawable/custom_editbox"
+        android:layout_alignLeft="@+id/employeeList"
+        android:layout_alignStart="@+id/employeeList"
+        android:layout_alignRight="@+id/edit_FindEmployeeSecondName"
+        android:layout_alignEnd="@+id/edit_FindEmployeeSecondName" />
+
+    <EditText
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:hint="Second Name"
+        android:maxLines="1"
+        android:inputType="text"
+        android:id="@+id/edit_FindEmployeeSecondName"
+        android:layout_below="@+id/edit_FindEmployeeFirstName"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/custom_editbox"
+        android:layout_alignLeft="@+id/employeeList"
+        android:layout_alignStart="@+id/employeeList"
+        android:layout_toLeftOf="@+id/bt_FindEmployee"
+        android:layout_toStartOf="@+id/bt_FindEmployee" />
+
+    <Button
+        android:layout_width="60dp"
+        android:layout_height="80dp"
+        android:id="@+id/bt_FindEmployee"
+        android:drawableLeft="@android:drawable/ic_menu_search"
+        android:layout_alignParentTop="true"
+        android:layout_alignRight="@+id/employeeList"
+        android:layout_alignEnd="@+id/employeeList" />
+
+    <ListView
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/employeeList"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/edit_FindEmployeeSecondName"
+        android:layout_marginTop="10dp" />
+
+</RelativeLayout>

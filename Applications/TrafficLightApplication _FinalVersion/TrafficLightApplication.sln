@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrafficLightApplication", "TrafficLight\TrafficLightApplication.csproj", "{DCBAD739-8C2D-41B3-9726-BE54BFC1CD92}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crossing.TypeA", "Crossing.TypeA\Crossing.TypeA.csproj", "{4B8C32AF-BEC7-4C02-8F0B-7A7AD856CDE0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crossing.TypeB", "Crossing.TypeB\Crossing.TypeB.csproj", "{E04B2830-C037-4241-9E78-58D88777AA1F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DCBAD739-8C2D-41B3-9726-BE54BFC1CD92}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DCBAD739-8C2D-41B3-9726-BE54BFC1CD92}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DCBAD739-8C2D-41B3-9726-BE54BFC1CD92}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DCBAD739-8C2D-41B3-9726-BE54BFC1CD92}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4B8C32AF-BEC7-4C02-8F0B-7A7AD856CDE0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B8C32AF-BEC7-4C02-8F0B-7A7AD856CDE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B8C32AF-BEC7-4C02-8F0B-7A7AD856CDE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B8C32AF-BEC7-4C02-8F0B-7A7AD856CDE0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E04B2830-C037-4241-9E78-58D88777AA1F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E04B2830-C037-4241-9E78-58D88777AA1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E04B2830-C037-4241-9E78-58D88777AA1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E04B2830-C037-4241-9E78-58D88777AA1F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

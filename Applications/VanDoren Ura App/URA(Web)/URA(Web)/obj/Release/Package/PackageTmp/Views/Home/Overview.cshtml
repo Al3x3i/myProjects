@@ -1,0 +1,68 @@
+﻿@model IEnumerable<URA_Web_.Models.Account>
+
+@{
+    ViewBag.Title = "Details";
+    var grid = new WebGrid(source: Model, canPage: true, rowsPerPage: 10);
+    grid.Pager(WebGridPagerModes.All);
+}
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Van Doren CRM</title>
+    <link rel="stylesheet" type="text/css" href="~/Content/home-style.css" />
+</head>
+<body>
+    <div id="main_wrapper">
+        <div id="main_wrapper_strip">
+        </div>
+        <div id="container">
+            <div id="container_header">
+                <h2>Van Doren URA</h2>
+            </div>
+            <div id="wrapper">
+                <div>@Html.ActionLink("[ Logout ]", "Index", null, new { @id = "logout" })</div>
+                <div id="topmenu">
+                    <ul>
+                        <li>@Html.ActionLink("Overview", "Overview")</li>
+                    </ul>
+                </div>
+                <div id="top-panel">
+                    <div id="panel">
+                        <ul>
+                            <li>@Html.ActionLink("Add account", "CreateAccount", null, new { @id = "useradd" })</li>
+                        </ul>
+                    </div>
+                </div>
+                <div id="content">
+                    <div id="box">
+                        <h3>Accounts Overview</h3>
+                        @grid.GetHtml(
+                        tableStyle: "webgrid-table",
+                        headerStyle: "webgrid-header",
+                        footerStyle: "",
+                        alternatingRowStyle: "webgrid-alternating-row",
+                        rowStyle: "webgrid-row-style",
+                        columns: grid.Columns(
+                            grid.Column(columnName: "FirstName", header: "FirstName"),
+                            grid.Column(columnName: "SecondName", header: "SecondName"),
+                            grid.Column(columnName: "Login", header: "Login"),
+                            grid.Column(columnName: "Created", header: "Created"),
+                            grid.Column(columnName: "Edit", format:
+                            @<text>@Html.ActionLink("Edit", "Edit", new { id = item.AccountID })</text>),
+
+                            grid.Column(columnName:"Is Active",format:
+                            @<text>@Html.ActionLink("Deactivate", "DeactivateAccount", new { id = item.AccountID }, new { onclick = "return confirm('Are you sure?')" }) </text>)))
+
+                    </div>
+                    <br />
+                </div>
+                <div id="footer">
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

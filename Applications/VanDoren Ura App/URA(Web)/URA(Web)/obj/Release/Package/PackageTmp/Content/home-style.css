@@ -1,0 +1,322 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+}
+
+a, a:visited {
+    text-decoration: none;
+    color: #a43708;
+}
+
+img {
+    border: 0;
+    margin: 1px;
+}
+
+p {
+    padding: 3px;
+}
+
+body {
+    background:#323B55 url(../Images/Background.png) repeat-x top;
+    color: #202020;
+    font-size: 12px;
+    font-family: Arial, Tahoma, Verdana;
+    width: 100%;
+    height: 100%;
+}
+
+#main_wrapper_strip {
+    height: 70px;
+    width: 100%;
+    //background-color: #192d40;
+}
+
+#container_header {
+    margin-top: -50px;
+    margin-bottom: 30px;
+    color: #FFF;
+}
+
+#header h2 {
+    color: #FFF;
+}
+
+#container {
+    width: 850px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#logout {
+    clear: both;
+    padding: 0 5px;
+    height: 24px;
+    float: right;
+    font-size: 16px;
+    margin-right: 10px;
+    margin-top: -30px;
+    color: #fff;
+}
+
+#wrapper {
+    background-color: #e8e7e1;
+    width: 850px;
+    border-radius:5px;
+}
+
+#content {
+    background: #FFF;
+    height: 400px;
+    width: 700px;
+    clear: both;
+    margin-bottom: 10px;
+    margin: 10px auto 10px auto;
+    padding: 10px;
+}
+
+#topmenu a, #topmenu a:visited {
+    color: #f7f6f0;
+    background: #bd3f09;
+    margin-left:5px;
+}
+
+    #topmenu a:hover {
+        color: #FFF;
+    }
+
+
+/*********************
+  TopMenu, Top-Panel
+*********************/
+#topmenu {
+    width: 850px;
+    float: left;
+    voice-family: inherit;
+    margin-bottom: 3px;
+}
+
+    #topmenu ul {
+        list-style: none;
+        line-height: 25px;
+    }
+
+    #topmenu li {
+        display: inline;
+    }
+
+    #topmenu a, #topmenu a:visited {
+        padding: 5px 12px 5px 12px;
+        text-decoration: none;
+    }
+
+    #topmenu .current a, #topmenu .current a:hover, #topmenu .current a:visited {
+        padding: 5px 12px 5px 12px;
+        font-weight: bold;
+    }
+
+#top-panel {
+    background: #FFF;
+    background: #FFF;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    height: 20px;
+    float: left;
+    width: 845px;
+    margin-bottom: 10px;
+}
+
+    #top-panel ul {
+        list-style: none;
+    }
+
+        #top-panel ul li {
+            display: inline;
+            line-height: 20px;
+        }
+
+            #top-panel ul li a {
+                padding-left: 19px;
+                text-decoration: none;
+                margin: 0 3px;
+                display: inline-block;
+            }
+
+    #top-panel a:hover {
+        text-decoration: underline;
+    }
+/*********************
+		Tables
+*********************/
+table {
+    margin: 5px;
+    border-collapse: collapse;
+    table-layout: automatic;
+    width: 98%;
+    background: none;
+}
+
+td, th {
+    padding: 2px;
+}
+
+thead {
+}
+
+td, th {
+    border: 1px solid #e8e7e1;
+}
+
+thead {
+    background: #f7f6f0;
+}
+
+#styleswitcher {
+    background: #FFFFFF;
+}
+
+#footer {
+    background: #FFF;
+}
+
+#box {
+    border: 1px solid #e8e7e1;
+}
+
+    #box h3 {
+        background: #f7f6f0;
+        border-bottom: 1px solid #e8e7e1;
+        color: #a43708;
+        padding: 5px;
+        font-size: 14px;
+    }
+
+#footer {
+    clear: both;
+    padding: 5px;
+    border-radius:5px;
+}
+
+/*********************
+	Icons
+*********************/
+.icon {
+    padding-left: 19px;
+    text-decoration: none;
+    height: 20px;
+    font-size: 12px;
+    margin: 0 3px;
+    display: inline-block;
+    line-height: 20px;
+}
+
+#useradd {
+    background: transparent url(../Images/Icons/user_add.png) no-repeat left;
+}
+/*********************
+		Forms          NOT USED
+*********************/
+form {
+    padding: 10px;
+    margin: 0 auto;
+}
+
+    form#form fieldset {
+        display: block;
+        padding: 5px 10px 5px 10px;
+        line-height: 20px;
+        margin-bottom: 10px;
+    }
+
+    form#form legend {
+        font-size: 12px;
+        font-weight: bold;
+        margin-bottom: 5px;
+        padding: 3px;
+        width: 254px;
+    }
+
+    form#form label {
+        clear: left;
+        display: block;
+        float: left;
+        width: 100px;
+        text-align: right;
+        padding-right: 10px;
+        margin-bottom: 5px;
+    }
+
+    form#form input {
+        padding: 3px;
+        margin-bottom: 5px;
+    }
+
+    form#form select {
+        margin-left: 5px;
+    }
+
+    form#form textarea {
+        width: 410px;
+        height: 200px;
+        padding: 5px;
+        overflow: auto;
+    }
+
+    form#form option {
+        background: #FFF;
+    }
+
+    form#form optgroup option {
+    }
+
+    form#form #button1, form#form #button2 {
+        padding-right: 5px;
+        cursor: pointer;
+        width: 205px;
+        margin-left: 8px;
+        font-weight: bold;
+    }
+
+        form#form #button1:hover, form#form #button2:hover {
+            background-position: center left;
+        }
+
+
+/*****************
+    WEBGRID
+******************/
+.webgrid-table {
+    min-width: 600px;
+    display: table;
+    border-collapse: separate;
+    border: solid 1px #808080;
+}
+
+.webgrid-table_onlineTable {
+    width: 350px;
+    display: table;
+    border-collapse: separate;
+    border: solid 1px #808080;
+}
+
+.webgrid-table td, th {
+    border: 1px solid ridge;
+    padding: 3px 7px 2px;
+}
+
+.webgrid-header {
+    color: #FFFFFF;
+    padding-bottom: 4px;
+    padding-top: 5px;
+    text-align: left;
+}
+
+.webgrid-row-style {
+    padding: 3px 2px 2px;
+}
+
+.webgrid-alternating-row {
+    background-color: #EAF2D3;
+    padding: 3px 7px 2px;
+}

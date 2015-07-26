@@ -1,0 +1,95 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Jul 24, 2015, 2:45:34 AM
+    Author     : Aleksei
+*/
+/* Experience */
+#page #experience h2{
+    border-bottom: solid 3px #0090D2; 
+}
+/* Experience page circles*/
+#ex_container{
+    margin: auto;
+    height:100px;
+    text-align: center;
+    width:565px;
+}
+#ex_project {
+    border:8px solid #0063A6;
+    width: 110px;
+    height:110px;
+    text-align: center;
+    border-radius: 50%;
+    vertical-align:middle;
+    display:table;
+    padding: 5px;
+    text-decoration: none;
+    color:#000;
+    float: left;
+    position: relative;
+    margin-top: 15px;
+    margin-left:5px;
+}
+
+#ex_project:hover{
+    font-weight: bold;
+    border:8px solid #FB6816;
+}
+#ex_project span{
+    display:table-cell;
+    vertical-align:middle;
+}
+#experience{
+    
+}
+#experience #projects{
+    margin-top: 70px;
+}
+#experience #project_link{
+    margin-top:100px;
+}
+#experience #project_btnBack{
+    position:relative;
+    display: block;
+    float:right;
+    top:-70px;
+    margin-bottom:-70px;
+}
+#experience #project_content{
+    margin: auto;
+    margin-top: 20px;
+    display:none;
+    font-size: 22px;
+    font-family: 'Questrial';
+}
+#experience #project_content p{
+    text-align: justify;
+}
+<!-- Images -->
+#crm_2 img{
+    display: block;
+    margin: 0 auto;
+}
+#experience #project_content #crm_2{
+    float: right;
+    margin-right: 20px;
+    padding-left: 20px;
+    padding-bottom: 20px;
+    
+}
+#experience #project_content #data_reader{
+    float: right;
+    margin-right: 20px;
+    padding-left: 20px;
+    padding-bottom: 20px;
+}
+#experience #project_content #spanish{
+    float: right;
+    margin-right: 20px;
+    padding-left: 20px;
+    padding-bottom: 20px;
+}

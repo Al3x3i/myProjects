@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1"
+    android:background="#EEEEEE">
+
+    <android.support.v4.view.ViewPager
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/fragment_weekplanning_pager"
+        android:layout_width="match_parent"
+        android:layout_height="78dp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#ffdbe347" />
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="208dp"
+        android:id="@+id/id_weekplanning_list"
+        android:layout_below="@+id/fragment_weekplanning_pager"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:background="#EEEEEE"
+        android:layout_alignParentBottom="true" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#ffd2d2d2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/view" />
+
+
+</RelativeLayout>

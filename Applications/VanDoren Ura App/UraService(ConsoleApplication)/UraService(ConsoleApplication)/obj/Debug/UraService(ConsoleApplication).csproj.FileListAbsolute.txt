@@ -1,0 +1,11 @@
+C:\Users\Alex\Documents\InternalProductCollection\VanDoren Ura App\UraService(ConsoleApplication)\UraService(ConsoleApplication)\bin\Debug\UraService(ConsoleApplication).exe.config
+C:\Users\Alex\Documents\InternalProductCollection\VanDoren Ura App\UraService(ConsoleApplication)\UraService(ConsoleApplication)\obj\Debug\UraService(ConsoleApplication).csprojResolveAssemblyReference.cache
+C:\Users\Alex\Documents\InternalProductCollection\VanDoren Ura App\UraService(ConsoleApplication)\UraService(ConsoleApplication)\bin\Debug\UraService(ConsoleApplication).exe
+C:\Users\Alex\Documents\InternalProductCollection\VanDoren Ura App\UraService(ConsoleApplication)\UraService(ConsoleApplication)\bin\Debug\UraService(ConsoleApplication).pdb
+C:\Users\Alex\Documents\InternalProductCollection\VanDoren Ura App\UraService(ConsoleApplication)\UraService(ConsoleApplication)\bin\Debug\WCFUraLib.dll
+C:\Users\Alex\Documents\InternalProductCollection\VanDoren Ura App\UraService(ConsoleApplication)\UraService(ConsoleApplication)\bin\Debug\VanDoren.LogLite.dll
+C:\Users\Alex\Documents\InternalProductCollection\VanDoren Ura App\UraService(ConsoleApplication)\UraService(ConsoleApplication)\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Alex\Documents\InternalProductCollection\VanDoren Ura App\UraService(ConsoleApplication)\UraService(ConsoleApplication)\bin\Debug\WCFUraLib.pdb
+C:\Users\Alex\Documents\InternalProductCollection\VanDoren Ura App\UraService(ConsoleApplication)\UraService(ConsoleApplication)\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Alex\Documents\InternalProductCollection\VanDoren Ura App\UraService(ConsoleApplication)\UraService(ConsoleApplication)\obj\Debug\UraService(ConsoleApplication).exe
+C:\Users\Alex\Documents\InternalProductCollection\VanDoren Ura App\UraService(ConsoleApplication)\UraService(ConsoleApplication)\obj\Debug\UraService(ConsoleApplication).pdb

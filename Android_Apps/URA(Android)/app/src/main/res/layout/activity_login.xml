@@ -1,0 +1,60 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="16dp"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="16dp"
+    android:id="@+id/startActivity">
+
+    <EditText
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/ed_login"
+        android:hint="Login"
+        android:maxLines="1"
+        android:layout_marginTop="101dp"
+        android:inputType="text"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/ed_password"
+        android:hint="Password"
+        android:password="true"
+        android:maxLines="1"
+        android:layout_below="@+id/ed_login"
+        android:layout_marginTop="10dp"
+        android:inputType="textPassword"
+        android:layout_alignLeft="@+id/ed_login"
+        android:layout_alignStart="@+id/ed_login"
+        android:layout_alignRight="@+id/ed_login"
+        android:layout_alignEnd="@+id/ed_login" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
+        android:text="Sign in"
+        android:id="@+id/btSignIn"
+        android:layout_below="@+id/ed_password"
+        android:layout_marginTop="25dp"
+        android:textSize="32dp"
+        android:onClick="btSignIn_onClick"
+        android:layout_alignLeft="@+id/ed_password"
+        android:layout_alignStart="@+id/ed_password"
+        android:layout_alignRight="@+id/ed_password"
+        android:layout_alignEnd="@+id/ed_password" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Stay signed in"
+        android:id="@+id/chBox_StaySignedIn"
+        android:checked="false"
+        android:layout_below="@+id/btSignIn"
+        android:layout_alignLeft="@+id/btSignIn"
+        android:layout_alignStart="@+id/btSignIn" />
+</RelativeLayout>

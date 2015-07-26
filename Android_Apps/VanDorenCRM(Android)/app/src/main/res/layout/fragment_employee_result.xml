@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="16dp"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="16dp"
+    android:id="@+id/first_layout">
+
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/scrollView_iformation"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true">
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <RelativeLayout
+                android:layout_width="350dp"
+                android:layout_height="match_parent"
+                android:focusableInTouchMode="false"
+                android:clickable="false"
+                android:background="@drawable/custom_imageview_office_style"
+                android:translationZ="2dp"
+                android:id="@+id/relativeLayout2"
+                android:layout_alignParentTop="true"
+                android:layout_alignLeft="@+id/id_phone_btn"
+                android:layout_alignStart="@+id/id_phone_btn">
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:id="@+id/img_employee_info"
+                    android:src="@drawable/ic_action_person"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginLeft="-5dp"
+                    android:layout_marginStart="19dp"
+                    android:layout_marginTop="0dp"
+                    android:contentDescription="@string/Companyinfo_companyimage" />
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_alignParentTop="true"
+                    android:id="@+id/bt_company_information"
+                    android:clickable="true"
+                    android:background="@drawable/custom_imageview_office_style"
+                    android:layout_toRightOf="@+id/img_employee_info"
+                    android:layout_alignRight="@+id/textView2"
+                    android:layout_alignEnd="@+id/textView2">
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:text="CompanyName"
+                        android:id="@+id/text_employeeCompany"
+                        android:textSize="20sp"
+                        android:textColor="#ff000000"
+                        android:layout_centerVertical="true"
+                        android:layout_toLeftOf="@+id/imageView5"
+                        android:layout_toStartOf="@+id/imageView5" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/imageView5"
+                        android:src="@drawable/ic_action_next"
+                        android:contentDescription="action_showcompany"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentEnd="true" />
+
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/EmployeeInfo_Function"
+                    android:id="@+id/text_employeeFunction"
+                    android:textSize="20sp"
+                    android:textColor="#ff000000"
+                    android:layout_below="@+id/bt_company_information"
+                    android:layout_toRightOf="@+id/img_employee_info"
+                    android:layout_toEndOf="@+id/img_employee_info"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp" />
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:background="@android:color/darker_gray"
+                    android:id="@+id/textView2"
+                    android:textStyle="bold"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/id_phone_btn"
+                android:layout_width="350dp"
+                android:layout_height="40dp"
+                android:background="@android:drawable/btn_default"
+                android:clickable="true"
+                android:orientation="horizontal"
+                android:layout_gravity="right"
+                android:layout_below="@+id/relativeLayout2"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp">
+
+                <TextView
+                    android:layout_width="265dp"
+                    android:layout_height="wrap_content"
+                    android:text="Phone"
+                    android:id="@+id/id_text_phone"
+                    android:textColor="#ff000000"
+                    android:textSize="20dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_toRightOf="@+id/id_phone_image"
+                    android:layout_alignBottom="@+id/id_phone_image"
+                    android:layout_marginTop="-3dp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_action_call"
+                    android:clickable="true"
+                    android:id="@+id/id_phone_image"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginLeft="-8dp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/id_email_btn"
+                android:layout_width="350dp"
+                android:layout_height="40dp"
+                android:background="@android:drawable/btn_default"
+                android:clickable="true"
+                android:orientation="horizontal"
+                android:layout_gravity="right"
+                android:layout_below="@+id/id_phone_btn"
+                android:layout_centerHorizontal="true">
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:text="Email"
+                    android:id="@+id/id_text_email"
+                    android:textColor="#ff000000"
+                    android:textSize="20dp"
+                    android:layout_toRightOf="@+id/id_email_image"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignBottom="@+id/id_email_image"
+                    android:layout_marginTop="-5dp"
+                    android:singleLine="true"
+                    android:ellipsize="marquee"
+                    android:marqueeRepeatLimit="marquee_forever"
+                    android:scrollHorizontally="true"
+                    android:focusable="true"
+                    android:freezesText="true"/>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_action_email"
+                    android:clickable="true"
+                    android:id="@+id/id_email_image"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginLeft="-8dp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="350dp"
+                android:layout_height="40dp"
+                android:background="@android:drawable/btn_default"
+                android:clickable="true"
+                android:orientation="horizontal"
+                android:layout_gravity="right"
+                android:id="@+id/id_url_btn"
+                android:layout_below="@+id/id_email_btn"
+                android:layout_centerHorizontal="true">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="URL"
+                    android:id="@+id/id_text_url"
+                    android:textColor="#ff000000"
+                    android:textSize="20dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_toRightOf="@+id/id_url_image"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignBottom="@+id/id_url_image"
+                    android:layout_marginTop="-5dp"
+                    android:singleLine="true"
+                    android:ellipsize="marquee"
+                    android:marqueeRepeatLimit="marquee_forever"
+                    android:scrollHorizontally="true"
+                    android:focusable="true"
+                    android:freezesText="true" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_action_web_site"
+                    android:clickable="true"
+                    android:id="@+id/id_url_image"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginLeft="-8dp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/id_information_btn"
+                android:layout_width="350dp"
+                android:layout_height="40dp"
+                android:background="@android:drawable/btn_default"
+                android:clickable="true"
+                android:orientation="horizontal"
+                android:layout_gravity="right"
+                android:layout_below="@+id/id_url_btn"
+                android:layout_centerHorizontal="true">
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:text="Information"
+                    android:id="@+id/id_text_information"
+                    android:textColor="#ff000000"
+                    android:textSize="20dp"
+                    android:singleLine="true"
+                    android:ellipsize="marquee"
+                    android:marqueeRepeatLimit="marquee_forever"
+                    android:scrollHorizontally="true"
+                    android:focusable="true"
+                    android:freezesText="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_toRightOf="@+id/id_information_image"
+                    android:layout_toEndOf="@+id/id_information_image"
+                    android:layout_marginTop="-5dp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/id_information_image"
+                    android:src="@android:drawable/ic_menu_more"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginLeft="-8dp"
+                    android:contentDescription="information_image" />
+
+            </RelativeLayout>
+
+            <TextView
+                android:text="Information"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:id="@+id/id_text_scroll_information"
+                android:layout_below="@+id/id_information_btn"
+                android:visibility="invisible"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+
+            <Spinner
+                android:id="@+id/id_phonespinner"
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:background="@android:drawable/btn_dropdown"
+                android:spinnerMode="dropdown"
+                android:layout_gravity="right"
+                android:layout_alignTop="@+id/id_phone_btn"
+                android:layout_alignRight="@+id/id_phone_btn"
+                android:layout_alignEnd="@+id/id_phone_btn"
+                android:layout_alignBottom="@+id/id_phone_btn" />
+
+        </RelativeLayout>
+    </ScrollView>
+
+
+</RelativeLayout>

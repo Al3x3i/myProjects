@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/lv_dialog_projects"
+        android:layout_gravity="center_vertical"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_above="@+id/id_edit_projectfilter"
+        android:choiceMode="singleChoice"
+        android:layout_alignParentTop="true" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/id_edit_projectfilter"
+        android:layout_gravity="center_horizontal"
+        android:hint="Enter project name"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:gravity="center_horizontal"
+        android:inputType="text"
+        android:maxLines="1"/>
+
+
+</RelativeLayout>

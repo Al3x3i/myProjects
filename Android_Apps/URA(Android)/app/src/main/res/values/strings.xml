@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">VanDoren URA</string>
+
+    <!--Navigation drawer item name -->
+    <string name="navigation_image">Item</string>
+
+    <!--Navigation drawer drawer titles -->
+    <string name="title_section1">Worked Hours</string>
+    <string name="title_section2">Week Planning</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <!--Settings and properties -->
+    <string name="action_settings">Settings</string>
+    <string name="action_settings_logout">Logout</string>
+    <string name="pref_connection_category">Connection</string>
+    <string name="pref_connection_title">Service IP</string>
+    <string name="pref_connection_summary">Please provide service IP address</string>
+    <string name="pref_connection_key">serviceIP</string>
+
+    <!-- Timer Dialog -->
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+
+    <!-- WorkedHours Screen -->
+    <string name="project">Project</string>
+    <string name="total_hours">Total Hours: </string>
+
+</resources>

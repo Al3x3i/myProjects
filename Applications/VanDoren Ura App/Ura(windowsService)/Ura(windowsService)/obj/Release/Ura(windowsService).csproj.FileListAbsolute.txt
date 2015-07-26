@@ -1,0 +1,14 @@
+C:\Users\Alex\Documents\InternalProductCollection\VanDoren Ura App\Ura(windowsService)\Ura(windowsService)\bin\Release\Ura(windowsService).exe.config
+C:\Users\Alex\Documents\InternalProductCollection\VanDoren Ura App\Ura(windowsService)\Ura(windowsService)\bin\Release\Ura(windowsService).exe
+C:\Users\Alex\Documents\InternalProductCollection\VanDoren Ura App\Ura(windowsService)\Ura(windowsService)\bin\Release\Ura(windowsService).pdb
+C:\Users\Alex\Documents\InternalProductCollection\VanDoren Ura App\Ura(windowsService)\Ura(windowsService)\bin\Release\Newtonsoft.Json.dll
+C:\Users\Alex\Documents\InternalProductCollection\VanDoren Ura App\Ura(windowsService)\Ura(windowsService)\bin\Release\VanDoren.LogLite.dll
+C:\Users\Alex\Documents\InternalProductCollection\VanDoren Ura App\Ura(windowsService)\Ura(windowsService)\bin\Release\WCFUraLib.dll
+C:\Users\Alex\Documents\InternalProductCollection\VanDoren Ura App\Ura(windowsService)\Ura(windowsService)\bin\Release\Newtonsoft.Json.xml
+C:\Users\Alex\Documents\InternalProductCollection\VanDoren Ura App\Ura(windowsService)\Ura(windowsService)\bin\Release\WCFUraLib.pdb
+C:\Users\Alex\Documents\InternalProductCollection\VanDoren Ura App\Ura(windowsService)\Ura(windowsService)\obj\Release\Ura_windowsService_.ProjectInstaller.resources
+C:\Users\Alex\Documents\InternalProductCollection\VanDoren Ura App\Ura(windowsService)\Ura(windowsService)\obj\Release\Ura(windowsService).csproj.GenerateResource.Cache
+C:\Users\Alex\Documents\InternalProductCollection\VanDoren Ura App\Ura(windowsService)\Ura(windowsService)\obj\Release\Ura(windowsService).exe
+C:\Users\Alex\Documents\InternalProductCollection\VanDoren Ura App\Ura(windowsService)\Ura(windowsService)\obj\Release\Ura(windowsService).pdb
+C:\Users\Alex\Documents\InternalProductCollection\VanDoren Ura App\Ura(windowsService)\Ura(windowsService)\obj\Release\Ura(windowsService).csprojResolveAssemblyReference.cache
+C:\Users\Aleksei\Documents\myRep\Applications\VanDoren Ura App\Ura(windowsService)\Ura(windowsService)\bin\Release\Ura(windowsService).exe.config

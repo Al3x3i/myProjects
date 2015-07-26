@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="16dp"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="16dp"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
+
+    <EditText
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:hint="Company Name"
+        android:maxLines="1"
+        android:inputType="text"
+        android:imeOptions="actionSearch"
+        android:id="@+id/edit_FindCompany"
+        android:background="@drawable/custom_editbox"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/companyList"
+        android:layout_below="@+id/edit_FindCompany"
+        android:layout_marginTop="10dp"
+        android:layout_alignRight="@+id/edit_FindCompany"
+        android:layout_alignEnd="@+id/edit_FindCompany"
+        android:layout_alignLeft="@+id/edit_FindCompany"
+        android:layout_alignStart="@+id/edit_FindCompany" />
+
+</RelativeLayout>

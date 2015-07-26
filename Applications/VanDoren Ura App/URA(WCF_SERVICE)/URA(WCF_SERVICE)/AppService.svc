@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="URA_WCF_SERVICE_.AppSevice" CodeBehind="AppService.svc.cs" %>

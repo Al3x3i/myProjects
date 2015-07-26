@@ -1,0 +1,3 @@
+To test application:
+Select database file : Database2
+Set date range from 16.2015 till 23.2015

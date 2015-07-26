@@ -1,0 +1,168 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="UraService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="NetTcpBinding_IUraService_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1">
+        </msb:BinaryEncoding>
+        <wsaw:UsingAddressing>
+        </wsaw:UsingAddressing>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import namespace="http://tempuri.org/" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IUraService_WorkedHoursPerWeek_InputMessage">
+    <wsdl:part name="parameters" element="tns:WorkedHoursPerWeek" />
+  </wsdl:message>
+  <wsdl:message name="IUraService_WorkedHoursPerWeek_OutputMessage">
+    <wsdl:part name="parameters" element="tns:WorkedHoursPerWeekResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUraService_AvailableProjects_InputMessage">
+    <wsdl:part name="parameters" element="tns:AvailableProjects" />
+  </wsdl:message>
+  <wsdl:message name="IUraService_AvailableProjects_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AvailableProjectsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUraService_AddNewTaskHours_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddNewTaskHours" />
+  </wsdl:message>
+  <wsdl:message name="IUraService_AddNewTaskHours_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddNewTaskHoursResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUraService_UpdateTaskHours_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateTaskHours" />
+  </wsdl:message>
+  <wsdl:message name="IUraService_UpdateTaskHours_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateTaskHoursResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUraService_GetWeekPlanning_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetWeekPlanning" />
+  </wsdl:message>
+  <wsdl:message name="IUraService_GetWeekPlanning_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetWeekPlanningResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUraService_DeleteTaskHours_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTaskHours" />
+  </wsdl:message>
+  <wsdl:message name="IUraService_DeleteTaskHours_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTaskHoursResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUraService_Test_InputMessage">
+    <wsdl:part name="parameters" element="tns:Test" />
+  </wsdl:message>
+  <wsdl:message name="IUraService_Test_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TestResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IUraService">
+    <wsdl:operation name="WorkedHoursPerWeek">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUraService/WorkedHoursPerWeek" message="tns:IUraService_WorkedHoursPerWeek_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUraService/WorkedHoursPerWeekResponse" message="tns:IUraService_WorkedHoursPerWeek_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AvailableProjects">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUraService/AvailableProjects" message="tns:IUraService_AvailableProjects_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUraService/AvailableProjectsResponse" message="tns:IUraService_AvailableProjects_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddNewTaskHours">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUraService/AddNewTaskHours" message="tns:IUraService_AddNewTaskHours_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUraService/AddNewTaskHoursResponse" message="tns:IUraService_AddNewTaskHours_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTaskHours">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUraService/UpdateTaskHours" message="tns:IUraService_UpdateTaskHours_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUraService/UpdateTaskHoursResponse" message="tns:IUraService_UpdateTaskHours_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWeekPlanning">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUraService/GetWeekPlanning" message="tns:IUraService_GetWeekPlanning_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUraService/GetWeekPlanningResponse" message="tns:IUraService_GetWeekPlanning_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTaskHours">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUraService/DeleteTaskHours" message="tns:IUraService_DeleteTaskHours_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUraService/DeleteTaskHoursResponse" message="tns:IUraService_DeleteTaskHours_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Test">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUraService/Test" message="tns:IUraService_Test_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUraService/TestResponse" message="tns:IUraService_Test_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="NetTcpBinding_IUraService" type="tns:IUraService">
+    <wsp:PolicyReference URI="#NetTcpBinding_IUraService_policy">
+    </wsp:PolicyReference>
+    <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
+    <wsdl:operation name="WorkedHoursPerWeek">
+      <soap12:operation soapAction="http://tempuri.org/IUraService/WorkedHoursPerWeek" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AvailableProjects">
+      <soap12:operation soapAction="http://tempuri.org/IUraService/AvailableProjects" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddNewTaskHours">
+      <soap12:operation soapAction="http://tempuri.org/IUraService/AddNewTaskHours" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTaskHours">
+      <soap12:operation soapAction="http://tempuri.org/IUraService/UpdateTaskHours" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWeekPlanning">
+      <soap12:operation soapAction="http://tempuri.org/IUraService/GetWeekPlanning" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTaskHours">
+      <soap12:operation soapAction="http://tempuri.org/IUraService/DeleteTaskHours" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Test">
+      <soap12:operation soapAction="http://tempuri.org/IUraService/Test" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="UraService">
+    <wsdl:port name="NetTcpBinding_IUraService" binding="tns:NetTcpBinding_IUraService">
+      <soap12:address location="net.tcp://192.168.30.121:8008/" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>net.tcp://192.168.30.121:8008/</wsa10:Address>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

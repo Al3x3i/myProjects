@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:id="@+id/calendat_item"
+    android:paddingLeft="2dp"
+    android:paddingRight="2dp"
+    android:gravity="center"
+    android:minHeight="46dp">
+
+    <TextView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/week"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#0000D7"
+        android:textSize="14dip"
+        android:textStyle="bold"
+        android:text="week">
+    </TextView>
+    <TextView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#0000D7"
+        android:textSize="14dip"
+        android:textStyle="bold"
+        android:text="Day">
+    </TextView>
+</LinearLayout>

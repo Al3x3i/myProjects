@@ -1,0 +1,125 @@
+﻿@model URA_Web_.Models.Account
+
+@{
+    ViewBag.Title = "CreateAccount";
+}
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Van Doren CRM</title>
+    <link rel="stylesheet" type="text/css" href="~/Content/home-style.css" />
+</head>
+
+<body>
+    <div id="main_wrapper">
+        <div id="main_wrapper_strip">
+        </div>
+        <div id="container">
+            <div id="container_header">
+                <h2>Van Doren URA</h2>
+            </div>
+            <div id="wrapper">
+                <div>@Html.ActionLink("[ Logout ]", "Index", null, new { @id = "logout" })</div>
+                <div id="topmenu">
+                    <ul>
+                        <li>@Html.ActionLink("Overview", "Overview")</li>
+                    </ul>
+                </div>
+                <div id="top-panel">
+                    <div id="panel">
+                    </div>
+                </div>
+                <div id="content">
+                    <div id="box">
+                        <h3 id="adduser">Add new account</h3>
+                        @if (ViewData["LoginDublicateException"] != null)
+                        {
+                            <text>@ViewData["LoginDublicateException"]</text>
+                            ViewData["LoginDublicateException"] = null;
+                        }
+                        
+                        @using (Html.BeginForm())
+                        {
+                            @Html.AntiForgeryToken()
+                            @Html.ValidationSummary(true)
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.FirstName)
+                            </div>
+                            <div class="editor-field">
+                                @Html.EditorFor(model => model.FirstName)
+                                @Html.ValidationMessageFor(model => model.FirstName)
+                            </div>
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.MiddleName)
+                            </div>
+                            <div class="editor-field">
+                                @Html.EditorFor(model => model.MiddleName)
+                                @Html.ValidationMessageFor(model => model.MiddleName)
+                            </div>
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.SecondName)
+                            </div>
+                            <div class="editor-field">
+                                @Html.EditorFor(model => model.SecondName)
+                                @Html.ValidationMessageFor(model => model.SecondName)
+                            </div>
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.Login)
+                            </div>
+                            <div class="editor-field">
+                                @Html.EditorFor(model => model.Login)
+                                @Html.ValidationMessageFor(model => model.Login)
+                            </div>
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.Password)
+                            </div>
+                            <div class="editor-field">
+                                @Html.PasswordFor(model => model.Password)
+                                @Html.ValidationMessageFor(model => model.Password)
+                            </div>
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.ConfirmPassword)
+                            </div>
+                            <div class="editor-field">
+                                @Html.PasswordFor(model => model.ConfirmPassword)
+                                @Html.ValidationMessageFor(model => model.ConfirmPassword)
+                            </div>
+
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.URA_DBID)
+                            </div>
+                            <div class="editor-field">
+                                @Html.EditorFor(model => model.URA_DBID)
+                                @Html.ValidationMessageFor(model => model.URA_DBID)
+                            </div>
+
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.SyntusFunction)
+                            </div>
+                            <div class="editor-field">
+                                @Html.EditorFor(model => model.SyntusFunction)
+                                @Html.ValidationMessageFor(model => model.SyntusFunction)
+                            </div>
+
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.Capa_DBID)
+                            </div>
+                            <div class="editor-field">
+                                @Html.EditorFor(model => model.Capa_DBID)
+                                @Html.ValidationMessageFor(model => model.Capa_DBID)
+                            </div>
+
+                            <input type="submit" value="Create" />
+                        }
+                    </div>
+                    <br />
+                </div>
+                <div id="footer">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
