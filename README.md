@@ -1,6 +1,6 @@
 myProjects
 =======
-Welcome to my repository. Here You can find my completed projects during internship and study program.
+	Welcome to my repository. Here You can find my completed projects during internship and study program.
 For security reason in Apps and URA applications are removed or changed configuration files.
 
 Folders:
@@ -23,10 +23,8 @@ Rest:
 Web_pages:
 	1)Portfolio_web - my portfolio page
 	http://athena.fhict.nl/users/i289476/Aleksei/
-
 	2)One day from my life(Spanish comments)  
 	http://athena.fhict.nl/users/i289476/Portfolio/Spanish/
-
 	3)Web page about my village
 	http://athena.fhict.nl/users/i289476/Portfolio/Web/
 	Login: admin, Password:admin
