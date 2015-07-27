@@ -24,10 +24,10 @@ Web_pages:
 	1)Portfolio_web - my portfolio page
 	http://athena.fhict.nl/users/i289476/Aleksei/
 
-	1)One day from my life(Spanish comments)  
+	2)One day from my life(Spanish comments)  
 	http://athena.fhict.nl/users/i289476/Portfolio/Spanish/
 
-	2)Web page about my village
+	3)Web page about my village
 	http://athena.fhict.nl/users/i289476/Portfolio/Web/
 	Login: admin, Password:admin
 
