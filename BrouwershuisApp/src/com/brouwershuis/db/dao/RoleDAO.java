@@ -1,0 +1,30 @@
+package com.brouwershuis.db.dao;
+
+import javax.ejb.Stateless;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
+
+import com.brouwershuis.db.model.EnumRoles;
+import com.brouwershuis.db.model.Role;
+@Stateless
+public class RoleDAO {
+
+	@PersistenceContext
+	protected EntityManager em;
+
+	public Role findRoleByName(EnumRoles enumRole) {
+
+		try {
+
+			TypedQuery<Role> query = em.createQuery("SELECT r FROM Role r WHERE r.name ='" + enumRole.toString() + "'", Role.class);
+			Role role = query.getSingleResult();
+			return role;
+		} catch (Exception ex) {
+
+		}
+		return null;
+
+	}
+
+}

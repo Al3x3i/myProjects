@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns="http://www.springframework.org/schema/beans"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context 
+		http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<import resource="appconfig-mvc.xml" />
+
+	<import resource="appconfig-data.xml" />
+
+	<import resource="appconfig-security.xml" />
+
+
+
+
+	<!-- Set UTC Timezone, after set the tomcat restarts and occur mysql error, 
+		but still works -->
+<!-- 	 <bean id="defaultZoneInfo" class="sun.util.calendar.ZoneInfo" factory-method="getTimeZone"> 
+		<constructor-arg type="java.lang.String" value="UTC"/> </bean> <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean"> 
+		<property name="staticMethod" value="java.util.TimeZone.setDefault"/> <property 
+		name="arguments"> <list> <ref bean="defaultZoneInfo"/> </list> </property> 
+		</bean>  -->
+
+	<!-- <context:property-placeholder location="classpath:application.properties"/> -->
+
+</beans>
