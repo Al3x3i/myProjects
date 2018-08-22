@@ -14,6 +14,7 @@ Applications:
 3)Shopping_Application - application for small shops for performing making purchases (no connection to DataBase, needs RFID reader)
 4)TrafficLightApplication _FinalVersion - Traffic simulation project
 5)VanDoren Ura App - Anrdoid App for getting data of active customers. Has same idea as CRM applications
+6)Modular Insurance - Java Web Application to calculate Insurance for different fields (car, electronics and etc). This application represents my experience JavaEE. 
 
 Rest:
 1)Print screen about database development - >Database.png
