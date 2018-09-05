@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<settings>
+    <boardsize>3</boardsize>
+    <firstplayercharacter>A</firstplayercharacter>
+    <secondplayercharacter>B</secondplayercharacter> 
+    <aiplayercharacter>C</aiplayercharacter>
+</settings>
