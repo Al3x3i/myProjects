@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Conference Manager</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!--        <script src="myJava.js"></script>-->
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+        <!-- DataTables -->
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+
+
+        <!-- jQuery library -->
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+        <!-- Compiled JavaScript -->
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+        <!-- DataTables -->
+        <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+
+        <style>
+
+            html,
+            body {
+                background: #efefef;
+                padding: 0;
+                margin: 0;
+                height:100%
+            }
+            .sidebar {
+                position: fixed;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                z-index: 100;
+                padding: 48px 0 0;
+                box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+            }
+            .form-control-dark {
+                color: #fff;
+                background-color: rgba(255, 255, 255, .1);
+                border-color: rgba(255, 255, 255, .1);
+            }
+
+            /* PAGE CONTEN */ 
+            #page-content {
+                padding: 48px 0 0;
+            }
+
+            .table-wrapper{
+                padding-top: 15px;
+            }
+            .content-controller{
+                padding-top: 15px;
+            }
+
+            /* Control buttons ADD, EDIT, DELETE */
+            a.btn:hover {
+                -webkit-transform: scale(1.1);
+                -moz-transform: scale(1.1);
+                -o-transform: scale(1.1);
+            }
+            a.btn {
+                -webkit-transform: scale(0.8);
+                -moz-transform: scale(0.8);
+                -o-transform: scale(0.8);
+                -webkit-transition-duration: 0.5s;
+                -moz-transition-duration: 0.5s;
+                -o-transition-duration: 0.5s;
+            }
+            #participants-list a{
+                padding:0;
+                padding-top: 5;
+                padding-bottom: 5;
+            }
+
+        </style>
+        <script type="text/javascript">
+
+            var allConferenceRooms; // Keeps all available conferenceRooms
+            var sel_id;
+            var getAllConferenceRoomsCallBack = function (data)
+            {
+                allConferenceRooms = data;
+            }
+
+            var getAllConferencesCallBack = function (data)
+            {
+                populateConferenceTable(data);
+            }
+
+            var deleteConferencesCallBack = function (data)
+            {
+                if (data === true) {
+                    getConferences();
+                } else {
+                    alert('Error, Occurred unexpected error while deleting the conference');
+                }
+            }
+
+            var addConferenceCallBack = function (data)
+            {
+                if (data === true) {
+                    closeModalDialog();
+                    getConferences();
+                } else {
+                    alert('Error, Occurred unexpected error while registering a new conference');
+                }
+            }
+
+            var openParticipantModalDialogCallBack = function (data)
+            {
+                populateParticipantList(data);
+            }
+
+            var addConferenceParticipantCallBack = function (data)
+            {
+                if (data === true) {
+                    var id = $("#participant-modal").data("conference_id");
+                    clearParticipantModalDialogInputs()
+                    getConferenceParticipants(id);
+
+                } else {
+                    alert('Error, Occurred unexpected error while registering a participant');
+                }
+            }
+
+            var deleteConferenceParticipantCallBack = function (data)
+            {
+                if (data === true) {
+                    var id = $("#participant-modal").data("conference_id");
+                    getConferenceParticipants(id);
+                } else {
+                    alert('Error, Occurred unexpected error while deleting a participant');
+                }
+            }
+
+            $(document).ready(function () {
+                disableEditDeleteButtons();
+                allConferenceRooms = getAllConferenceRooms();
+                getConferences();
+            });
+            function openModalDialog(modalType)
+            {
+                populateModalConferenceRooms();
+                $("#conference-modal").modal();
+            }
+
+            function closeModalDialog()
+            {
+                $('#conference-modal').modal('toggle');
+                $("#conference-modal input").val("")
+            }
+
+            function openParticipantModalDialog(id, conference_name, type)
+            {
+                if (type === "add")
+                {
+                    $(".add-action").show();
+                    $('.delete-action').hide();
+                } else {
+                    $(".add-action").hide()
+                    $('.delete-action').show();
+                }
+
+                clearParticipantModalDialogInputs();
+
+                $('#edit-conf-participants').text(conference_name); //TODO 
+
+
+                getConferenceParticipants(id);
+
+                $("#participant-modal").modal();
+                $("#participant-modal").data("conference_id", id);
+            }
+
+            function clearParticipantModalDialogInputs()
+            {
+                $('.modal-body input,.modal-body textarea').each(function () {
+                    $(this).val('');
+                });
+            }
+
+            var firstTable = true;
+            function populateConferenceTable(allConferences)
+            {
+
+                table = $('#conference-table').DataTable({
+                    destroy: true,
+                    data: allConferences,
+                    "columns": [
+                        {
+                            title: "Nr",
+                            data: null,
+                        },
+                        {
+                            title: "Id",
+                            "data": "id",
+                            "visible": false
+                        }, {
+                            title: "Conference Name",
+                            "data": "conference_name"
+                        }, {
+                            title: "Room Name",
+                            "data": "room_name"
+                        }, {
+                            title: "Expected Participants",
+                            "data": "expected_participants"
+                        }, {
+                            title: "Registered Participants",
+                            "data": "registered_participants"
+                        }, {
+                            title: "Maximum Allowed",
+                            "data": "max_size"
+                        },
+                        {
+                            title: "room_id",
+                            "data": "room_id",
+                            "visible": false
+                        },
+                        {
+                            title: "Actions",
+                            data: null,
+                            defaultContent: '<button class="add-participant" style="width:70px; margin-right: 20px" "><span class="fa fa-user" aria-hidden="true" style="padding-right: 10px;"></span>(+)</button><button class="delete-participant" style="width: 70px"><span class="fa fa-user" aria-hidden="true" style="padding-right: 10px;"></span>(-)</button>'
+                        },
+                    ],
+                    'createdRow': function (row, data, dataIndex) {
+                        $('td:last-child', row).css('min-width', '160px');
+                    }
+                });
+
+                table.on('order.dt search.dt', function () {
+                    table.column(0, {search: 'applied', order: 'applied'}).nodes().each(function (cell, i) {
+                        cell.innerHTML = i + 1;
+                    });
+                }).draw();
+
+
+                if (firstTable == true)
+                {
+                    firstTable = false;
+                    $('#conference-table tbody').on('click', 'tr', function (e) {
+
+                        if ($(this).hasClass('selected')) {
+                            $(this).removeClass('selected');
+                            disableEditDeleteButtons()
+                        } else {
+
+                            if (table.row(this).data() !== undefined)
+                            {
+                                table.$('tr.selected').removeClass('selected');
+                                $(this).addClass('selected');
+                                enableEditDeleteButtons()
+                            }
+                        }
+                    });
+                    $('#conference-table tbody').on('click', 'tr', function () {
+                        if (table.row(this).data() !== undefined)
+                        {
+                            sel_id = table.row(this).data()["id"]
+                        }
+                    });
+
+                    $('#conference-table tbody').on('click', 'button', function (e, t) {
+                        var row_id = table.row($(this).parents('tr')).data()["id"];
+                        var conference_name = table.row($(this).parents('tr')).data()["conference_name"];
+
+
+                        var type = "";
+                        if ($(this).hasClass("add-participant") == true)
+                        {
+                            type = "add";
+                        } else {
+                            type = "delete";
+                        }
+                        openParticipantModalDialog(row_id, conference_name, type)
+                        e.stopPropagation();
+                    });
+                }
+            }
+
+            function disableEditDeleteButtons()
+            {
+                $("#edit-conference").addClass("disabled");
+                $("#delete-conference").addClass("disabled");
+            }
+
+            function enableEditDeleteButtons()
+            {
+                $("#edit-conference").removeClass("disabled");
+                $("#delete-conference").removeClass("disabled");
+            }
+
+            function populateModalConferenceRooms()
+            {
+                var dropDown = $('#conference-rooms-modal');
+                var expectedParticipants = 0;
+                if ($('#conf-max-participants').val() !== "")
+                {
+                    var expectedParticipants = parseInt($('#conf-max-participants').val());
+                }
+                dropDown.empty();
+                var firstOption = $('<option></option>').val(-1).html("Select Conference Room");
+                dropDown.append(firstOption);
+                if (Object.keys(allConferenceRooms).length !== 0) {
+
+                    $(allConferenceRooms).each(function () {
+
+                        if (expectedParticipants <= parseInt(this.max_size))
+                        {
+                            var opt = $("<option />", {
+                                val: this.id,
+                                text: this.room_name + " | max: " + this.max_size
+                            });
+                            $('#conference-rooms-modal').append(opt);
+                        }
+                    });
+                }
+            }
+
+            function addConferenceParticipantOnClick()
+            {
+                var f_name = $("#participant-f-name").val();
+                var s_name = $("#participant-s-name").val();
+
+                var id = $("#participant-modal").data("conference_id")
+
+                addConferenceParticipant(f_name, s_name, id)
+            }
+
+            function deleteConferenceParticipantOnClick()
+            {
+                var p_id = $("#participant-modal #participants-list .active").data("p_id")
+                var c_id = $("#participant-modal #participants-list .active").data("c_id")
+
+                if (p_id == null || c_id == null)
+                {
+                    alert("Error, not all data is provided")
+                }
+                deleteConferenceParticipant(p_id, c_id)
+            }
+
+            function populateParticipantList(data)
+            {
+                var div_el = $("#participants-list");
+                div_el.empty();
+                var counter = 1;
+                $(data).each(function () {
+
+                    var name = "Nr:" + counter + " - " + this.first_name + ' ' + this.second_name;
+
+                    var new_el = jQuery('<a href="#" class="list-group-item list-group-item-action participants-items">' + name + '</a>');
+                    new_el.data("p_id", this.id)
+                    new_el.data("c_id", this.conference_id)
+
+                    div_el.append(new_el);
+                    counter++;
+                });
+
+
+                // Modal participants list onClick handler
+                $(".participants-items").on('click', function (e) {
+
+                    if ($(this).hasClass('active')) {
+                        $(this).removeClass('active');
+                    } else {
+                        $('#participants-list .active').removeClass('active');
+                        $(this).addClass('active');
+                    }
+                })
+            }
+
+            function getAllConferenceRooms()
+            {
+                var url = "getAllConferenceRooms";
+                $.ajax({
+                    type: 'GET',
+                    url: url,
+                    dataType: 'json',
+                    success: function (data) {
+                        getAllConferenceRoomsCallBack(data);
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        alert('Error, cannot get all participants');
+                    }
+                });
+            }
+
+            function addConference()
+            {
+                var name = $("#conf-name").val();
+                var participantsNr = $("#conf-max-participants").val();
+                var conferenceRoom = $("#conference-rooms-modal").val();
+                var dataO = {conference_name: name, expected_participants: participantsNr, room_id: conferenceRoom}
+
+                var data = JSON.stringify(dataO)
+
+                var url = "addConference"
+                $.ajax({
+                    type: 'POST',
+                    url: url,
+                    data: data,
+                    dataType: 'json',
+                    contentType: 'application/json',
+                    success: function (data) {
+                        addConferenceCallBack(data);
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        alert('Error, Occurred unexpected error while registering a new conference');
+                    }
+                });
+            }
+
+            function deleteConference()
+            {
+                var url = "deleteConference/" + sel_id;
+                $.ajax({
+                    type: 'DELETE',
+                    url: url,
+                    success: function (data) {
+                        deleteConferencesCallBack(data);
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        console.log("error while getting all conferences")
+                    }
+                });
+            }
+
+            function getConferences()
+            {
+                var url = "getAllConferencesExtended"
+                $.ajax({
+                    type: 'GET',
+                    url: url,
+                    dataType: 'json',
+                    success: function (data) {
+                        getAllConferencesCallBack(data);
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        console.log("error while getting all conferences")
+                    }
+                });
+            }
+
+            function getConferenceParticipants(id)
+            {
+                var url = "getConferenceParticipants/" + id;
+                $.ajax({
+                    type: 'GET',
+                    url: url,
+                    success: function (data) {
+                        openParticipantModalDialogCallBack(data);
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        console.log("error while getting all conferences")
+                    }
+                });
+            }
+
+            function addConferenceParticipant(f_name, s_name, c_id)
+            {
+                var url = "addConferenceParticipant?f_name=" + f_name + "&s_name=" + s_name + "&c_id=" + c_id;
+                $.ajax({
+                    type: 'PUT',
+                    url: url,
+                    success: function (data) {
+                        addConferenceParticipantCallBack(data);
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        console.log("error while getting all conferences")
+                    }
+                });
+            }
+
+            function deleteConferenceParticipant(p_id, c_id)
+            {
+                var url = "deleteConferenceParticipant?p_id=" + p_id + "&c_id=" + c_id;
+                $.ajax({
+                    type: 'DELETE',
+                    url: url,
+                    success: function (data) {
+                        deleteConferenceParticipantCallBack(data);
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        console.log("error while getting all conferences")
+                    }
+                });
+            }
+
+        </script>
+    </head>
+    <body>
+        <div class="wrapper">
+            <nav class="navbar navbar-dark fixed-top flex-md-nowrap p-0 shadow" style="background-color: #182233;">
+                <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Conference Manager</a>                
+            </nav>
+            <div class="container-fluid">
+                <div class="row">
+                    <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+                        <div class="sidebar-sticky">
+                            <ul class="nav flex-column">
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="#">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                                        Conference <span class="sr-only">(current)</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                    <div id="page-content" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+                        <div class="row">
+                            <div class="col-8">
+                                <div class="content-title">
+                                    <h2>Conference management:</h2>
+                                </div>
+                                <div class="content-controller">
+                                    <a href="#" class="btn btn-primary a-btn-slide-text" onclick="openModalDialog('Add')">
+                                        <span class="fa fa-plus" aria-hidden="true"></span>
+                                        <span><strong>Add</strong></span>            
+                                    </a>
+                                    <a href="#" class="btn btn-primary a-btn-slide-text" id="edit-conference" onclick="alert('Sorry, not yet implemented')">
+                                        <span class="fa fa-edit" aria-hidden="true"></span>
+                                        <span><strong>Edit</strong></span>            
+                                    </a>
+                                    <a href="#" class="btn btn-primary a-btn-slide-text" id="delete-conference" onclick="deleteConference()">
+                                        <span class="fa fa-remove" aria-hidden="true"></span>
+                                        <span><strong>Delete</strong></span>            
+                                    </a>
+
+                                </div>
+
+
+                                <div class="table-wrapper">
+                                    <table id="conference-table" class="display" width="100%"></table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal -->
+        <!-- Conference -->
+
+        <div class="modal fade" id="conference-modal" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Add Conference</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body" style="padding:40px 50px;">
+                        <form role="form">
+                            <div class="form-group">
+                                <label for="conf-name"><span class="glyphicon glyphicon-user"></span>Conference Name</label>
+                                <input type="text" class="form-control" id="conf-name" placeholder="Enter Name">
+                            </div>
+                            <div class="form-group">
+                                <label for="conf-max-participants"><span class="glyphicon glyphicon-eye-open"></span>Expected participants</label>
+                                <input type="number" class="form-control" id="conf-max-participants" placeholder="Enter Number" onchange="populateModalConferenceRooms()">
+                            </div>
+                            <div class="form-group">
+                                <label for="psw"><span class="glyphicon glyphicon-eye-open"></span>Available Rooms</label>
+                                <select class="form-control" id="conference-rooms-modal">
+                                    <option value="-1">Select Conference Room</option>
+                                </select>                            
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="closeModalDialog()">Close</button>
+                        <button type="button" class="btn btn-primary" onclick="addConference()">Save</button>
+                    </div>
+                </div>
+
+            </div>
+        </div> 
+
+        <!-- Participant -->
+        <div class="modal fade" id="participant-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="edit-conf-participants">Modal title</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body" >
+                        <form role="form" class='add-action'>
+                            <div class="form-group">
+                                <label for="participant-f-name"><span class="glyphicon glyphicon-eye-open"></span>First Name</label>
+                                <input type="text" class="form-control" id="participant-f-name" placeholder="Second Name" onchange="populateModalConferenceRooms()">
+                            </div>
+                            <div class="form-group">
+                                <label for="participant-s-name"><span class="glyphicon glyphicon-eye-open"></span>Seocnd Name</label>
+                                <input type="text" class="form-control" id="participant-s-name" placeholder="Second Name" onchange="populateModalConferenceRooms()">
+                            </div>
+                        </form>
+                        <div class="">
+                            <button type="button" class="btn btn-primary delete-action" onclick="deleteConferenceParticipantOnClick()">Delete</button>
+                            <button type="button" class="btn btn-primary add-action" onclick="addConferenceParticipantOnClick()">Add</button>
+                        </div>
+                        <p style="margin-top:5px;margin-bottom:5px;text-decoration: underline">Participants:</p>
+                        <div class="list-group" id='participants-list' >
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
