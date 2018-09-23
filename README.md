@@ -22,7 +22,7 @@ For security reason in configuration files in project might be changed.
 1. Print screen about database development - >Database.png
 2. Class diagramm of Ura App (WorkedHours)
 	
-## Web_pages:
+## WEB:
 1. Portfolio_web - my portfolio page
 2. One day from my life(Spanish comments)
 3. Web page about my village (Login: admin, Password:admin)
