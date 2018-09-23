@@ -1,12 +1,12 @@
-myProjects
+Project Descripts
 =======
-	Welcome to my repository. Here You can find my completed projects during internship and study program.
-For security reason in Apps and URA applications are removed or changed configuration files.
+Welcome to my repository. Here You can find my completed projects which I made for my projects or education purposes.
+For security reason in configuration files in project might be changed.
 
-Folders:
-Android_Apps:
-1)URA(Android) -URA App
-2)VanDorenCRM(Android) -CRM App
+Folders and Projects:
+### Android_Apps:
+*1)URA(Android) -URA App
+*2)VanDorenCRM(Android) -CRM App
 
 Applications:
 1)DataReader - Data reader project;
@@ -14,6 +14,7 @@ Applications:
 3)Shopping_Application - application for small shops for performing making purchases (no connection to DataBase, needs RFID reader)
 4)TrafficLightApplication _FinalVersion - Traffic simulation project
 5)VanDoren Ura App - Anrdoid App for getting data of active customers. Has same idea as CRM applications
+6)Modular Insurance - Java Web Application to calculate Insurance for different fields (car, electronics and etc). This application represents my experience JavaEE. 
 6)Modular Insurance - Java Web Application to calculate Insurance for different fields (car, electronics and etc). This application represents my experience JavaEE. 
 
 Rest:
