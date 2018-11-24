@@ -20,7 +20,6 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.google.gson.annotations.Expose;
 
 /**
  * The persistent class for the employee database table.
@@ -36,7 +35,7 @@ public class Employee implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String address;
-	
+
 	@Temporal(TemporalType.DATE)
 	private Date dateOfBirth;
 	private String firstName;
@@ -44,7 +43,6 @@ public class Employee implements Serializable {
 	private String displayName;
 	private String gender;
 	private boolean enabled;
-	
 
 	@Column(name = "TIMESTAMP", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
 	@Temporal(TemporalType.TIMESTAMP)
@@ -59,8 +57,7 @@ public class Employee implements Serializable {
 	@OneToOne(mappedBy = "employee", cascade = CascadeType.ALL)
 	private User user;
 
-	
-	@OneToOne(fetch=FetchType.EAGER)
+	@OneToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "CONTRACT_FK")
 	private Contract contract;
 

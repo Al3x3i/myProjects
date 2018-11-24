@@ -5,7 +5,6 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -53,7 +52,7 @@ public class WorkingHoursRecordController {
 			if (activeUser.isAdming() == false) {
 				Employee emp = null;
 				for (Employee temp : employees) {
-					if (temp.getUser() !=null && temp.getUser().getId() == activeUser.getUserId()) {
+					if (temp.getUser() != null && temp.getUser().getId() == activeUser.getUserId()) {
 						emp = temp;
 						break;
 					}
@@ -102,11 +101,13 @@ public class WorkingHoursRecordController {
 				int i = pojoObject.getContractHoursData().length;
 
 				if (pojoObject.getContractHoursData() != null && pojoObject.getContractHoursData().length != 0) {
-					boolean result_1 = contractHoursService.updateContractHours(pojoObject.getContractHoursData(), pojoObject.getEmployeeId());
+					boolean result_1 = contractHoursService.updateContractHours(pojoObject.getContractHoursData(),
+							pojoObject.getEmployeeId());
 				}
 
 				if (pojoObject.getHoursCellData() != null && pojoObject.getHoursCellData().length != 0) {
-					boolean result_2 = workingHoursRecordService.updateWorkingHours(pojoObject.getHoursCellData(), pojoObject.getEmployeeId());
+					boolean result_2 = workingHoursRecordService.updateWorkingHours(pojoObject.getHoursCellData(),
+							pojoObject.getEmployeeId());
 				}
 			}
 		} catch (Exception ex) {
@@ -125,7 +126,8 @@ public class WorkingHoursRecordController {
 			returnObject.setEmployeeId(String.valueOf(empId));
 
 			// Creating contract hours object to transfer
-			List<ContractHours> contractHours = contractHoursService.getContractHoursfindBetweenDates(empId, start, end);
+			List<ContractHours> contractHours = contractHoursService.getContractHoursfindBetweenDates(empId, start,
+					end);
 
 			List<ContractHoursData> contractHoursCells = new ArrayList<ContractHoursData>();
 			for (ContractHours item : contractHours) {
@@ -138,7 +140,8 @@ public class WorkingHoursRecordController {
 			}
 
 			// Creating working/vacation hours objects to transfer
-			List<WorkingHoursRecord> workingHoursRecords = workingHoursRecordService.getWorkingHoursRecordByYearEmployee(empId, start, end);
+			List<WorkingHoursRecord> workingHoursRecords = workingHoursRecordService
+					.getWorkingHoursRecordByYearEmployee(empId, start, end);
 
 			List<HoursCellData> workingCells = new ArrayList<HoursCellData>();
 			List<HoursCellData> vacationCells = new ArrayList<HoursCellData>();

@@ -2,12 +2,10 @@ package com.brouwershuis.pojo;
 
 import java.util.List;
 
-import com.brouwershuis.db.model.*;
-
-
+import com.brouwershuis.db.model.Employee;
 
 public class VacantieurenViewModel {
-	 List<Employee> employees;
+	List<Employee> employees;
 
 	public List<Employee> getEmployees() {
 		return employees;

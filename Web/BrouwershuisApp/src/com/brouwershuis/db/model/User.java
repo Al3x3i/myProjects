@@ -1,12 +1,25 @@
 package com.brouwershuis.db.model;
 
-import javax.persistence.*;
-
-import com.fasterxml.jackson.annotation.JsonBackReference;
-
 import java.io.Serializable;
 import java.util.Date;
 import java.util.Set;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.persistence.Transient;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
 @Table(name = "user")
@@ -22,7 +35,6 @@ public class User implements Serializable {
 	private Set<Role> roles;
 	private boolean enabled;
 	private Employee employee;
-	
 
 	private Date timesTamp;
 
@@ -90,7 +102,7 @@ public class User implements Serializable {
 		this.enabled = enabled;
 	}
 
-	@Column(name="TIMESTAMP", columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+	@Column(name = "TIMESTAMP", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
 	@Temporal(TemporalType.TIMESTAMP)
 	public synchronized Date getTimesTamp() {
 		return timesTamp;

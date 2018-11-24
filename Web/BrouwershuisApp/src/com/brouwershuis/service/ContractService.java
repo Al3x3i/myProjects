@@ -15,15 +15,15 @@ public class ContractService {
 
 	@Inject
 	ContractDAO contractDAO;
-	
+
 	@Transactional
-	public List<Contract> findAll(){
+	public List<Contract> findAll() {
 		return contractDAO.findAll();
 	}
-	
+
 	@Transactional
-	public Contract findByName(String name){
+	public Contract findByName(String name) {
 		return contractDAO.finByName(name);
 	}
-	
+
 }

@@ -15,9 +15,9 @@ public class ShiftService {
 
 	@Inject
 	ShiftDAO shiftDao;
-	
+
 	@Transactional
-	public List<Shift> findAll(){
+	public List<Shift> findAll() {
 		return shiftDao.findAll();
 	}
 }

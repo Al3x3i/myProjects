@@ -22,7 +22,8 @@ public class WorkScheduleDAO {
 	@PersistenceContext
 	protected EntityManager em;
 
-	public boolean addTableRecord(Time start, Time end, Date date, Integer employeeId, String shiftName, String comments) throws Exception {
+	public boolean addTableRecord(Time start, Time end, Date date, Integer employeeId, String shiftName,
+			String comments) throws Exception {
 		int output = 0;
 
 		StoredProcedureQuery query = this.em.createStoredProcedureQuery("P_ADDWORK_SCHEDULE");
@@ -78,7 +79,8 @@ public class WorkScheduleDAO {
 	}
 
 	public List<WorkSchedule> getTableData(Date start, Date end) {
-		TypedQuery<WorkSchedule> query = em.createQuery("SELECT w FROM WorkSchedule w WHERE (w.weekDate BETWEEN :arg1 AND :arg2)", WorkSchedule.class);
+		TypedQuery<WorkSchedule> query = em.createQuery(
+				"SELECT w FROM WorkSchedule w WHERE (w.weekDate BETWEEN :arg1 AND :arg2)", WorkSchedule.class);
 		query.setParameter("arg1", start, TemporalType.DATE);
 		query.setParameter("arg2", end, TemporalType.DATE);
 
@@ -92,7 +94,9 @@ public class WorkScheduleDAO {
 	}
 
 	public List<WorkSchedule> getTableDataByDateAndShift(Date start, Date end, String shiftName) {
-		TypedQuery<WorkSchedule> query = em.createQuery("SELECT w FROM WorkSchedule w WHERE (w.weekDate BETWEEN :arg1 AND :arg2) AND w.shift.name = :arg3 ORDER BY w.weekDate ASC", WorkSchedule.class);
+		TypedQuery<WorkSchedule> query = em.createQuery(
+				"SELECT w FROM WorkSchedule w WHERE (w.weekDate BETWEEN :arg1 AND :arg2) AND w.shift.name = :arg3 ORDER BY w.weekDate ASC",
+				WorkSchedule.class);
 		query.setParameter("arg1", start, TemporalType.DATE);
 		query.setParameter("arg2", end, TemporalType.DATE);
 		query.setParameter("arg3", shiftName);
@@ -101,7 +105,8 @@ public class WorkScheduleDAO {
 		return items;
 	}
 
-	public boolean updateTableRecord(int rowId, Date date, Integer employeeId, Time startTime, Time endTime, String comments) {
+	public boolean updateTableRecord(int rowId, Date date, Integer employeeId, Time startTime, Time endTime,
+			String comments) {
 
 		WorkSchedule record = em.find(WorkSchedule.class, rowId);
 
@@ -129,7 +134,8 @@ public class WorkScheduleDAO {
 
 			if (record.getWeekDate().compareTo(date) == 0) {
 
-				if ((record.getEmployee() != null && record.getEmployee().getId() == employeeId) || (record.getEmployee() == null && employeeId == null)) {
+				if ((record.getEmployee() != null && record.getEmployee().getId() == employeeId)
+						|| (record.getEmployee() == null && employeeId == null)) {
 					em.remove(record);
 					em.flush();
 
@@ -144,15 +150,13 @@ public class WorkScheduleDAO {
 
 	public void getTotalWorkingHoursByWeek(Date start, Date end) {
 		String sql = "SELECT w.EMPLOYEE_FK, e.DISPLAYNAME, TIME_FORMAT(SUM(TIMEDIFF(w.ENDTIME,w.StartTime)), '%H:%i') "
-				+ "FROM  work_schedule w "
-				+ "JOIN employee "
-				+ "e ON e.id = w.EMPLOYEE_FK "
+				+ "FROM  work_schedule w " + "JOIN employee " + "e ON e.id = w.EMPLOYEE_FK "
 				+ "WHERE w.weekdate >= '?start' AND w.weekdate <= '?end' GROUP BY w.EMPLOYEE_FK";
 
 		Query query = em.createNativeQuery(sql);
 		query.setParameter("arg1", start, TemporalType.DATE);
 		query.setParameter("arg2", end, TemporalType.DATE);
-		
+
 		query.getResultList();
 	}
 }

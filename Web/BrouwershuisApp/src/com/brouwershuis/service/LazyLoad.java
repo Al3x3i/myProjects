@@ -6,8 +6,8 @@ import javax.persistence.Persistence;
 
 public class LazyLoad {
 
-	public static EntityManager getEnityManager(){
-		
+	public static EntityManager getEnityManager() {
+
 		EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("BrouwershuisApp");
 		EntityManager entityManager = emfactory.createEntityManager();
 		return entityManager;

@@ -3,7 +3,6 @@
 	<persistence-unit name="BrouwershuisApp" transaction-type="RESOURCE_LOCAL">
 		
 		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
-		<class>com.brouwershuis.db.model.Contract</class>
 		<class>com.brouwershuis.db.model.ContractHours</class>
 		<class>com.brouwershuis.db.model.Employee</class>
 		<class>com.brouwershuis.db.model.Role</class>
@@ -11,11 +10,14 @@
 		<class>com.brouwershuis.db.model.User</class>
 		<class>com.brouwershuis.db.model.WorkingHoursRecord</class>
 		<class>com.brouwershuis.db.model.WorkSchedule</class>
+		<class>com.brouwershuis.db.model.Contract</class>
+		<exclude-unlisted-classes>false</exclude-unlisted-classes>
 		<properties>
 			<property name="eclipselink.weaving" value="false"/>
 			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/brouwerhuisdb"/>
 			<property name="javax.persistence.jdbc.user" value="root"/>
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+			<property name="eclipselink.exclude-eclipselink-orm" value="true"/>
 		
 		</properties>
 	</persistence-unit>

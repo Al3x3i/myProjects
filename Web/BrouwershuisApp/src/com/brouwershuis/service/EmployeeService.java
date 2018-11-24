@@ -20,11 +20,10 @@ import com.brouwershuis.db.model.Role;
 import com.brouwershuis.db.model.User;
 import com.brouwershuis.helper.Helper;
 import com.brouwershuis.pojo.EmloyeePojo;
-import com.brouwershuis.security.SecurityServiceImpl;
 
 @Service
 public class EmployeeService {
-	
+
 	private static final Logger LOGGER = Logger.getLogger(EmployeeService.class);
 
 	@Autowired
@@ -46,7 +45,8 @@ public class EmployeeService {
 
 		if (employee != null) {
 			EnumRoles selectedRole;
-			if (employeePojo.getUsername() == null || employeePojo.getUsername().equals("") || employeePojo.getPassword() == null || employeePojo.getPassword().equals("")) {
+			if (employeePojo.getUsername() == null || employeePojo.getUsername().equals("")
+					|| employeePojo.getPassword() == null || employeePojo.getPassword().equals("")) {
 				// create employee without making user account
 				return true;
 			} else if (employeePojo.isAdmin() == true) {
@@ -59,10 +59,10 @@ public class EmployeeService {
 
 			if (role != null) {
 				User u = userService.addUser(employee, employeePojo.getUsername(), employeePojo.getPassword(), role);
-				if (u !=null)
-					//If I will not set then recent created entity is still detached
+				if (u != null)
+					// If I will not set then recent created entity is still detached
 					employee.setUser(u);
-				else{
+				else {
 					TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
 					return false;
 				}
@@ -90,7 +90,7 @@ public class EmployeeService {
 	public boolean editEmployee(EmloyeePojo employeePojo) {
 
 		Employee db_emp = employeeDao.findEmployee(Integer.valueOf(employeePojo.getDT_RowId()));
-		
+
 		if (db_emp != null) {
 			db_emp.setAddress(employeePojo.getAddress());
 			db_emp.setGender(employeePojo.getGender());
@@ -99,20 +99,21 @@ public class EmployeeService {
 			db_emp.setFirstName(employeePojo.getFirstName());
 			db_emp.setLastName(employeePojo.getLastName());
 			String dispName = employeePojo.getAliasName();
-			if (dispName == null || dispName.equals("")) 
-				dispName = employeePojo.getFirstName().charAt(0) +"."+ employeePojo.getLastName();
-			
+			if (dispName == null || dispName.equals(""))
+				dispName = employeePojo.getFirstName().charAt(0) + "." + employeePojo.getLastName();
+
 			db_emp.setDisplayName(dispName);
 
 			Contract contract = new Contract();
 			contract.setId(Integer.valueOf(employeePojo.getContract()));
 			db_emp.setContract(contract);
-			
+
 			EnumRoles selectedRole;
-			if (employeePojo.getUsername() == null || employeePojo.getUsername().equals("") || employeePojo.getPassword() == null || employeePojo.getPassword().equals("")) {
-				
-				if(db_emp.getUser() !=null){
-					if(userService.removeUser(db_emp.getUser())){
+			if (employeePojo.getUsername() == null || employeePojo.getUsername().equals("")
+					|| employeePojo.getPassword() == null || employeePojo.getPassword().equals("")) {
+
+				if (db_emp.getUser() != null) {
+					if (userService.removeUser(db_emp.getUser())) {
 						db_emp.setUser(null);
 					}
 				}
@@ -127,13 +128,13 @@ public class EmployeeService {
 
 			if (role != null) {
 				User temp_user = db_emp.getUser();
-				
-				if (temp_user != null && employeePojo.getUsername().equals(temp_user.getUsername())){
-					if(userService.removeUser(db_emp.getUser())){
+
+				if (temp_user != null && employeePojo.getUsername().equals(temp_user.getUsername())) {
+					if (userService.removeUser(db_emp.getUser())) {
 						db_emp.setUser(null);
 					}
 				}
-				
+
 				User u = userService.addUser(db_emp, employeePojo.getUsername(), employeePojo.getPassword(), role);
 //				if (u != null)
 //					//If I will not set then recent created entity is still detached
@@ -143,14 +144,13 @@ public class EmployeeService {
 //					return false;
 //				}
 			}
-			
-			
+
 			employeeDao.updateEmployee(db_emp);
-			
+
 			return true;
 		}
 		return false;
-		
+
 	}
 
 }

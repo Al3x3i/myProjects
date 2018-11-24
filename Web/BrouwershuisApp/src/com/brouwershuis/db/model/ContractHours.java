@@ -21,24 +21,24 @@ public class ContractHours implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
+
 	@Temporal(TemporalType.DATE)
 	@Column(name = "START_DATE")
 	private Date startDate;
-	
+
 	@Temporal(TemporalType.DATE)
 	@Column(name = "END_DATE")
 	private Date endDate;
-	
-	//Store time in seconds
+
+	// Store time in seconds
 	@Column(name = "FIXED_TIME")
 	private int fixedTime;
-	
+
 	@ManyToOne
-	@JoinColumn(name="EMPLOYEE_FK", nullable=false)
+	@JoinColumn(name = "EMPLOYEE_FK", nullable = false)
 	private Employee employee;
-	
-	@Column(name="TIMESTAMP", columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+
+	@Column(name = "TIMESTAMP", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date timesTamp;
 

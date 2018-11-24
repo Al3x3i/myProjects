@@ -11,8 +11,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Service;
 
-import com.brouwershuis.service.WorkScheduleService;
-
 @Service
 public class SecurityServiceImpl implements SecurityService {
 
@@ -39,7 +37,8 @@ public class SecurityServiceImpl implements SecurityService {
 		UserDetails userDetails = userDetailsService.loadUserByUsername(username);
 
 		if (userDetails != null) {
-			UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken = new UsernamePasswordAuthenticationToken(userDetails, password, userDetails.getAuthorities());
+			UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken = new UsernamePasswordAuthenticationToken(
+					userDetails, password, userDetails.getAuthorities());
 
 			authenticationManager.authenticate(usernamePasswordAuthenticationToken);
 			if (usernamePasswordAuthenticationToken.isAuthenticated()) {

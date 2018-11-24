@@ -15,7 +15,8 @@ public class WorkScheduleTableData {
 
 	}
 
-	public WorkScheduleTableData(String id, String employeeId, String date, String displayName, String comments, String startTime, String endTime) {
+	public WorkScheduleTableData(String id, String employeeId, String date, String displayName, String comments,
+			String startTime, String endTime) {
 		super();
 		this.id = id;
 		this.employeeId = employeeId;

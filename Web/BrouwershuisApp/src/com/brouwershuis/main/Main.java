@@ -1,51 +1,33 @@
 package com.brouwershuis.main;
 
 import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 import java.sql.Statement;
-import java.sql.Time;
-import java.text.DateFormat;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.time.DayOfWeek;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Calendar;
 import java.util.Collections;
-import java.util.Date;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Locale;
-import java.util.Set;
-import java.util.TimeZone;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
-import javax.persistence.TypedQuery;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.AutowireCapableBeanFactory;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.brouwershuis.db.model.Contract;
-import com.brouwershuis.db.model.Employee;
 import com.brouwershuis.db.model.EnumContract;
 import com.brouwershuis.db.model.EnumRoles;
 import com.brouwershuis.db.model.EnumShiftType;
 import com.brouwershuis.db.model.Role;
 import com.brouwershuis.db.model.Shift;
-import com.brouwershuis.db.model.User;
-import com.brouwershuis.helper.Helper;
 import com.brouwershuis.pojo.EmloyeePojo;
 import com.brouwershuis.service.ContractService;
 import com.brouwershuis.service.EmployeeService;
@@ -54,7 +36,7 @@ public class Main {
 
 	public Main() throws IOException {
 
-		String address = "C:/Users/Al3x3i/Documents/backup/BrouwershuisApp/WebContent/WEB-INF/appconfig-root.xml";
+		String address = "/home/asasin/Documents/myProjects/Web/BrouwershuisApp/WebContent/WEB-INF/appconfig-root.xml";
 
 		// Load all beans
 		ApplicationContext context = new ClassPathXmlApplicationContext("file:" + address);
@@ -83,7 +65,7 @@ public class Main {
 
 	private void start(String[] args) throws ParseException {
 
-		//System.out.println("Started inserting default data");
+		// System.out.println("Started inserting default data");
 
 //		int year = 2016;
 //
@@ -166,9 +148,9 @@ public class Main {
 				// sb.append(line);
 				lines.add(System.getProperty("line.separator"));
 			}
-			
+
 			br.close();
-			
+
 			String sqlScript = String.join("", lines);
 
 			String URL = "jdbc:mysql://localhost:3306/brouwerhuisdb?allowMultiQueries=true";
@@ -215,7 +197,7 @@ public class Main {
 		q1 = entitymanager.createNativeQuery("ALTER TABLE contract_hours AUTO_INCREMENT = 1");
 		q1.executeUpdate();
 		entitymanager.flush();
-		
+
 		q1 = entitymanager.createNativeQuery("DELETE FROM working_hours_record;");
 		q1.executeUpdate();
 		q1 = entitymanager.createNativeQuery("ALTER TABLE working_hours_record AUTO_INCREMENT = 1");
@@ -262,6 +244,10 @@ public class Main {
 
 		newEmployee.setUsername("testing");
 		newEmployee.setPassword("test");
+		empService.addEmployee(newEmployee);
+
+		newEmployee.setUsername("aukje2017");
+		newEmployee.setPassword("aukje2017");
 		empService.addEmployee(newEmployee);
 
 		newEmployee = new EmloyeePojo();

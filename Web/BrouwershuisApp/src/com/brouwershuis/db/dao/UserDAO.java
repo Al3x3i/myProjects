@@ -4,7 +4,6 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
-import javax.transaction.Transactional;
 
 import com.brouwershuis.db.model.User;
 
@@ -34,7 +33,7 @@ public class UserDAO {
 		try {
 			em.persist(user);
 			em.flush();
-			if(user.getId() > 0){
+			if (user.getId() > 0) {
 				return user;
 			}
 		} catch (Exception ex) {
@@ -42,14 +41,14 @@ public class UserDAO {
 		}
 		return null;
 	}
-	
+
 	public boolean removeUser(User user) {
 
 		try {
 			em.remove(user);
 			em.flush();
 
-			if(!em.contains(user)){
+			if (!em.contains(user)) {
 				return true;
 			}
 		} catch (Exception ex) {

@@ -10,8 +10,6 @@ import java.util.Date;
 
 import org.apache.log4j.Logger;
 
-import com.brouwershuis.controller.EmployeeController;
-
 public class Helper {
 
 	private static final Logger LOGGER = Logger.getLogger(Helper.class);
@@ -141,7 +139,7 @@ public class Helper {
 			int totalSeconds = 0;
 
 			String[] t = formattedTime.split(":");
-			
+
 			if (t.length >= 1)
 				totalSeconds = Integer.valueOf(t[0]) * 60 * 60;
 

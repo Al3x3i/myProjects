@@ -80,7 +80,8 @@ public class WorkingHoursRecordPojo {
 		private String endDate;
 		private String fixedTime;
 
-		public ContractHoursData(){}
+		public ContractHoursData() {
+		}
 
 		public ContractHoursData(String id, String startDate, String endDate, String fixedTime) {
 			super();

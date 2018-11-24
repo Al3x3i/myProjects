@@ -5,9 +5,7 @@ import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
 import javax.persistence.TypedQuery;
-import javax.transaction.Transactional;
 
 import org.apache.log4j.Logger;
 
@@ -15,7 +13,6 @@ import com.brouwershuis.db.model.Contract;
 import com.brouwershuis.db.model.Employee;
 import com.brouwershuis.helper.Helper;
 import com.brouwershuis.pojo.EmloyeePojo;
-import com.brouwershuis.service.EmployeeService;
 
 @Stateless
 public class EmployeeDAO {
@@ -79,7 +76,7 @@ public class EmployeeDAO {
 			em.persist(newEmployee);
 			em.flush();
 			em.clear();
-			
+
 			if (newEmployee.getId() != 0) {
 				return newEmployee;
 			}

@@ -15,7 +15,6 @@ import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.validation.ObjectError;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -27,18 +26,17 @@ import com.brouwershuis.pojo.EmloyeePojo;
 import com.brouwershuis.pojo.EmployeeDTO;
 import com.brouwershuis.service.ContractService;
 import com.brouwershuis.service.EmployeeService;
+import com.brouwershuis.validator.UserValidator;
+import com.brouwershuis.validator.UserValidator.ValidationType;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 
-import com.brouwershuis.validator.UserValidator;
-import com.brouwershuis.validator.UserValidator.ValidationType;
-
 @Controller
 @RequestMapping(value = "/employees")
 public class EmployeeController {
-	
+
 	private static final Logger LOGGER = Logger.getLogger(EmployeeController.class);
 
 	@Autowired
@@ -126,11 +124,11 @@ public class EmployeeController {
 	@RequestMapping(value = "/editEmployee", method = RequestMethod.POST)
 	public @ResponseBody Map<String, Object> editEmployee(EmloyeePojo emp, BindingResult bindingResult) {
 		try {
-			
+
 			userValidator.setValidationType(ValidationType.EDITUSER);
 			userValidator.validate(emp, bindingResult);
 			userValidator.setValidationType(ValidationType.ADDUSER);
-			
+
 			if (bindingResult.hasErrors()) {
 
 				Map<String, Object> returnMessage = new HashMap<String, Object>();

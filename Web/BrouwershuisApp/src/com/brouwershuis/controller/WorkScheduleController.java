@@ -36,7 +36,7 @@ import com.google.gson.reflect.TypeToken;
 @Controller
 @RequestMapping(value = "/schedules")
 public class WorkScheduleController {
-	
+
 	private static final Logger LOGGER = Logger.getLogger(WorkScheduleController.class);
 
 	@Autowired
@@ -61,12 +61,12 @@ public class WorkScheduleController {
 	 * JsonObject reuqestTableData = getTableData(dates[0], dates[1]); // //
 	 * model.addAttribute("allTableData", reuqestTableData);
 	 * 
-	 * } catch (Exception ex) { String g = ex.getMessage(); } return "rooster";
-	 * }
+	 * } catch (Exception ex) { String g = ex.getMessage(); } return "rooster"; }
 	 */
 
 	@RequestMapping(method = RequestMethod.DELETE, value = WebRestURIConstants.WORKSHCEDULE_SUB_DELETE_URL, consumes = "application/json")
-	public @ResponseBody Map<String, Boolean> deleteRecord(@PathVariable("viewName") String viewName, ModelMap model, @RequestBody String jsonData) {
+	public @ResponseBody Map<String, Boolean> deleteRecord(@PathVariable("viewName") String viewName, ModelMap model,
+			@RequestBody String jsonData) {
 
 		WorkScheduleTableData data = new Gson().fromJson(jsonData, WorkScheduleTableData.class);
 
@@ -77,7 +77,8 @@ public class WorkScheduleController {
 	}
 
 	@RequestMapping(method = RequestMethod.PATCH, value = WebRestURIConstants.WORKSHCEDULE_SUB_PATCH_URL, consumes = "application/json")
-	public @ResponseBody Map<String, Boolean> updateTableRecord(@PathVariable("viewName") String viewName, ModelMap model, @RequestBody String jsonData) {
+	public @ResponseBody Map<String, Boolean> updateTableRecord(@PathVariable("viewName") String viewName,
+			ModelMap model, @RequestBody String jsonData) {
 
 		WorkScheduleTableData updateTableData = new Gson().fromJson(jsonData, WorkScheduleTableData.class);
 
@@ -88,14 +89,16 @@ public class WorkScheduleController {
 	}
 
 	@RequestMapping(method = RequestMethod.PUT, value = WebRestURIConstants.WORKSHCEDULE_SUB_PUT_URL, consumes = "application/json")
-	public @ResponseBody Map<String, Boolean> saveTableRecord(@PathVariable("viewName") String viewName, ModelMap model, @RequestBody String jsonData) {
+	public @ResponseBody Map<String, Boolean> saveTableRecord(@PathVariable("viewName") String viewName, ModelMap model,
+			@RequestBody String jsonData) {
 
 		boolean result = false;
 
 		try {
 			System.out.println("Save data");
-			List<WorkScheduleTableData> updateTableData = new Gson().fromJson(jsonData, new TypeToken<List<WorkScheduleTableData>>() {
-			}.getType());
+			List<WorkScheduleTableData> updateTableData = new Gson().fromJson(jsonData,
+					new TypeToken<List<WorkScheduleTableData>>() {
+					}.getType());
 
 			if (viewName.equals(WebRestURIConstants.WORKSHCEDULE_SUB_SLAAPDIENST)) {
 				result = workScheduleService.addSlaapDienst(updateTableData);
@@ -109,7 +112,8 @@ public class WorkScheduleController {
 	}
 
 	@RequestMapping(method = RequestMethod.GET, value = WebRestURIConstants.WORKSHCEDULE_SUB_GET_URL)
-	public @ResponseBody String getTableData(@PathVariable("viewName") String viewName, ModelMap model, String start, String end) {
+	public @ResponseBody String getTableData(@PathVariable("viewName") String viewName, ModelMap model, String start,
+			String end) {
 		try {
 			Date startDate = Helper.formatDate(start);
 			Date endDate = Helper.formatDate(end);
@@ -120,26 +124,29 @@ public class WorkScheduleController {
 				JsonObject jsonObject = new JsonObject();
 
 				if (viewName.equals(WebRestURIConstants.WORKSHCEDULE_SUB_ROOSTER)) {
-					List<WorkScheduleTableData> slaadDiensts = workScheduleService.getSlaapDienstData(startDate, endDate);
-					List<WorkScheduleTableData> schakeldienst = workScheduleService.getSchakeldienst(startDate, endDate);
+					List<WorkScheduleTableData> slaadDiensts = workScheduleService.getSlaapDienstData(startDate,
+							endDate);
+					List<WorkScheduleTableData> schakeldienst = workScheduleService.getSchakeldienst(startDate,
+							endDate);
 
 					JsonElement j_slaapDienst = gson.toJsonTree(slaadDiensts);
 					JsonElement j_schakeldienst = gson.toJsonTree(schakeldienst);
 					jsonObject.add("slaapDienst", j_slaapDienst);
 					jsonObject.add("schakeldienst", j_schakeldienst);
 					return gson.toJson(jsonObject);
-					
-				}
-				else if (viewName.equals(WebRestURIConstants.WORKSHCEDULE_SUB_SLAAPDIENST)) {
 
-					List<WorkScheduleTableData> slaadDiensts = workScheduleService.getSlaapDienstData(startDate, endDate);
+				} else if (viewName.equals(WebRestURIConstants.WORKSHCEDULE_SUB_SLAAPDIENST)) {
+
+					List<WorkScheduleTableData> slaadDiensts = workScheduleService.getSlaapDienstData(startDate,
+							endDate);
 
 					JsonElement j_slaapDienst = gson.toJsonTree(slaadDiensts);
 					jsonObject.add("slaapDienst", j_slaapDienst);
 					return gson.toJson(jsonObject);
 				} else if (viewName.equals(WebRestURIConstants.WORKSHCEDULE_SUB_SCHAKELDIENST)) {
 
-					List<WorkScheduleTableData> schakeldienst = workScheduleService.getSchakeldienst(startDate, endDate);
+					List<WorkScheduleTableData> schakeldienst = workScheduleService.getSchakeldienst(startDate,
+							endDate);
 
 					JsonElement j_schakeldienst = gson.toJsonTree(schakeldienst);
 					jsonObject.add("schakeldienst", j_schakeldienst);
@@ -154,7 +161,8 @@ public class WorkScheduleController {
 	}
 
 	@RequestMapping(method = RequestMethod.GET, value = WebRestURIConstants.WORKSHCEDULE_SUB_GETDIENST_URL)
-	public @ResponseBody WorkSchedule getRecordDetails(@PathVariable("viewName") String viewName, ModelMap model, String id) {
+	public @ResponseBody WorkSchedule getRecordDetails(@PathVariable("viewName") String viewName, ModelMap model,
+			String id) {
 		try {
 			int rowId = Integer.valueOf(id);
 			WorkSchedule result = workScheduleService.getDienstById(rowId);
@@ -188,7 +196,7 @@ public class WorkScheduleController {
 		case WebRestURIConstants.WORKSCHEDULE_SUB_VVVDIENS:
 			selectedView = "subView\\vvvdienst";
 		}
-		
+
 		if (!selectedView.equals("")) {
 
 			JsonObject reuqestEmployees = getEmployees();
@@ -219,19 +227,22 @@ public class WorkScheduleController {
 		return reuqestEmployees;
 	}
 
-	private void sortEmployees(List<Employee> allEmployees, List<EmloyeePojo> medewerkers, List<EmloyeePojo> vrijwilligers, List<EmloyeePojo> clients) {
-		try{
+	private void sortEmployees(List<Employee> allEmployees, List<EmloyeePojo> medewerkers,
+			List<EmloyeePojo> vrijwilligers, List<EmloyeePojo> clients) {
+		try {
 			for (Employee emp : allEmployees) {
 				if (emp.getContract().getName().equals(EnumContract.CONTRACT_CLIENT.toString())) {
-					clients.add(new EmloyeePojo(emp.getId(), emp.getFirstName(), emp.getLastName(), emp.getEnabled(), emp.getContract().getName()));
+					clients.add(new EmloyeePojo(emp.getId(), emp.getFirstName(), emp.getLastName(), emp.getEnabled(),
+							emp.getContract().getName()));
 				} else if (emp.getContract().getName().equals(EnumContract.CONTRACT_MEDEWERKER.toString())) {
-					medewerkers.add(new EmloyeePojo(emp.getId(), emp.getFirstName(), emp.getLastName(), emp.getEnabled(), emp.getContract().getName()));
+					medewerkers.add(new EmloyeePojo(emp.getId(), emp.getFirstName(), emp.getLastName(),
+							emp.getEnabled(), emp.getContract().getName()));
 				} else if (emp.getContract().getName().equals(EnumContract.CONTRACT_VRIJWILLIGER.toString())) {
-					vrijwilligers.add(new EmloyeePojo(emp.getId(), emp.getFirstName(), emp.getLastName(), emp.getEnabled(), emp.getContract().getName()));
+					vrijwilligers.add(new EmloyeePojo(emp.getId(), emp.getFirstName(), emp.getLastName(),
+							emp.getEnabled(), emp.getContract().getName()));
 				}
 			}
-		}
-		catch(Exception ex){
+		} catch (Exception ex) {
 			LOGGER.error(ex.getMessage());
 			System.out.println("Error, Cannot sort Employees");
 		}

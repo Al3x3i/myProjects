@@ -16,50 +16,46 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 
-import com.brouwershuis.helper.SqlTimeDeserializer;
 import com.brouwershuis.helper.SqlTimeSerializer;
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 @Entity
-@Table(name="work_schedule")
-public class WorkSchedule implements Serializable{
+@Table(name = "work_schedule")
+public class WorkSchedule implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
+
 	@NotNull
 	@Temporal(TemporalType.DATE)
-	@Column(nullable=false)
+	@Column(nullable = false)
 	private Date weekDate;
-	
+
 	@NotNull
 	@ManyToOne
-	@JoinColumn(name="EMPLOYEE_FK")
+	@JoinColumn(name = "EMPLOYEE_FK")
 	private Employee employee;
-	
-	//@JsonFormat(pattern="HH:mm",timezone= "UTC")
-	//@Temporal(TemporalType.TIME)
+
+	// @JsonFormat(pattern="HH:mm",timezone= "UTC")
+	// @Temporal(TemporalType.TIME)
 	@JsonSerialize(using = SqlTimeSerializer.class)
 	private Time startTime;
-	
-	//@JsonFormat(pattern="HH:mm")
+
+	// @JsonFormat(pattern="HH:mm")
 	@JsonSerialize(using = SqlTimeSerializer.class)
 	private Time endTime;
-	
+
 	@ManyToOne
-	@JoinColumn(name="SHIFT_FK", nullable=false)
+	@JoinColumn(name = "SHIFT_FK", nullable = false)
 	private Shift shift;
-	
-	@Column(columnDefinition="VARCHAR(255)")
+
+	@Column(columnDefinition = "VARCHAR(255)")
 	private String comments;
-	
-	@Column(name="TIMESTAMP", columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+
+	@Column(name = "TIMESTAMP", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date timesTamp;
-	
-
 
 	public synchronized Shift getShift() {
 		return shift;

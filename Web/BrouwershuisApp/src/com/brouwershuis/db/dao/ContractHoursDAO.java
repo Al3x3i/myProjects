@@ -48,7 +48,8 @@ public class ContractHoursDAO {
 	public boolean updateContracHours(int id, int employeeId, Date startDate, Date endDate, int fixedTime) {
 
 		ContractHours c = em.find(ContractHours.class, id);
-		if (c != null && c.getEmployee().getId() == employeeId && c.getStartDate().compareTo(startDate) == 0 && c.getEndDate().compareTo(endDate) == 0) {
+		if (c != null && c.getEmployee().getId() == employeeId && c.getStartDate().compareTo(startDate) == 0
+				&& c.getEndDate().compareTo(endDate) == 0) {
 			c.setFixedTime(fixedTime);
 			em.flush();
 			return true;
@@ -59,7 +60,8 @@ public class ContractHoursDAO {
 	public boolean deleteSlaapDienstData(int id, int employeeId, Date startDate, Date endDate) {
 		ContractHours c = em.find(ContractHours.class, id);
 
-		if (c != null && c.getEmployee().getId() == employeeId && c.getStartDate().compareTo(startDate) == 0 && c.getEndDate().compareTo(endDate) == 0) {
+		if (c != null && c.getEmployee().getId() == employeeId && c.getStartDate().compareTo(startDate) == 0
+				&& c.getEndDate().compareTo(endDate) == 0) {
 			em.remove(c);
 			em.flush();
 		}

@@ -46,8 +46,8 @@ public class WorkingHoursRecord implements Serializable {
 	@JoinColumn(name = "EMPLOYEEID", nullable = false)
 	@JsonManagedReference
 	private Employee employee;
-	
-	@Column(name="TIMESTAMP", columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+
+	@Column(name = "TIMESTAMP", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date timesTamp;
 

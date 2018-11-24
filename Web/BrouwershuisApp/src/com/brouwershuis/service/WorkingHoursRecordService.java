@@ -1,6 +1,5 @@
 package com.brouwershuis.service;
 
-import java.sql.Time;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
@@ -24,7 +23,8 @@ public class WorkingHoursRecordService {
 	private WorkingHoursRecordDAO workingHoursRecordDAO;
 
 	@Transactional
-	public List<WorkingHoursRecord> getWorkingHoursRecordByYearEmployee(String empId, String beginDate, String endDate) {
+	public List<WorkingHoursRecord> getWorkingHoursRecordByYearEmployee(String empId, String beginDate,
+			String endDate) {
 
 		try {
 
@@ -70,7 +70,8 @@ public class WorkingHoursRecordService {
 
 				if (recordId != 0) {
 
-					WorkingHoursRecord existedRecord = workingHoursRecordDAO.findWorkingHoursRecord(recordId, employeeId, recordDate);
+					WorkingHoursRecord existedRecord = workingHoursRecordDAO.findWorkingHoursRecord(recordId,
+							employeeId, recordDate);
 
 					if (existedRecord != null) {
 
@@ -93,14 +94,17 @@ public class WorkingHoursRecordService {
 					}
 				} else {
 
-					WorkingHoursRecord existedRecord = workingHoursRecordDAO.findByDateAndEmployee(employeeId, recordDate);
+					WorkingHoursRecord existedRecord = workingHoursRecordDAO.findByDateAndEmployee(employeeId,
+							recordDate);
 
 					if (existedRecord == null) {
 						WorkingHoursRecord w = null;
 						if (WorkingHoursRecord.VACATION_TYPE == hoursType) {
-							w = new WorkingHoursRecord(recordId, recordDate, recordTime, null, new Employee(employeeId));
+							w = new WorkingHoursRecord(recordId, recordDate, recordTime, null,
+									new Employee(employeeId));
 						} else {
-							w = new WorkingHoursRecord(recordId, recordDate, null, recordTime, new Employee(employeeId));
+							w = new WorkingHoursRecord(recordId, recordDate, null, recordTime,
+									new Employee(employeeId));
 						}
 						workingHoursRecordDAO.addWorkingHoursRecord(w);
 					} else {

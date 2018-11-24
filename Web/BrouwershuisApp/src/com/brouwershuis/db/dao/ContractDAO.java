@@ -9,7 +9,6 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
 import com.brouwershuis.db.model.Contract;
-import com.brouwershuis.db.model.User;
 
 @Stateless
 public class ContractDAO {

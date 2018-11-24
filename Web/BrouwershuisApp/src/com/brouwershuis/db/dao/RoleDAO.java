@@ -7,6 +7,7 @@ import javax.persistence.TypedQuery;
 
 import com.brouwershuis.db.model.EnumRoles;
 import com.brouwershuis.db.model.Role;
+
 @Stateless
 public class RoleDAO {
 
@@ -17,7 +18,8 @@ public class RoleDAO {
 
 		try {
 
-			TypedQuery<Role> query = em.createQuery("SELECT r FROM Role r WHERE r.name ='" + enumRole.toString() + "'", Role.class);
+			TypedQuery<Role> query = em.createQuery("SELECT r FROM Role r WHERE r.name ='" + enumRole.toString() + "'",
+					Role.class);
 			Role role = query.getSingleResult();
 			return role;
 		} catch (Exception ex) {

@@ -19,48 +19,53 @@ import com.google.gson.annotations.Expose;
 
 @Entity
 @Table(name = "shift")
-public class Shift implements Serializable{
+public class Shift implements Serializable {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Expose
 	private int id;
 	@Expose
 	private String name;
-	
-	@Column(name="TIMESTAMP", columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+
+	@Column(name = "TIMESTAMP", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date timesTamp;
-	
-	@OneToMany(mappedBy ="shift", targetEntity  = WorkSchedule.class)
+
+	@OneToMany(mappedBy = "shift", targetEntity = WorkSchedule.class)
 	@JsonBackReference
 	private Set<WorkSchedule> workSchedule;
-	
+
 	public synchronized Set<WorkSchedule> getWorkSchedule() {
 		return workSchedule;
 	}
+
 	public synchronized void setWorkSchedule(Set<WorkSchedule> workSchedule) {
 		this.workSchedule = workSchedule;
 	}
+
 	public int getId() {
 		return id;
 	}
+
 	public void setId(int id) {
 		this.id = id;
 	}
+
 	public String getName() {
 		return name;
 	}
+
 	public void setName(String name) {
 		this.name = name;
 	}
+
 	public synchronized Date getTimesTamp() {
 		return timesTamp;
 	}
+
 	public synchronized void setTimesTamp(Date timesTamp) {
 		this.timesTamp = timesTamp;
 	}
-	
 
-	
 }

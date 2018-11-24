@@ -1,15 +1,15 @@
 package com.brouwershuis.validator;
 
-import com.brouwershuis.db.model.*;
-import com.brouwershuis.pojo.EmloyeePojo;
-//import com.brouwershuis.security.UserService;
-import com.brouwershuis.service.UserService;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
+
+import com.brouwershuis.db.model.User;
+import com.brouwershuis.pojo.EmloyeePojo;
+//import com.brouwershuis.security.UserService;
+import com.brouwershuis.service.UserService;
 
 @Component
 public class UserValidator implements Validator {
@@ -70,7 +70,6 @@ public class UserValidator implements Validator {
 				}
 			}
 			
-
 			ValidationUtils.rejectIfEmptyOrWhitespace(errors, "password", "NotEmpty");
 			if (user.getPassword().length() < 8 || user.getPassword().length() > 32) {
 				errors.reject("password", "Size.userForm.password");

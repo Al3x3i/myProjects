@@ -9,7 +9,6 @@ import javax.inject.Inject;
 import javax.transaction.Transactional;
 
 import org.apache.log4j.Logger;
-import org.eclipse.persistence.oxm.record.FormattedWriterRecord;
 import org.springframework.stereotype.Service;
 
 import com.brouwershuis.db.dao.WorkScheduleDAO;
@@ -37,7 +36,8 @@ public class WorkScheduleService {
 				int employeeId = Integer.valueOf(updateData.getEmployeeId());
 				date = Helper.formatDateCatchExcpetion(updateData.getDate());
 				if (updateData.getId() == null) {
-					result = workScheduleDAO.addTableRecord(null, null, date, employeeId, EnumShiftType.SHIFT_SLAAPDIENST.toString(), null);
+					result = workScheduleDAO.addTableRecord(null, null, date, employeeId,
+							EnumShiftType.SHIFT_SLAAPDIENST.toString(), null);
 				}
 			}
 
@@ -57,7 +57,8 @@ public class WorkScheduleService {
 		try {
 
 			for (WorkScheduleTableData newRecord : itemsList) {
-				Integer employeeId = newRecord.getEmployeeId() != null ? Integer.valueOf(newRecord.getEmployeeId()) : null;
+				Integer employeeId = newRecord.getEmployeeId() != null ? Integer.valueOf(newRecord.getEmployeeId())
+						: null;
 
 				Time start = Helper.formatTime(newRecord.getStartTime());
 				Time end = Helper.formatTime(newRecord.getEndTime());
@@ -65,7 +66,8 @@ public class WorkScheduleService {
 				String comments = newRecord.getComments();
 
 				if (newRecord.getId() == null) {
-					result = workScheduleDAO.addTableRecord(start, end, date, employeeId, EnumShiftType.SHIFT_SCHAKEl.toString(), comments);
+					result = workScheduleDAO.addTableRecord(start, end, date, employeeId,
+							EnumShiftType.SHIFT_SCHAKEl.toString(), comments);
 				}
 			}
 
@@ -95,7 +97,8 @@ public class WorkScheduleService {
 
 		List<WorkScheduleTableData> slaadDiensts = new ArrayList<WorkScheduleTableData>();
 		try {
-			List<WorkSchedule> items = workScheduleDAO.getTableDataByDateAndShift(start, end, EnumShiftType.SHIFT_SLAAPDIENST.toString());
+			List<WorkSchedule> items = workScheduleDAO.getTableDataByDateAndShift(start, end,
+					EnumShiftType.SHIFT_SLAAPDIENST.toString());
 			slaadDiensts.addAll(makeWorkScheduleTableData(items));
 
 			return slaadDiensts;
@@ -111,7 +114,8 @@ public class WorkScheduleService {
 
 		List<WorkScheduleTableData> slaadDiensts = new ArrayList<WorkScheduleTableData>();
 		try {
-			List<WorkSchedule> items = workScheduleDAO.getTableDataByDateAndShift(start, end, EnumShiftType.SHIFT_SCHAKEl.toString());
+			List<WorkSchedule> items = workScheduleDAO.getTableDataByDateAndShift(start, end,
+					EnumShiftType.SHIFT_SCHAKEl.toString());
 			slaadDiensts.addAll(makeWorkScheduleTableData(items));
 
 			return slaadDiensts;
@@ -142,7 +146,9 @@ public class WorkScheduleService {
 
 			Time start = Helper.formatTime(newRecord.getStartTime());
 			Time end = Helper.formatTime(newRecord.getEndTime());
-			String comments = newRecord.getComments() != null ? newRecord.getComments().length() != 0 ? newRecord.getComments() : null : null;
+			String comments = newRecord.getComments() != null
+					? newRecord.getComments().length() != 0 ? newRecord.getComments() : null
+					: null;
 
 			int rowId = Integer.valueOf(newRecord.getId());
 
@@ -190,7 +196,8 @@ public class WorkScheduleService {
 			String end = Helper.formatTime(workSchedule.getEndTime());
 			String comments = workSchedule.getComments();
 
-			WorkScheduleTableData insertData = new WorkScheduleTableData(id, emlployeeId, date, displayName, comments, start, end);
+			WorkScheduleTableData insertData = new WorkScheduleTableData(id, emlployeeId, date, displayName, comments,
+					start, end);
 			records.add(insertData);
 		}
 		return records;

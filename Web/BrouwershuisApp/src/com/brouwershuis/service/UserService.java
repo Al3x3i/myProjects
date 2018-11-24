@@ -3,9 +3,7 @@ package com.brouwershuis.service;
 import java.util.HashSet;
 import java.util.Set;
 
-import javax.ejb.EJB;
 import javax.inject.Inject;
-import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -18,7 +16,7 @@ import com.brouwershuis.db.model.User;
 
 @Service
 public class UserService {
-	
+
 	@Inject
 	UserDAO userDao;
 
@@ -35,7 +33,7 @@ public class UserService {
 			user.setRoles(roles);
 			user.setEmployee(emp);
 			User u = userDao.addUser(user);
-			if (u !=null) {
+			if (u != null) {
 				return user;
 			}
 		} catch (Exception ex) {
