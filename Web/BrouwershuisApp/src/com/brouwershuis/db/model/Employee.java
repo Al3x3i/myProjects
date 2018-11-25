@@ -37,20 +37,21 @@ public class Employee implements Serializable {
 
 	@Column(length = 50)
 	private String address;
-
+	
 	@Temporal(TemporalType.DATE)
+	@Column(nullable = false)
 	private Date dateOfBirth;
 
-	@Column(length = 50)
+	@Column(length = 50, nullable = false)
 	private String firstName;
 
-	@Column(length = 50)
+	@Column(length = 50, nullable = false)
 	private String lastName;
 
 	@Column(length = 50)
 	private String displayName;
 
-	@Column(length = 50)
+	@Column(length = 50, nullable = false)
 	private String gender;
 
 	private boolean enabled;
@@ -65,7 +66,7 @@ public class Employee implements Serializable {
 	private User user;
 
 	@OneToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "CONTRACT_FK")
+	@JoinColumn(name = "CONTRACT_FK", nullable = false)
 	private Contract contract;
 
 	@OneToMany(mappedBy = "employee", targetEntity = ContractHours.class, orphanRemoval = true)

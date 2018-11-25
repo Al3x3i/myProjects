@@ -26,7 +26,7 @@ public class WorkingHoursRecord implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
+
 	public static final int WORK_TYPE = 1;
 	public static final int VACATION_TYPE = 2;
 

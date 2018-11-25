@@ -11,6 +11,7 @@ import javax.transaction.Transactional;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Service;
 
+import com.brouwershuis.db.dao.EmployeeDAO;
 import com.brouwershuis.db.dao.WorkingHoursRecordDAO;
 import com.brouwershuis.db.model.Employee;
 import com.brouwershuis.db.model.WorkingHoursRecord;
@@ -24,6 +25,9 @@ public class WorkingHoursRecordService {
 
 	@Inject
 	private WorkingHoursRecordDAO workingHoursRecordDAO;
+	
+	@Inject
+	private EmployeeDAO employeeDAO;
 
 	@Transactional
 	public List<WorkingHoursRecord> getWorkingHoursRecordByYearEmployee(String empId, String beginDate,
@@ -100,13 +104,18 @@ public class WorkingHoursRecordService {
 							recordDate);
 
 					if (existedRecord == null) {
+						
+						Employee employee = employeeDAO.findEmployee(employeeId);
+						if(employee == null)
+							break;
+						
 						WorkingHoursRecord w = null;
 						if (WorkingHoursRecord.VACATION_TYPE == hoursType) {
 							w = new WorkingHoursRecord(recordId, recordDate, recordTime, null,
-									new Employee(employeeId));
+									employee);
 						} else {
 							w = new WorkingHoursRecord(recordId, recordDate, null, recordTime,
-									new Employee(employeeId));
+									employee);
 						}
 						workingHoursRecordDAO.addWorkingHoursRecord(w);
 					} else {
@@ -129,7 +138,6 @@ public class WorkingHoursRecordService {
 					}
 
 				}
-
 			}
 		} catch (Exception ex) {
 			LOGGER.error(ex.getMessage());
