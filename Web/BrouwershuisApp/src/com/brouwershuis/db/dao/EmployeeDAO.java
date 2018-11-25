@@ -83,6 +83,7 @@ public class EmployeeDAO {
 		} catch (Exception ex) {
 			LOGGER.error(ex.getMessage());
 		}
+		LOGGER.warn("New employee was not added");
 		return null;
 	}
 
@@ -101,11 +102,13 @@ public class EmployeeDAO {
 		} catch (Exception ex) {
 			LOGGER.error(ex.getMessage());
 		}
+		LOGGER.warn("Employee was not deleted");
 		return false;
 	}
 
 	public boolean updateEmployee(Employee emp) {
 		em.merge(emp);
+		em.flush();
 		return true;
 	}
 }

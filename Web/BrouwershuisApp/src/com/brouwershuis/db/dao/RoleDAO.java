@@ -29,6 +29,8 @@ public class RoleDAO {
 		} catch (Exception ex) {
 			LOGGER.error(ex.getMessage());
 		}
+		
+		LOGGER.warn("Role was not found");
 		return null;
 
 	}

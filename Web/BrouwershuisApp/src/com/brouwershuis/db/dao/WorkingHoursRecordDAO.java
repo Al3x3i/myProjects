@@ -68,6 +68,7 @@ public class WorkingHoursRecordDAO {
 		em.flush();
 
 		if (newRecord.getId() == 0) {
+			LOGGER.warn("Working hours were not added");
 			return false;
 		}
 		return true;
@@ -78,6 +79,7 @@ public class WorkingHoursRecordDAO {
 		em.flush();
 
 		if (!em.contains(newRecord)) {
+			LOGGER.warn("Working hours were not updated");
 			return false;
 		}
 		return true;
@@ -158,6 +160,7 @@ public class WorkingHoursRecordDAO {
 		em.flush();
 
 		if (em.contains(recordDate)) {
+			LOGGER.warn("Working hours were not deleted");
 			return false;
 		}
 		return true;

@@ -14,7 +14,7 @@ public class UserDAO {
 	
 	private static final Logger LOGGER = Logger.getLogger(UserDAO.class);
 
-	@PersistenceContext // (type = PersistenceContextType.TRANSACTION)
+	@PersistenceContext
 	protected EntityManager em;
 
 	public User findByUsername(String username) {
@@ -29,6 +29,7 @@ public class UserDAO {
 		} catch (Exception ex) {
 			LOGGER.error(ex.getMessage());
 		}
+		LOGGER.warn(String.format("Cannot find a user by username: {}", username));
 		return null;
 	}
 
@@ -43,6 +44,7 @@ public class UserDAO {
 		} catch (Exception ex) {
 			LOGGER.error(ex.getMessage());
 		}
+		LOGGER.warn("A new user was not added");
 		return null;
 	}
 
@@ -58,6 +60,7 @@ public class UserDAO {
 		} catch (Exception ex) {
 			LOGGER.error(ex.getMessage());
 		}
+		LOGGER.warn("A user was not deleted");
 		return false;
 	}
 }

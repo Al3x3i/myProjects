@@ -13,11 +13,15 @@ import javax.persistence.StoredProcedureQuery;
 import javax.persistence.TemporalType;
 import javax.persistence.TypedQuery;
 
+import org.apache.log4j.Logger;
+
 import com.brouwershuis.db.model.Employee;
 import com.brouwershuis.db.model.WorkSchedule;
 
 @Stateless
 public class WorkScheduleDAO {
+	
+	private static final Logger LOGGER = Logger.getLogger(WorkScheduleDAO.class);
 
 	@PersistenceContext
 	protected EntityManager em;
@@ -49,6 +53,8 @@ public class WorkScheduleDAO {
 		if (output > 0) {
 			return true;
 		}
+		
+		LOGGER.warn("New schedule hours were not added");
 		return false;
 	}
 
@@ -62,6 +68,7 @@ public class WorkScheduleDAO {
 		}
 
 		if (em.contains(w)) {
+			LOGGER.warn("Schedule hours were not deleted");
 			return false;
 		}
 		return true;
@@ -75,6 +82,7 @@ public class WorkScheduleDAO {
 			em.flush();
 			return true;
 		}
+		LOGGER.warn("A slaap dienst was not updated");
 		return false;
 	}
 
@@ -124,6 +132,7 @@ public class WorkScheduleDAO {
 			em.flush();
 			return true;
 		}
+		LOGGER.warn("Schedule hours were not updated");
 		return false;
 	}
 
@@ -145,6 +154,7 @@ public class WorkScheduleDAO {
 				}
 			}
 		}
+		LOGGER.warn("Schedule hours were not deleted");
 		return false;
 	}
 
