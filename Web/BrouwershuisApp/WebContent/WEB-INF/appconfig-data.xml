@@ -22,7 +22,7 @@
 
 		<!--Commented, because Prevent showing data in Console -->
 		<property name="generateDdl" value="false" />
-		<property name="showSql" value="true" />
+		<!-- <property name="showSql" value="true" />  -->
 	</bean>
 
 	<!-- Entity Manager Factory -->
