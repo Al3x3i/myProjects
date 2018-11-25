@@ -22,10 +22,13 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 @NamedQuery(name = "Vacation.findAll", query = "SELECT v FROM WorkingHoursRecord v")
 public class WorkingHoursRecord implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
 	public static final int WORK_TYPE = 1;
 	public static final int VACATION_TYPE = 2;
-
-	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -43,7 +46,7 @@ public class WorkingHoursRecord implements Serializable {
 
 	// bi-directional many-to-one association to Employee
 	@ManyToOne
-	@JoinColumn(name = "EMPLOYEEID", nullable = false)
+	@JoinColumn(name = "EMPLOYEE_FK", nullable = false)
 	@JsonManagedReference
 	private Employee employee;
 

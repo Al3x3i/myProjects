@@ -16,10 +16,16 @@ import javax.persistence.TemporalType;
 @Table(name = "contract")
 public class Contract implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
+	@Column(length=50)
 	private String name;
 	
 	@Column(name="TIMESTAMP", columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
@@ -48,8 +54,5 @@ public class Contract implements Serializable{
 
 	public synchronized void setTimesTamp(Date timesTamp) {
 		this.timesTamp = timesTamp;
-	}
-	
-	//private Employee employee;
-	
+	}	
 }

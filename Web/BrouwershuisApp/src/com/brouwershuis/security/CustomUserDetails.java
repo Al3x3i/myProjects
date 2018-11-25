@@ -40,5 +40,4 @@ public class CustomUserDetails extends org.springframework.security.core.userdet
 	public void setAdming(boolean isAdming) {
 		this.isAdming = isAdming;
 	}
-
 }

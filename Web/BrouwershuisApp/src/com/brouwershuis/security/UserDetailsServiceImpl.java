@@ -28,9 +28,6 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 	// @Transactional(readOnly = true)
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		User user = userDao.findByUsername(username);
-		System.out.println("loadUserByUsername");
-
-		// LOGGER.info("USER NAME: " + user.getUsername());
 
 		if (user != null) {
 
@@ -49,7 +46,8 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
 			return customUser;
 		} else {
-			throw new UsernameNotFoundException("No user with username '" + username + "' found!");
+			LOGGER.error("Username is not found with for name: " + username);
+			throw new UsernameNotFoundException("No user with username '" + username + "' foun!");
 		}
 	}
 }

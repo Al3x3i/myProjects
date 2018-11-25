@@ -23,6 +23,11 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 @Table(name = "work_schedule")
 public class WorkSchedule implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
@@ -34,7 +39,7 @@ public class WorkSchedule implements Serializable {
 
 	@NotNull
 	@ManyToOne
-	@JoinColumn(name = "EMPLOYEE_FK")
+	@JoinColumn(name = "EMPLOYEE_FK", nullable = false)
 	private Employee employee;
 
 	// @JsonFormat(pattern="HH:mm",timezone= "UTC")

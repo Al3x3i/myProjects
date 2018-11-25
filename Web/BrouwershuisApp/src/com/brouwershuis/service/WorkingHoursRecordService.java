@@ -8,6 +8,7 @@ import java.util.List;
 import javax.inject.Inject;
 import javax.transaction.Transactional;
 
+import org.apache.log4j.Logger;
 import org.springframework.stereotype.Service;
 
 import com.brouwershuis.db.dao.WorkingHoursRecordDAO;
@@ -18,6 +19,8 @@ import com.brouwershuis.pojo.WorkingHoursRecordPojo.HoursCellData;
 
 @Service
 public class WorkingHoursRecordService {
+	
+	private static final Logger LOGGER = Logger.getLogger(WorkingHoursRecordService.class);
 
 	@Inject
 	private WorkingHoursRecordDAO workingHoursRecordDAO;
@@ -35,9 +38,8 @@ public class WorkingHoursRecordService {
 			List<WorkingHoursRecord> contractHours = workingHoursRecordDAO.findBetweenDates(employeeId, begin, end);
 			return contractHours;
 
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		} catch (Exception ex) {
+			LOGGER.error(ex.getMessage());
 		}
 
 		return null;
@@ -129,9 +131,8 @@ public class WorkingHoursRecordService {
 				}
 
 			}
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		} catch (Exception ex) {
+			LOGGER.error(ex.getMessage());
 		}
 		return result;
 	}
@@ -179,7 +180,7 @@ public class WorkingHoursRecordService {
 					hoursRecord.add(w);
 				}
 			} catch (Exception ex) {
-
+				LOGGER.error(ex.getMessage());
 			}
 		}
 		return hoursRecord;

@@ -1,5 +1,8 @@
 package com.brouwershuis.db.model;
 
+/*
+ * Employee Contracts
+ */
 public enum EnumContract {
 	CONTRACT_CLIENT("Client"),
 	CONTRACT_MEDEWERKER("Medewerker"),

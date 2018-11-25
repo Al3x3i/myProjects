@@ -9,12 +9,19 @@ import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebListener;
 
+import org.apache.log4j.Logger;
+
+import com.brouwershuis.service.WorkScheduleService;
+
 //import com.mysql.cj.jdbc.AbandonedConnectionCleanupThread;
 
 import com.mysql.jdbc.AbandonedConnectionCleanupThread;
 
 @WebListener // register it as you wish
 public class ContainerContextClosedHandler implements ServletContextListener {
+	
+	private static final Logger LOGGER = Logger.getLogger(ContainerContextClosedHandler.class);
+
 
 	@Override
 	public void contextInitialized(ServletContextEvent servletContextEvent) {
@@ -48,8 +55,8 @@ public class ContainerContextClosedHandler implements ServletContextListener {
 				DriverManager.deregisterDriver(driver);
 
 			} catch (SQLException ex) {
-				// deregistration failed, might want to do something, log at the very least
-				System.out.println(ex.getMessage());
+				// deregistration failed, might want to do something, log the error
+				LOGGER.error(ex.getMessage());
 			}
 		}
 

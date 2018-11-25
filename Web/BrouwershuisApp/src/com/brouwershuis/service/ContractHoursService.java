@@ -6,8 +6,10 @@ import java.util.List;
 import javax.inject.Inject;
 import javax.transaction.Transactional;
 
+import org.apache.log4j.Logger;
 import org.springframework.stereotype.Service;
 
+import com.brouwershuis.controller.EmployeeController;
 import com.brouwershuis.db.dao.ContractHoursDAO;
 import com.brouwershuis.db.model.ContractHours;
 import com.brouwershuis.helper.Helper;
@@ -16,6 +18,8 @@ import com.brouwershuis.pojo.WorkingHoursRecordPojo.ContractHoursData;
 @Service
 public class ContractHoursService {
 
+	private static final Logger LOGGER = Logger.getLogger(ContractHoursService.class);
+	
 	@Inject
 	private ContractHoursDAO contractHoursDAO;
 
@@ -56,9 +60,8 @@ public class ContractHoursService {
 					}
 				}
 			}
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		} catch (Exception ex) {
+			LOGGER.error(ex.getMessage());
 		}
 		return result;
 	}
@@ -75,11 +78,10 @@ public class ContractHoursService {
 			List<ContractHours> contractHours = contractHoursDAO.findBetweenDates(employeeId, begin, end);
 			return contractHours;
 
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		} catch (Exception ex) {
+			LOGGER.error(ex.getMessage());
 		}
-
+		LOGGER.warn("Return empty NULL hours");
 		return null;
 	}
 }

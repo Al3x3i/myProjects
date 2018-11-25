@@ -21,11 +21,18 @@ import com.google.gson.annotations.Expose;
 @Table(name = "shift")
 public class Shift implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Expose
 	private int id;
+	
 	@Expose
+	@Column(length=50)
 	private String name;
 
 	@Column(name = "TIMESTAMP", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
@@ -67,5 +74,4 @@ public class Shift implements Serializable {
 	public synchronized void setTimesTamp(Date timesTamp) {
 		this.timesTamp = timesTamp;
 	}
-
 }

@@ -24,16 +24,24 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 @Entity
 @Table(name = "user")
 public class User implements Serializable {
+	
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	
 	private Long id;
+	
 	private String username;
+	
 	private String password;
+	
 	private String passwordConfirm;
+	
 	private Set<Role> roles;
+	
 	private boolean enabled;
+	
 	private Employee employee;
 
 	private Date timesTamp;
@@ -53,6 +61,18 @@ public class User implements Serializable {
 	@JsonBackReference
 	public Employee getEmployee() {
 		return employee;
+	}
+	
+	@ManyToMany(fetch = FetchType.EAGER)
+	@JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
+	public Set<Role> getRoles() {
+		return roles;
+	}
+	
+	@Column(name = "TIMESTAMP", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+	@Temporal(TemporalType.TIMESTAMP)
+	public synchronized Date getTimesTamp() {
+		return timesTamp;
 	}
 
 	public void setEmployee(Employee employee) {
@@ -84,12 +104,6 @@ public class User implements Serializable {
 		this.passwordConfirm = passwordConfirm;
 	}
 
-	@ManyToMany(fetch = FetchType.EAGER)
-	@JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
-	public Set<Role> getRoles() {
-		return roles;
-	}
-
 	public void setRoles(Set<Role> roles) {
 		this.roles = roles;
 	}
@@ -100,12 +114,6 @@ public class User implements Serializable {
 
 	public void setEnabled(boolean enabled) {
 		this.enabled = enabled;
-	}
-
-	@Column(name = "TIMESTAMP", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
-	@Temporal(TemporalType.TIMESTAMP)
-	public synchronized Date getTimesTamp() {
-		return timesTamp;
 	}
 
 	public synchronized void setTimesTamp(Date timesTamp) {

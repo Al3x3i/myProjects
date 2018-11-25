@@ -41,10 +41,8 @@ public class WorkScheduleService {
 				}
 			}
 
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			LOGGER.error(e.getMessage());
-			e.printStackTrace();
+		} catch (Exception ex) {
+			LOGGER.error(ex.getMessage());
 		}
 		return result;
 	}
@@ -71,9 +69,8 @@ public class WorkScheduleService {
 				}
 			}
 
-		} catch (Exception e) {
-			LOGGER.error(e.getMessage());
-			e.printStackTrace();
+		} catch (Exception ex) {
+			LOGGER.error(ex.getMessage());
 		}
 		return result;
 	}
@@ -87,7 +84,7 @@ public class WorkScheduleService {
 			return items;
 
 		} catch (Exception ex) {
-			String e = ex.getMessage();
+			LOGGER.error(ex.getMessage());
 		}
 		return items;
 	}
@@ -172,7 +169,7 @@ public class WorkScheduleService {
 
 			return workScheduleDAO.deleteTableRecord(rowId, date, employeeId);
 		} catch (Exception ex) {
-			String e = ex.getMessage();
+			LOGGER.error(ex.getMessage());
 		}
 
 		return false;

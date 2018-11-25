@@ -28,7 +28,7 @@ public class SecurityServiceImpl implements SecurityService {
 		if (userDetails instanceof UserDetails) {
 			return ((UserDetails) userDetails).getUsername();
 		}
-
+		LOGGER.debug("Cannot find get right user data for login");
 		return null;
 	}
 

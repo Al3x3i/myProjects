@@ -21,32 +21,39 @@ import javax.persistence.TemporalType;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
-/**
- * The persistent class for the employee database table.
- * 
- */
 @Entity
 @Table(name = "employee")
 @NamedQuery(name = "Employee.findAll", query = "SELECT e FROM Employee e")
 public class Employee implements Serializable {
+
+	/**
+	 * 
+	 */
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+
+	@Column(length = 50)
 	private String address;
 
 	@Temporal(TemporalType.DATE)
 	private Date dateOfBirth;
-	private String firstName;
-	private String lastName;
-	private String displayName;
-	private String gender;
-	private boolean enabled;
 
-	@Column(name = "TIMESTAMP", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
-	@Temporal(TemporalType.TIMESTAMP)
-	private Date timesTamp;
+	@Column(length = 50)
+	private String firstName;
+
+	@Column(length = 50)
+	private String lastName;
+
+	@Column(length = 50)
+	private String displayName;
+
+	@Column(length = 50)
+	private String gender;
+
+	private boolean enabled;
 
 	// bi-directional many-to-one association to Vacation
 	@OneToMany(mappedBy = "employee", targetEntity = WorkingHoursRecord.class, orphanRemoval = true)
@@ -64,6 +71,22 @@ public class Employee implements Serializable {
 	@OneToMany(mappedBy = "employee", targetEntity = ContractHours.class, orphanRemoval = true)
 	@JsonBackReference
 	private Set<ContractHours> contractHours;
+	
+	// bi-directional many-to-one association to Vacation
+	@OneToMany(mappedBy = "employee", targetEntity = WorkSchedule.class)
+	@JsonBackReference
+	private Set<WorkSchedule> workSchedule;
+
+	@Column(name = "TIMESTAMP", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date timesTamp;
+	
+	public Employee() {
+	}
+
+	public Employee(int id) {
+		this.id = id;
+	}
 
 	public synchronized Set<ContractHours> getContractHours() {
 		return contractHours;
@@ -73,18 +96,6 @@ public class Employee implements Serializable {
 		this.contractHours = contractHours;
 	}
 
-	public Employee() {
-	}
-
-	public Employee(int id) {
-		this.id = id;
-	}
-
-	// bi-directional many-to-one association to Vacation
-	@OneToMany(mappedBy = "employee", targetEntity = WorkSchedule.class)
-	@JsonBackReference
-	private Set<WorkSchedule> workSchedule;
-
 	public Set<WorkSchedule> getWorkSchedule() {
 		return workSchedule;
 	}
@@ -93,12 +104,12 @@ public class Employee implements Serializable {
 		this.workSchedule = workSchedule;
 	}
 
-	public WorkingHoursRecord addVacation(WorkingHoursRecord vacation) {
-		getVacations().add(vacation);
-		vacation.setEmployee(this);
-
-		return vacation;
-	}
+//	public WorkingHoursRecord addVacation(WorkingHoursRecord vacation) {
+//		getVacations().add(vacation);
+//		vacation.setEmployee(this);
+//
+//		return vacation;
+//	}
 
 	public int getId() {
 		return id;

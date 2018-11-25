@@ -5,6 +5,7 @@ import java.util.Set;
 
 import javax.inject.Inject;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -16,6 +17,8 @@ import com.brouwershuis.db.model.User;
 
 @Service
 public class UserService {
+
+	private static final Logger LOGGER = Logger.getLogger(UserService.class);
 
 	@Inject
 	UserDAO userDao;
@@ -37,7 +40,7 @@ public class UserService {
 				return user;
 			}
 		} catch (Exception ex) {
-			String g = ";";
+			LOGGER.error(ex.getMessage());
 		}
 		return null;
 	}
