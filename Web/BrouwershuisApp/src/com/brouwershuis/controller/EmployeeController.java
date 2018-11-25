@@ -104,7 +104,7 @@ public class EmployeeController {
 			Employee e = employeeService.findEmployee(id);
 			return e;
 		} catch (Exception ex) {
-
+			
 		}
 		return null;
 	}
@@ -112,11 +112,11 @@ public class EmployeeController {
 	@RequestMapping(value = "/deleteEmployee", method = RequestMethod.POST)
 	public @ResponseBody Map<String, Boolean> deleteEmployee(String id) {
 		try {
-			if (employeeService.deleteEmployee(id)) {
+			if (employeeService.deleteEmployee("AA")) {
 				return Collections.singletonMap("status", true);
 			}
 		} catch (Exception ex) {
-
+			LOGGER.error("HELLO WORLD");
 		}
 		return Collections.singletonMap("status", false);
 	}
