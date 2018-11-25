@@ -5,10 +5,14 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
+import org.apache.log4j.Logger;
+
 import com.brouwershuis.db.model.User;
 
 @Stateless
 public class UserDAO {
+	
+	private static final Logger LOGGER = Logger.getLogger(UserDAO.class);
 
 	@PersistenceContext // (type = PersistenceContextType.TRANSACTION)
 	protected EntityManager em;
@@ -23,7 +27,7 @@ public class UserDAO {
 			return e;
 
 		} catch (Exception ex) {
-			String g = ex.getMessage();
+			LOGGER.error(ex.getMessage());
 		}
 		return null;
 	}
@@ -37,7 +41,7 @@ public class UserDAO {
 				return user;
 			}
 		} catch (Exception ex) {
-			String g = ex.getMessage();
+			LOGGER.error(ex.getMessage());
 		}
 		return null;
 	}
@@ -52,7 +56,7 @@ public class UserDAO {
 				return true;
 			}
 		} catch (Exception ex) {
-			String g = ex.getMessage();
+			LOGGER.error(ex.getMessage());
 		}
 		return false;
 	}

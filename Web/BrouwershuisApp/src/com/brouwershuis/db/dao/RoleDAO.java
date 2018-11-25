@@ -5,12 +5,16 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
+import org.apache.log4j.Logger;
+
 import com.brouwershuis.db.model.EnumRoles;
 import com.brouwershuis.db.model.Role;
 
 @Stateless
 public class RoleDAO {
 
+	private static final Logger LOGGER = Logger.getLogger(RoleDAO.class);
+	
 	@PersistenceContext
 	protected EntityManager em;
 
@@ -23,7 +27,7 @@ public class RoleDAO {
 			Role role = query.getSingleResult();
 			return role;
 		} catch (Exception ex) {
-
+			LOGGER.error(ex.getMessage());
 		}
 		return null;
 

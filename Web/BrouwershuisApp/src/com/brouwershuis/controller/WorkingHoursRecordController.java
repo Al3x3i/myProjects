@@ -3,6 +3,7 @@ package com.brouwershuis.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
@@ -31,6 +32,8 @@ import com.google.gson.JsonObject;
 @Controller
 @RequestMapping(value = "/working_hours")
 public class WorkingHoursRecordController {
+	
+	private static final Logger LOGGER = Logger.getLogger(WorkingHoursRecordController.class);
 
 	@Autowired
 	EmployeeService employeeService;
@@ -84,7 +87,7 @@ public class WorkingHoursRecordController {
 			model.addAttribute("allEmployees", request);
 
 		} catch (Exception ex) {
-			String g = ex.getMessage();
+			LOGGER.error(ex.getMessage());
 		}
 
 		return "working_hours";
@@ -111,7 +114,7 @@ public class WorkingHoursRecordController {
 				}
 			}
 		} catch (Exception ex) {
-
+			LOGGER.error(ex.getMessage());
 		}
 
 		return result;
@@ -187,7 +190,7 @@ public class WorkingHoursRecordController {
 
 			return result;
 		} catch (Exception ex) {
-			String g = "";
+			LOGGER.error(ex.getMessage());
 		}
 
 		return null;

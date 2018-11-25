@@ -25,6 +25,7 @@ public class Helper {
 			return dateFormat.format(date);
 
 		} catch (Exception ex) {
+			LOGGER.error(ex.getMessage());
 			return dateFormat.format(new Date());
 		}
 	}
@@ -81,8 +82,6 @@ public class Helper {
 			return time;
 		} catch (Exception ex) {
 			LOGGER.error(ex.getMessage());
-
-			String g = "";
 		}
 		return null;
 	}
@@ -106,7 +105,6 @@ public class Helper {
 			return time;
 		} catch (Exception ex) {
 			LOGGER.error(ex.getMessage());
-			String g = "";
 		}
 		return null;
 	}
@@ -128,7 +126,6 @@ public class Helper {
 			return null;
 		} catch (Exception ex) {
 			LOGGER.error(ex.getMessage());
-			String g = "";
 		}
 		return null;
 	}

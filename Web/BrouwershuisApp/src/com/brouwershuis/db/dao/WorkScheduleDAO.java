@@ -26,7 +26,7 @@ public class WorkScheduleDAO {
 			String comments) throws Exception {
 		int output = 0;
 
-		StoredProcedureQuery query = this.em.createStoredProcedureQuery("P_ADDWORK_SCHEDULE");
+		StoredProcedureQuery query = em.createStoredProcedureQuery("P_ADDWORK_SCHEDULE");
 
 		query.registerStoredProcedureParameter("arg1", Time.class, ParameterMode.IN);
 		query.registerStoredProcedureParameter("arg2", Time.class, ParameterMode.IN);
@@ -121,7 +121,7 @@ public class WorkScheduleDAO {
 			record.setEndTime(endTime);
 			record.setComments(comments);
 			em.merge(record);
-			// em.flush();
+			em.flush();
 			return true;
 		}
 		return false;

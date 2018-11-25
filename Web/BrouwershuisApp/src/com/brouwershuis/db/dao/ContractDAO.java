@@ -8,11 +8,17 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
+import org.apache.log4j.Logger;
+
+import com.brouwershuis.controller.WorkScheduleController;
 import com.brouwershuis.db.model.Contract;
 
 @Stateless
 public class ContractDAO {
 
+	private static final Logger LOGGER = Logger.getLogger(ContractDAO.class);
+
+	
 	@PersistenceContext
 	protected EntityManager em;
 
@@ -23,7 +29,7 @@ public class ContractDAO {
 			contracts.addAll(query.getResultList());
 
 		} catch (Exception ex) {
-
+			LOGGER.error(ex.getMessage());
 		}
 		return contracts;
 	}
@@ -37,7 +43,7 @@ public class ContractDAO {
 			Contract c = query.getSingleResult();
 			return c;
 		} catch (Exception ex) {
-			String g = ex.getMessage();
+			LOGGER.error(ex.getMessage());
 		}
 		return null;
 	}

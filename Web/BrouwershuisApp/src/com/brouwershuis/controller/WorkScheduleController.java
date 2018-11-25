@@ -70,9 +70,7 @@ public class WorkScheduleController {
 
 		WorkScheduleTableData data = new Gson().fromJson(jsonData, WorkScheduleTableData.class);
 
-		System.out.println("Delete data");
 		boolean result = workScheduleService.deleteDienst(data);
-
 		return Collections.singletonMap("status", result);
 	}
 
@@ -106,7 +104,7 @@ public class WorkScheduleController {
 				result = workScheduleService.addSchakelDienst(updateTableData);
 			}
 		} catch (Exception ex) {
-			System.out.println(ex.getMessage());
+			LOGGER.error(ex.getMessage());
 		}
 		return Collections.singletonMap("status", result);
 	}
@@ -155,7 +153,7 @@ public class WorkScheduleController {
 
 			}
 		} catch (Exception ex) {
-
+			LOGGER.error(ex.getMessage());
 		}
 		return "";
 	}
@@ -168,7 +166,7 @@ public class WorkScheduleController {
 			WorkSchedule result = workScheduleService.getDienstById(rowId);
 			return result;
 		} catch (Exception ex) {
-
+			LOGGER.error(ex.getMessage());
 		}
 		return null;
 	}
@@ -244,7 +242,6 @@ public class WorkScheduleController {
 			}
 		} catch (Exception ex) {
 			LOGGER.error(ex.getMessage());
-			System.out.println("Error, Cannot sort Employees");
 		}
 	}
 

@@ -8,10 +8,15 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
+import org.apache.log4j.Logger;
+
 import com.brouwershuis.db.model.Shift;
 
 @Stateless
 public class ShiftDAO {
+	
+	private static final Logger LOGGER = Logger.getLogger(ShiftDAO.class);
+	
 	@PersistenceContext
 	protected EntityManager em;
 
@@ -22,7 +27,7 @@ public class ShiftDAO {
 			shifts.addAll(query.getResultList());
 
 		} catch (Exception ex) {
-
+			LOGGER.error(ex.getMessage());
 		}
 		return shifts;
 	}
