@@ -8,7 +8,9 @@ public class WebRestURIConstants {
 	public static final String WORKSHCEDULE_SUB_PUT_URL = "subview/{viewName}/putRecord";
 	public static final String WORKSHCEDULE_SUB_PATCH_URL = "subview/{viewName}/patchRecord";
 	public static final String WORKSHCEDULE_SUB_DELETE_URL = "subview/{viewName}/deleteRecord";
-
+	
+	
+	// View Names {viewName}
 	public static final String WORKSHCEDULE_SUB_ROOSTER = "roosterdienst";
 	public static final String WORKSHCEDULE_SUB_SLAAPDIENST = "slaapdienst";
 	public static final String WORKSHCEDULE_SUB_SCHAKELDIENST = "schakeldienst";

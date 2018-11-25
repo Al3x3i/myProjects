@@ -693,7 +693,7 @@
 
 			$.ajax({
 				url : "${contextPath}/schedules/subview/slaapdienst/patchRecord",
-				type : "PATCH",
+				type : "POST",
 				contentType : "application/json",
 				data : jsonData,
 				success : function(data) {

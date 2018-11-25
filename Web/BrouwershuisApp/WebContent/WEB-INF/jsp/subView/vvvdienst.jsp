@@ -125,7 +125,7 @@
 		<!-- Page Heading -->
 		<div class="row title-row">
 			<div class="">
-				<h1 class="page-header">Slaap dienst data</h1>
+				<h1 class="page-header">VVV dienst</h1>
 			</div>
 		</div>
 		<!-- /.row -->
@@ -235,17 +235,6 @@
 						</select>
 					</div>
 
-					<!-- <div class="info">
-						<span class="">Opties:</span>
-						<div class="checkbox">
-							<label>
-								<input type="checkbox" id="open-shift" value="Vrij dienst" onClick="vrijdDienstCheckBoxClick(this)">Vrij dienst
-							</label>
-						</div>
-
-					</div> -->
-
-
 					<div class="dienst-title">
 						<i>Dienst:</i>
 					</div>
@@ -261,10 +250,11 @@
 								<th>Commentaar</th>
 							</tr>
 						</thead>
+
 						<tbody>
 							<tr>
-								<td>
-									<select>
+								<td style="vertical-align: middle;">
+									<select id="modal-day-selector">
 										<option value="0">Man</option>
 										<option value="1">Din</option>
 										<option value="2">Woe</option>
@@ -274,9 +264,9 @@
 										<option value="6">Zon</option>
 									</select>
 								</td>
-								<td><label>00-00</label></td>
-								<td><input class="tb-input form-control" type="text" name="start" value="" placeholder="12:00" data-timepicker /></td>
-								<td><input class="tb-input form-control" type="text" name="end" value="" placeholder="12:00" data-timepicker /></td>
+								<td style="vertical-align: middle;"><label id="modal-selected-date" class="align-middle" >00-00</label></td>
+								<td><input class="tb-input form-control timepicker" type="text" name="start" value="" placeholder="12:00" data-timepicker /></td>
+								<td><input class="tb-input form-control timepicker" type="text" name="end" value="" placeholder="12:00" data-timepicker /></td>
 								<td><label class="time-range"></label></td>
 								<td><input class="tb-input form-control comment" type="text" /></td>
 							</tr>
@@ -383,6 +373,9 @@
 		
 		
 		loadDefaultProperties();
+		
+		new inputTimeHanlder();
+		
 	})
 
 	function loadDefaultProperties() {
@@ -398,17 +391,27 @@
 			highlightSelectedWeekInCalendar(".active.day");
 			getTabelData(e.date);
 		});
+		
+		$("#modal-day-selector").change(function() {
+			var selectedIndex = $("#modal-day-selector :selected").index()
+			var calendar = $('#n-calendar').data();
+		 	var momentDate = new moment(calendar.datepicker.viewDate);
+		 	momentDate.add(selectedIndex, "days");
+			setDayInModalinTable(momentDate)
+		});
+		
 		//Highlight first week
 		highlightSelectedWeekInCalendar(".today.day");
 
-		
 		fillInEmployeeNamesInModal();
-
+	
+		// Get data from DB
 		getTabelData(new Date());
 
 	}
 
-	function fillInSlaapDienstTableData(dataSet) {
+
+	function fillInDienstTableData(dataSet) {
 		var trDayDates = $('.tb-data thead tr').eq(1);
 		var trBody = $('.tb-data tbody');
 
@@ -509,23 +512,10 @@
 		}
 	}
 
-	function initSlaapDienstModal() {
+	function initDienstModal() {
 
 		var calendar = $('#n-calendar').data();
 		var momentDate = new moment(calendar.datepicker.viewDate);
-
-		var tempDay = momentDate.startOf('isoWeek')
-
-		var inputTable = $("#modal-input tbody");
-		for (var index = 0; index < inputTable.children().length; index++) {
-
-			var trEl = inputTable.children().eq(index);
-
-			$(trEl).data("date", tempDay.format('YYYY-MM-DD'));
-			trEl.children().eq(1).text(momentDate.format("DD-MM"))
-
-			tempDay.add(1, "days");
-		}
 
 		var year = momentDate.year();
 		var week = momentDate.isoWeek();
@@ -533,11 +523,23 @@
 		$(".info-group .year").text(year);
 		$(".info-group .month").text(momentDate.format("MMMM"));
 		$(".info-group .week").text(week);
+		
+		setDayInModalinTable(momentDate)
+	}
+	
+	function setDayInModalinTable(momentDate)
+	{
+		var inputTable = $("#modal-input tbody");
+		
+		// Select the date of fist day
+		var trEl = inputTable.children().eq(0);
+		$(trEl).data("date", momentDate.format('YYYY-MM-DD'));
+		trEl.children().eq(1).text(momentDate.format("DD-MM"))
 	}
 
 	function openAddSlaapDienstModal() {
 
-		initSlaapDienstModal();
+		initDienstModal();
 
 		var trRows = $('#modal-dienst #modal-input tbody tr');
 
@@ -557,7 +559,7 @@
 
 	function openEditSlaapDienstModal() {
 
-		initSlaapDienstModal();
+		initDienstModal();
 
 		var selectedRecord = viewProperties.selectedTableCell;
 
@@ -704,7 +706,7 @@
 
 			$.ajax({
 				url : "${contextPath}/schedules/subview/slaapdienst/patchRecord",
-				type : "PATCH",
+				type : "POST",
 				contentType : "application/json",
 				data : jsonData,
 				success : function(data) {
@@ -793,7 +795,7 @@
 		var lastDay = moment().endOf('isoWeek').format('YYYY-MM-DD');
 
 		$.ajax({
-			url : "${contextPath}/schedules/subview/slaapdienst/getAllRecords/?start=" + firstDay + "&end=" + lastDay,
+			url : "${contextPath}/schedules/subview/vvvdienst/getAllRecords/?start=" + firstDay + "&end=" + lastDay,
 			type : "GET",
 			success : function(data) {
 
@@ -802,8 +804,8 @@
 				cleanContentTableRecords();
 				fillInDaysInTableHeader(firstDayMoment);
 
-				var slaapDienstData = tableData.slaapDienst; //Slaap Dienst
-				fillInSlaapDienstTableData(slaapDienstData);
+				var data = tableData.vvvdienst; //VVV Dienst
+				fillInDienstTableData(data);
 			},
 			error : function(jqXHR, textStatus, errorThrown) {
 				alert('Error get data from ajax');

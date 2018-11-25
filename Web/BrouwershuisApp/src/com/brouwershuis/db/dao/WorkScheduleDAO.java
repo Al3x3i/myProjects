@@ -85,6 +85,11 @@ public class WorkScheduleDAO {
 		LOGGER.warn("A slaap dienst was not updated");
 		return false;
 	}
+	
+	public WorkSchedule getTableDataById(int id) {
+		WorkSchedule result = em.find(WorkSchedule.class, id);
+		return result;
+	}
 
 	public List<WorkSchedule> getTableData(Date start, Date end) {
 		TypedQuery<WorkSchedule> query = em.createQuery(
@@ -94,11 +99,6 @@ public class WorkScheduleDAO {
 
 		List<WorkSchedule> items = query.getResultList();
 		return items;
-	}
-
-	public WorkSchedule getTableDataById(int id) {
-		WorkSchedule result = em.find(WorkSchedule.class, id);
-		return result;
 	}
 
 	public List<WorkSchedule> getTableDataByDateAndShift(Date start, Date end, String shiftName) {

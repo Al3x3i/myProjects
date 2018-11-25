@@ -107,12 +107,29 @@ public class WorkScheduleService {
 	}
 
 	@Transactional
-	public List<WorkScheduleTableData> getSchakeldienst(Date start, Date end) {
+	public List<WorkScheduleTableData> getSchakelDienstData(Date start, Date end) {
 
 		List<WorkScheduleTableData> slaadDiensts = new ArrayList<WorkScheduleTableData>();
 		try {
 			List<WorkSchedule> items = workScheduleDAO.getTableDataByDateAndShift(start, end,
 					EnumShiftType.SHIFT_SCHAKEl.toString());
+			slaadDiensts.addAll(makeWorkScheduleTableData(items));
+
+			return slaadDiensts;
+
+		} catch (Exception ex) {
+			LOGGER.error(ex.getMessage());
+		}
+		return slaadDiensts;
+	}
+	
+	@Transactional
+	public List<WorkScheduleTableData> getVVVdienstData(Date start, Date end) {
+
+		List<WorkScheduleTableData> slaadDiensts = new ArrayList<WorkScheduleTableData>();
+		try {
+			List<WorkSchedule> items = workScheduleDAO.getTableDataByDateAndShift(start, end,
+					EnumShiftType.SHIFT_VVV.toString());
 			slaadDiensts.addAll(makeWorkScheduleTableData(items));
 
 			return slaadDiensts;

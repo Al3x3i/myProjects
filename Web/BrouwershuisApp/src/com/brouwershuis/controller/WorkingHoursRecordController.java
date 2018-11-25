@@ -101,7 +101,6 @@ public class WorkingHoursRecordController {
 			pojoObject = new Gson().fromJson(jsonData, WorkingHoursRecordPojo.class);
 			if (pojoObject.getEmployeeId() != null && !pojoObject.getEmployeeId().isEmpty()) {
 
-				int i = pojoObject.getContractHoursData().length;
 
 				if (pojoObject.getContractHoursData() != null && pojoObject.getContractHoursData().length != 0) {
 					boolean result_1 = contractHoursService.updateContractHours(pojoObject.getContractHoursData(),

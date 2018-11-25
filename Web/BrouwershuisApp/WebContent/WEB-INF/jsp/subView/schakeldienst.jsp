@@ -131,7 +131,7 @@
 		<!-- Page Heading -->
 		<div class="row title-row">
 			<div class="">
-				<h1 class="page-header">Schakel dienst data</h1>
+				<h1 class="page-header">Schakel dienst</h1>
 			</div>
 		</div>
 		<!-- /.row -->
@@ -922,7 +922,7 @@
 
 			$.ajax({
 				url : "${contextPath}/schedules/subview/schakeldienst/patchRecord",
-				type : "PATCH",
+				type : "POST",
 				contentType : "application/json",
 				data : jsonData,
 				success : function(data) {

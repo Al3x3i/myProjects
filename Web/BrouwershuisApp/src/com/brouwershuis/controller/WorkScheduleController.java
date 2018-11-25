@@ -64,7 +64,7 @@ public class WorkScheduleController {
 	 * } catch (Exception ex) { String g = ex.getMessage(); } return "rooster"; }
 	 */
 
-	@RequestMapping(method = RequestMethod.DELETE, value = WebRestURIConstants.WORKSHCEDULE_SUB_DELETE_URL, consumes = "application/json")
+	@RequestMapping(value = WebRestURIConstants.WORKSHCEDULE_SUB_DELETE_URL, method = RequestMethod.DELETE, consumes = "application/json")
 	public @ResponseBody Map<String, Boolean> deleteRecord(@PathVariable("viewName") String viewName, ModelMap model,
 			@RequestBody String jsonData) {
 
@@ -74,17 +74,17 @@ public class WorkScheduleController {
 		return Collections.singletonMap("status", result);
 	}
 
-	@RequestMapping(method = RequestMethod.PATCH, value = WebRestURIConstants.WORKSHCEDULE_SUB_PATCH_URL, consumes = "application/json")
+	@RequestMapping(value = WebRestURIConstants.WORKSHCEDULE_SUB_PATCH_URL, method = RequestMethod.POST, consumes = "application/json")
 	public @ResponseBody Map<String, Boolean> updateTableRecord(@PathVariable("viewName") String viewName,
 			ModelMap model, @RequestBody String jsonData) {
 
 		WorkScheduleTableData updateTableData = new Gson().fromJson(jsonData, WorkScheduleTableData.class);
-		
+
 		boolean result = workScheduleService.updateDienst(updateTableData);
 		return Collections.singletonMap("status", result);
 	}
 
-	@RequestMapping(method = RequestMethod.PUT, value = WebRestURIConstants.WORKSHCEDULE_SUB_PUT_URL, consumes = "application/json")
+	@RequestMapping(value = WebRestURIConstants.WORKSHCEDULE_SUB_PUT_URL, method = RequestMethod.PUT, consumes = "application/json")
 	public @ResponseBody Map<String, Boolean> saveTableRecord(@PathVariable("viewName") String viewName, ModelMap model,
 			@RequestBody String jsonData) {
 
@@ -107,7 +107,7 @@ public class WorkScheduleController {
 		return Collections.singletonMap("status", result);
 	}
 
-	@RequestMapping(method = RequestMethod.GET, value = WebRestURIConstants.WORKSHCEDULE_SUB_GET_URL)
+	@RequestMapping(value = WebRestURIConstants.WORKSHCEDULE_SUB_GET_URL, method = RequestMethod.GET)
 	public @ResponseBody String getTableData(@PathVariable("viewName") String viewName, ModelMap model, String start,
 			String end) {
 		try {
@@ -119,10 +119,11 @@ public class WorkScheduleController {
 				Gson gson = new Gson();
 				JsonObject jsonObject = new JsonObject();
 
+				// #1 General view, it contains of information from all shifts
 				if (viewName.equals(WebRestURIConstants.WORKSHCEDULE_SUB_ROOSTER)) {
 					List<WorkScheduleTableData> slaadDiensts = workScheduleService.getSlaapDienstData(startDate,
 							endDate);
-					List<WorkScheduleTableData> schakeldienst = workScheduleService.getSchakeldienst(startDate,
+					List<WorkScheduleTableData> schakeldienst = workScheduleService.getSchakelDienstData(startDate,
 							endDate);
 
 					JsonElement j_slaapDienst = gson.toJsonTree(slaadDiensts);
@@ -131,6 +132,7 @@ public class WorkScheduleController {
 					jsonObject.add("schakeldienst", j_schakeldienst);
 					return gson.toJson(jsonObject);
 
+					// #2
 				} else if (viewName.equals(WebRestURIConstants.WORKSHCEDULE_SUB_SLAAPDIENST)) {
 
 					List<WorkScheduleTableData> slaadDiensts = workScheduleService.getSlaapDienstData(startDate,
@@ -139,13 +141,25 @@ public class WorkScheduleController {
 					JsonElement j_slaapDienst = gson.toJsonTree(slaadDiensts);
 					jsonObject.add("slaapDienst", j_slaapDienst);
 					return gson.toJson(jsonObject);
+
+					// #3
 				} else if (viewName.equals(WebRestURIConstants.WORKSHCEDULE_SUB_SCHAKELDIENST)) {
 
-					List<WorkScheduleTableData> schakeldienst = workScheduleService.getSchakeldienst(startDate,
+					List<WorkScheduleTableData> schakeldienst = workScheduleService.getSchakelDienstData(startDate,
 							endDate);
 
 					JsonElement j_schakeldienst = gson.toJsonTree(schakeldienst);
 					jsonObject.add("schakeldienst", j_schakeldienst);
+					return gson.toJson(jsonObject);
+					
+					// #4
+				} else if (viewName.equals(WebRestURIConstants.WORKSCHEDULE_SUB_VVVDIENS)) {
+
+					List<WorkScheduleTableData> schakeldienst = workScheduleService.getVVVdienstData(startDate,
+							endDate);
+
+					JsonElement j_schakeldienst = gson.toJsonTree(schakeldienst);
+					jsonObject.add("vvvdienst", j_schakeldienst);
 					return gson.toJson(jsonObject);
 				}
 
@@ -156,7 +170,7 @@ public class WorkScheduleController {
 		return "";
 	}
 
-	@RequestMapping(method = RequestMethod.GET, value = WebRestURIConstants.WORKSHCEDULE_SUB_GETDIENST_URL)
+	@RequestMapping(value = WebRestURIConstants.WORKSHCEDULE_SUB_GETDIENST_URL, method = RequestMethod.GET)
 	public @ResponseBody WorkSchedule getRecordDetails(@PathVariable("viewName") String viewName, ModelMap model,
 			String id) {
 		try {
@@ -172,7 +186,7 @@ public class WorkScheduleController {
 	/*
 	 * DIENST VIEW
 	 */
-	@RequestMapping(method = RequestMethod.GET, value = WebRestURIConstants.WORKSHCEDULE_SUB_URL)
+	@RequestMapping(value = WebRestURIConstants.WORKSHCEDULE_SUB_URL, method = RequestMethod.GET)
 	public String getSubView(@PathVariable("viewName") String viewName, ModelMap model) {
 
 		String selectedView = "";
