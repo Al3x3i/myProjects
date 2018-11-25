@@ -56,8 +56,6 @@ public class EmployeeController {
 
 		List<Contract> contracts = contractService.findAll();
 
-		JsonObject jsonContract = new JsonObject();
-
 		JsonElement element = new Gson().toJsonTree(contracts);
 		model.addAttribute("allContracts", element);
 
@@ -104,19 +102,19 @@ public class EmployeeController {
 			Employee e = employeeService.findEmployee(id);
 			return e;
 		} catch (Exception ex) {
-			
+			LOGGER.error(String.format("Error while getting employees. %s ", ex.getMessage()));
 		}
 		return null;
 	}
 
-	@RequestMapping(value = "/deleteEmployee", method = RequestMethod.POST)
+	@RequestMapping(value = "/deleteEmployee", method = RequestMethod.DELETE)
 	public @ResponseBody Map<String, Boolean> deleteEmployee(String id) {
 		try {
-			if (employeeService.deleteEmployee("AA")) {
+			if (employeeService.deleteEmployee(id)) {
 				return Collections.singletonMap("status", true);
 			}
 		} catch (Exception ex) {
-			LOGGER.error("HELLO WORLD");
+			LOGGER.error(String.format("Error while deleting employee. %s ", ex.getMessage()));
 		}
 		return Collections.singletonMap("status", false);
 	}
@@ -159,8 +157,7 @@ public class EmployeeController {
 				return Collections.singletonMap("status", true);
 
 		} catch (Exception ex) {
-			LOGGER.error(ex.getMessage());
-			System.out.println("Error");
+			LOGGER.error(String.format("Error while editing employee. %s ", ex.getMessage()));
 		}
 		return Collections.singletonMap("status", false);
 	}
@@ -205,10 +202,8 @@ public class EmployeeController {
 			result = employeeService.addEmployee(emp);
 
 		} catch (Exception ex) {
-			LOGGER.error(ex.getMessage());
-			System.out.println("");
+			LOGGER.error(String.format("Error while adding an employee. %s ", ex.getMessage()));
 		}
-
 		return Collections.singletonMap("status", result);
 	}
 }

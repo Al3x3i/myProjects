@@ -340,7 +340,7 @@
 
 			$.ajax({
 				url : url,
-				type : "POST",
+				type : "DELETE",
 				//dataType : "JSON",
 				success : function(data) {
 					//if success reload ajax table
