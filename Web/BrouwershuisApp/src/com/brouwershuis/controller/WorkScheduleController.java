@@ -79,10 +79,8 @@ public class WorkScheduleController {
 			ModelMap model, @RequestBody String jsonData) {
 
 		WorkScheduleTableData updateTableData = new Gson().fromJson(jsonData, WorkScheduleTableData.class);
-
-		System.out.println("Save update data");
+		
 		boolean result = workScheduleService.updateDienst(updateTableData);
-
 		return Collections.singletonMap("status", result);
 	}
 

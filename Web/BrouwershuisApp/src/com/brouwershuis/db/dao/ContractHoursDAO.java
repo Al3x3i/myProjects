@@ -11,11 +11,15 @@ import javax.persistence.StoredProcedureQuery;
 import javax.persistence.TemporalType;
 import javax.persistence.TypedQuery;
 
+import org.apache.log4j.Logger;
+
 import com.brouwershuis.db.model.ContractHours;
 
 @Stateless
 public class ContractHoursDAO {
 
+	private static final Logger LOGGER = Logger.getLogger(ContractHoursDAO.class);
+	
 	@PersistenceContext
 	protected EntityManager em;
 
@@ -41,7 +45,8 @@ public class ContractHoursDAO {
 		if (output > 0) {
 			return true;
 		}
-
+		
+		LOGGER.warn("Contract hour was not added");
 		return false;
 	}
 
@@ -54,6 +59,8 @@ public class ContractHoursDAO {
 			em.flush();
 			return true;
 		}
+		
+		LOGGER.warn("Contract hour was not updated");
 		return false;
 	}
 
@@ -67,6 +74,7 @@ public class ContractHoursDAO {
 		}
 
 		if (em.contains(c)) {
+			LOGGER.warn("Contract hour was not deleted");
 			return false;
 		}
 		return true;
@@ -75,13 +83,10 @@ public class ContractHoursDAO {
 	public List<ContractHours> findBetweenDates(int employeeId, Date begin, Date end) {
 
 		String sql = "SELECT c FROM ContractHours c WHERE c.employee.id =:arg1 AND c.startDate >= function ('DATE_FORMAT', :arg2, '%Y-%m-%d') AND c.endDate <=  function ('DATE_FORMAT', :arg3, '%Y-%m-%d')";
-
 		TypedQuery<ContractHours> query = em.createQuery(sql, ContractHours.class);
-
 		query.setParameter("arg1", employeeId);
 		query.setParameter("arg2", begin);
 		query.setParameter("arg3", end);
-
 		List<ContractHours> items = query.getResultList();
 
 		return items;
