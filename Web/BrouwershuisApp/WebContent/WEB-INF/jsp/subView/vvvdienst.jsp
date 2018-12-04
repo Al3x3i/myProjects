@@ -267,7 +267,7 @@
 								<td style="vertical-align: middle;"><label id="modal-selected-date" class="align-middle" >00-00</label></td>
 								<td><input class="tb-input form-control timepicker" type="text" name="start" value="" placeholder="12:00" data-timepicker /></td>
 								<td><input class="tb-input form-control timepicker" type="text" name="end" value="" placeholder="12:00" data-timepicker /></td>
-								<td><label class="time-range"></label></td>
+								<td><label id="time-range"></label></td>
 								<td><input class="tb-input form-control comment" type="text" /></td>
 							</tr>
 						</tbody>
@@ -371,11 +371,24 @@
 			}
 		});
 		
-		
 		loadDefaultProperties();
 		
-		new inputTimeHanlder();
-		
+		new inputTimeHanlder(function()
+		{
+			//This is call back handler, when any data is updated in the in "Begin" and "End" cell, this function will be called
+			var startTime = $(".timepicker[name='start']").val()
+			var endTime = $(".timepicker[name='end']").val()
+			
+			if(startTime.length == 0 || endTime.length == 0)
+			{
+				return;
+			}
+			
+			var formattedTime = angedaViewObject.getStartEndTimeRange(startTime, endTime)
+			
+			$("#time-range").val(formattedTime)
+			$("#time-range").text(formattedTime)
+		});
 	})
 
 	function loadDefaultProperties() {
@@ -620,11 +633,10 @@
 					alert('Data cannot be retrieved!');
 				}
 			});
-
 		}
 	}
 
-	function modalSlaapDienstSaveClick() {
+	function modalDienstSaveClick() {
 
 		var emplployee = $("#modal-dienst #select-employee :selected");
 		var employeeId = emplployee.val();

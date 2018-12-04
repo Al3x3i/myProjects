@@ -823,7 +823,6 @@ Day name width -->#vakantie-uren table th:FIRST-CHILD {
 			tag.data('wh-data', w_cellData);
 			tag.val("");
 		}
-
 	}
 
 </script>

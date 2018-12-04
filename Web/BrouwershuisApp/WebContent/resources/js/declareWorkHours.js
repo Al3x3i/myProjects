@@ -250,7 +250,7 @@ function calculateTableHours(tableObject) {
 			}
 		}
 
-		// Summirize all hours and update total cells
+		// Summarize all hours and update total cells
 		var rowTotal = tbody.children().eq(7);
 		var totalCell = rowTotal.children().eq(columnNr);
 

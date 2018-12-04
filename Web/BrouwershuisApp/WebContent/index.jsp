@@ -382,6 +382,9 @@ nav ul, nav ol {
 	<script src="${pageContext.request.contextPath}/resources/js/declareWorkHours.js"></script>
 
 	<script src="${pageContext.request.contextPath}/resources/js/workSchedule.js"></script>
+	
+	<script src="${pageContext.request.contextPath}/resources/js/agendaView.js"></script>
+	
 
 </body>
 
