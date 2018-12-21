@@ -1,8 +1,4 @@
-function doWork() {
-	alert("AAA")
-}
-
-angedaViewObject = {
+var angedaViewObject = {
 
 	getStartEndTimeRange : function(startTime, endTime) {
 		var totalHours = 0;
@@ -51,33 +47,105 @@ angedaViewObject = {
 
 angedaViewBackEndObject = {
 
-	modalDienstSaveClickHandler : function(callbackFunction) {
+	modalDienstSaveClickHandler : function(viewName, jsonData, callbackFunction) {
+
+		var urlAddress = "${contextPath}/schedules/subview/" + viewName
+				+ "/patchRecord"
+
 		$.ajax({
-			url : "${contextPath}/schedules/subview/slaapdienst/putRecord",
-			type : "PUT",
-			// dataType : "text",
+			url : urlAddress,
+			type : "POST",
 			contentType : "application/json",
 			data : jsonData,
 			success : function(data) {
 
-				if (data.status) {
-
-					var calendar = $('#n-calendar').data();
-					var selectedDate = calendar.datepicker.viewDate;
-
-					getTabelData(selectedDate);
-
-					$('#modal-dienst').modal('hide');
-					callbackFunction(true)
-				} else {
-					alert('Data was not saved');
-					callbackFunction(false)
-				}
+				callbackFunction(data)
 			},
 			error : function(jqXHR, textStatus, errorThrown) {
 				alert('Error save data from ajax');
 			}
 		});
-	}
+	},
 
+	modalDienstEditClickHandler : function(viewName, jsonData, callbackFunction) {
+
+		var urlAddress = "${contextPath}/schedules/subview/" + viewName
+				+ "/putRecord"
+
+		$.ajax({
+			url : urlAddress,
+			type : "POST",
+			contentType : "application/json",
+			data : jsonData,
+			success : function(data) {
+				callbackFunction(data)
+			},
+			error : function(jqXHR, textStatus, errorThrown) {
+				alert('Error save data from ajax');
+			}
+		});
+
+	},
+
+	modalDienstDeleteClickHandler : function(viewName, data, callbackFunction) {
+
+		var urlAddress = "${contextPath}/schedules/subview/" + viewName
+				+ "/deleteRecord"
+
+		$.ajax({
+			url : urlAddress,
+			type : "DELETE",
+			// dataType : "text",
+			contentType : "application/json",
+			data : jsonData,
+			success : function(data) {
+
+				callbackFunction(data)
+			},
+			error : function(jqXHR, textStatus, errorThrown) {
+				alert('Error save data from ajax');
+			}
+		});
+	},
+
+	modalDienstGetAllClickHandler : function(viewName, firstDay, lastDay) {
+
+		var urlAddress = "${contextPath}/schedules/subview/" + viewName
+				+ "/getAllRecords/?start=" + firstDay + "&end=" + lastDay
+
+		$.ajax({
+			url : urlAddress,
+			type : "GET",
+			success : function(data) {
+
+				var tableData = JSON.parse(data);
+
+				cleanContentTableRecords();
+				fillInDaysInTableHeader(firstDayMoment);
+
+				var data = tableData.vvvdienst;
+				fillInDienstTableData(data);
+			},
+			error : function(jqXHR, textStatus, errorThrown) {
+				alert('Error get data from ajax');
+			}
+		});
+	},
+
+	modalDienstGetRecordDetails : function(id) {
+		var urlAddress = "${contextPath}/schedules/subview/slaapdienst/getRecordDetails?id="
+				+ id
+
+		$.ajax({
+			url : urlAddress,
+			type : "GET",
+			contentType : "application/json",
+			success : function(data) {
+				callbackFunction(data);
+			},
+			error : function(jqXHR, textStatus, errorThrown) {
+				alert('Data cannot be retrieved!');
+			}
+		});
+	}
 }

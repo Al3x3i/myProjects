@@ -135,12 +135,12 @@
 					<div class="panel-heading vu-panel">
 						<!--END Panel Header  -->
 					</div>
-					<div class="panel-body slaap-dienst">
+					<div class="panel-body agenda-dienst">
 						<div class="n-container" id="rooster-uren">
-							<button class="btn btn-success" onClick="openAddSlaapDienstModal()">
+							<button class="btn btn-success" onClick="openAddDienstModal()">
 								<i class="glyphicon glyphicon-plus"></i> Toevoeg dienst
 							</button>
-							<button class="btn btn-primary bt-my-edit disabled" onClick="openEditSlaapDienstModal()">
+							<button class="btn btn-primary bt-my-edit disabled" onClick="openEditDienstModal()">
 								<i class="glyphicon glyphicon-edit"></i> Bewerk dienst
 							</button>
 							<button class="btn btn-danger bt-my-remove disabled my-popover-delete" data-placement="top" role="button" data-toggle="popover" onClick="deleteTableRecordClick(this)">
@@ -172,7 +172,7 @@
 											</tr>
 										</thead>
 										<tbody>
-											<tr class="tr-slaap-dienst">
+											<tr class="tr-agenda-dienst">
 												<td>&nbsp;</td>
 												<td class="my-edit"></td>
 												<td class="my-edit"></td>
@@ -288,7 +288,7 @@
 		<p class="confirmation-content" style="display: block;">This might be dangerous</p>
 		<div class="confirmation-buttons text-center">
 			<div class="btn-group">
-				<a href="#" class="btn btn-success" onClick="confirmPopverDeleteCkick()">
+				<a href="#" class="btn btn-success" onClick="confirmPopoverDeleteCkick()">
 					<i class="glyphicon glyphicon-share-alt"></i> Continue
 				</a>
 				<a href="#" class="btn btn-danger" onClick="cancelPopverDeleteCkick()">
@@ -310,14 +310,14 @@
 	}
 
 	//the object which is received from back-end
-	function SlaapDienstObject() {
+	function AgendaDienstObject() {
 		this.id = "";
 		this.date = "";
 		this.employeeId = "";
 		this.displayName = "";
 	}
 
-	function SlaapDienstCellData() {
+	function AgendaDienstCellData() {
 		this.date = "";
 		this.employeeId = "";
 	}
@@ -325,6 +325,13 @@
 	//functions
 	$(document).ready(function() {
 
+		initDefault();
+		
+		loadDefaultProperties();
+	})
+	
+	function initDefault()
+	{
 		var popOverContent = $("#my-popover-content");
 
 		$(".my-popover-delete").popover({
@@ -347,7 +354,7 @@
 			$(e.target).data("bs.popover").inState.click = false;
 		});
 
-		$('.slaap-dienst .tb-data tr').on('click', '.my-edit', function(event) {
+		$('.agenda-dienst .tb-data tr').on('click', '.my-edit', function(event) {
 			   
 			if (viewProperties.selectedTableCell != "") {
 				$(viewProperties.selectedTableCell).removeClass("active");
@@ -357,21 +364,19 @@
 				if (event.target.innerHTML != "") {
 
 					$(event.target).addClass("active");
-					$(".slaap-dienst .bt-my-edit").removeClass("disabled");
-					$(".slaap-dienst .bt-my-remove").removeClass("disabled");
+					$(".agenda-dienst .bt-my-edit").removeClass("disabled");
+					$(".agenda-dienst .bt-my-remove").removeClass("disabled");
 				} else {
-					$(".slaap-dienst .bt-my-edit").addClass("disabled");
-					$(".slaap-dienst .bt-my-remove").addClass("disabled");
+					$(".agenda-dienst .bt-my-edit").addClass("disabled");
+					$(".agenda-dienst .bt-my-remove").addClass("disabled");
 				}
 				viewProperties.selectedTableCell = event.target;
 			} else {
-				$(".slaap-dienst .bt-my-edit").addClass("disabled");
-				$(".slaap-dienst .bt-my-remove").addClass("disabled");
+				$(".agenda-dienst .bt-my-edit").addClass("disabled");
+				$(".agenda-dienst .bt-my-remove").addClass("disabled");
 				viewProperties.selectedTableCell = "";
 			}
 		});
-		
-		loadDefaultProperties();
 		
 		new inputTimeHanlder(function()
 		{
@@ -389,7 +394,7 @@
 			$("#time-range").val(formattedTime)
 			$("#time-range").text(formattedTime)
 		});
-	})
+	}
 
 	function loadDefaultProperties() {
 
@@ -420,7 +425,6 @@
 	
 		// Get data from DB
 		getTabelData(new Date());
-
 	}
 
 
@@ -475,7 +479,7 @@
 
 	function formatTableCellData(tdElement, dbId, date, displayName, employeeId) {
 
-		var cellObject = new SlaapDienstObject();
+		var cellObject = new AgendaDienstObject();
 		cellObject.id = dbId;
 		cellObject.date = date;
 		cellObject.displayName = displayName;
@@ -490,7 +494,7 @@
 		var medewerkers = jsonObject.medewerkers;
 
 		//fill in slaap dienst modal with data
-		fillInModalSlaapDienst(medewerkers);
+		fillInModalAgendaDienst(medewerkers);
 	}
 
 	function highlightSelectedWeekInCalendar(selector) {
@@ -515,7 +519,7 @@
 		}
 	}
 
-	function fillInModalSlaapDienst(medewerkers) {
+	function fillInModalAgendaDienst(medewerkers) {
 
 		for (var i = 0; i < medewerkers.length; i++) {
 			var name = medewerkers[i].firstName[0] + ". " + medewerkers[i].lastName;
@@ -550,7 +554,7 @@
 		trEl.children().eq(1).text(momentDate.format("DD-MM"))
 	}
 
-	function openAddSlaapDienstModal() {
+	function openAddDienstModal() {
 
 		initDienstModal();
 
@@ -570,7 +574,7 @@
 		$('#modal-dienst').modal('show'); // show bootstrap modal
 	}
 
-	function openEditSlaapDienstModal() {
+	function openEditDienstModal() {
 
 		initDienstModal();
 
@@ -580,59 +584,51 @@
 
 			var recordData = $(selectedRecord).data('sp-data');
 
-			$.ajax({
-				url : "${contextPath}/schedules/subview/slaapdienst/getRecordDetails?id=" + recordData.id,
-				type : "GET",
-				contentType : "application/json",
-				success : function(data) {
+			modalDienstGetRecordDetails
+			
+			angedaViewObject.getRecordDetailsCallBack(data)
+			{
+				if (data != "undefined") {
+					var momentDate = new moment(data.weekDate);
+					var formattedDate = momentDate.format('YYYY-MM-DD');
 
-					if (data != "undefined") {
-						var momentDate = new moment(data.weekDate);
-						var formattedDate = momentDate.format('YYYY-MM-DD');
+					var tableRows = $("#modal-dienst #modal-input tbody tr");
 
-						var tableRows = $("#modal-dienst #modal-input tbody tr");
+					$(tableRows).each(function() {
 
-						$(tableRows).each(function() {
+						var element = $(this);
+						var elData = element.data("date");
+						if (elData == formattedDate) {
 
-							var element = $(this);
-							var elData = element.data("date");
-							if (elData == formattedDate) {
+							var inputEl = element.find("input");
+							if (inputEl != null) {
+								inputEl.prop('checked', true);
+								inputEl.prop("disabled", true);
 
-								var inputEl = element.find("input");
-								if (inputEl != null) {
-									inputEl.prop('checked', true);
-									inputEl.prop("disabled", true);
+								//set right employee in dropDown list
+								var selectEmployee = $("#modal-dienst #select-employee");
+								selectEmployee.children().each(function() {
 
-									//set right employee in dropDown list
-									var selectEmployee = $("#modal-dienst #select-employee");
-									selectEmployee.children().each(function() {
-
-										var optionValue = $(this).val();
-										if (data.employee.id == optionValue) {
-											$(this).prop("selected", true);
-										}
-									});
-
-								}
-							} else {
-								//hide unused rows
-								element.css("display", "none");
+									var optionValue = $(this).val();
+									if (data.employee.id == optionValue) {
+										$(this).prop("selected", true);
+									}
+								});
 							}
-						});
+						} else {
+							//hide unused rows
+							element.css("display", "none");
+						}
+					});
 
-						$("#modal-dienst #modal-save").css("display", "none");
-						$("#modal-dienstt #modal-save-edit").css("display", "inline-block");
-						$('#modal-dienst').modal('show'); // show bootstrap modal
+					$("#modal-dienst #modal-save").css("display", "none");
+					$("#modal-dienstt #modal-save-edit").css("display", "inline-block");
+					$('#modal-dienst').modal('show'); // show bootstrap modal
 
-					} else {
-						alert('Data cannot be retrieved!');
-					}
-
-				},
-				error : function(jqXHR, textStatus, errorThrown) {
+				} else {
 					alert('Data cannot be retrieved!');
 				}
-			});
+			}
 		}
 	}
 
@@ -652,11 +648,10 @@
 
 		var updateItems = [];
 		for (var index = 0; index < selected.length; index++) {
-
 			var el = selected[index];
 			var trEl = $(el).closest('tr')
 
-			var updateData = new SlaapDienstCellData();
+			var updateData = new AgendaDienstCellData();
 			updateData.date = trEl.data("date");
 			updateData.employeeId = employeeId;
 
@@ -665,32 +660,21 @@
 
 		var jsonData = JSON.stringify(updateItems);
 
-		if (employeeId != "-1") {
-			$.ajax({
-				url : "${contextPath}/schedules/subview/slaapdienst/putRecord",
-				type : "PUT",
-				//dataType : "text",
-				contentType : "application/json",
-				data : jsonData,
-				success : function(data) {
+		angedaViewObject.modalDienstSaveClickHandler("vvvdienst", jsonData, saveCallBack)
 
-					if (data.status) {
+		function saveCallBack(requestStatus)
+		{
+			if (requestStatus) {
 
-						var calendar = $('#n-calendar').data();
-						var selectedDate = calendar.datepicker.viewDate;
+				var calendar = $('#n-calendar').data();
+				var selectedDate = calendar.datepicker.viewDate;
 
-						getTabelData(selectedDate);
+				getTabelData(selectedDate);
 
-						$('#modal-dienst').modal('hide');
-						//reload_table();
-					} else {
-						alert('Data was not saved');
-					}
-				},
-				error : function(jqXHR, textStatus, errorThrown) {
-					alert('Error save data from ajax');
-				}
-			});
+				$('#modal-dienst').modal('hide');
+			} else {
+				alert('Data was not saved');
+			}
 		}
 	}
 
@@ -707,7 +691,7 @@
 				return;
 			}
 
-			var updateObject = new SlaapDienstObject();
+			var updateObject = new AgendaDienstObject();
 			updateObject.id = recordData.id;
 			updateObject.date = recordData.date;
 
@@ -715,36 +699,28 @@
 			updateObject.employeeId = selectedEmployee.val();
 
 			var jsonData = JSON.stringify(updateObject);
+			
+			function saveEditCallBack(status)
+			{
+				if (data.status) {
 
-			$.ajax({
-				url : "${contextPath}/schedules/subview/slaapdienst/patchRecord",
-				type : "POST",
-				contentType : "application/json",
-				data : jsonData,
-				success : function(data) {
-					if (data.status) {
+					formatTableCellData($(viewProperties.selectedTableCell), updateObject.id, updateObject.date, updateObject.displayName, updateObject.employeeId);
 
-						formatTableCellData($(viewProperties.selectedTableCell), updateObject.id, updateObject.date, updateObject.displayName, updateObject.employeeId);
+					$(viewProperties.selectedTableCell).removeClass("active");
+					$(".agenda-dienst .bt-my-edit").addClass("disabled");
+					$(".agenda-dienst .bt-my-remove").addClass("disabled");
 
-						$(viewProperties.selectedTableCell).removeClass("active");
-						$(".slaap-dienst .bt-my-edit").addClass("disabled");
-						$(".slaap-dienst .bt-my-remove").addClass("disabled");
+					$('#modal-dienst').modal('hide');
 
-						$('#modal-dienst').modal('hide');
-
-						viewProperties.selectedTableCell = "";
-					} else {
-						alert('Data was not saved');
-					}
-				},
-				error : function(jqXHR, textStatus, errorThrown) {
-					alert('Error save data from ajax');
+					viewProperties.selectedTableCell = "";
+				} else {
+					alert('Data was not saved');
 				}
-			});
+			}
 		}
 	}
 
-	function confirmPopverDeleteCkick() {
+	function confirmPopoverDeleteCkick() {
 
 		var selectedRecord = viewProperties.selectedTableCell;
 
@@ -752,7 +728,7 @@
 
 			var recordData = $(selectedRecord).data('sp-data');
 
-			var deleteObject = new SlaapDienstObject();
+			var deleteObject = new AgendaDienstObject();
 			deleteObject.id = recordData.id;
 			deleteObject.date = recordData.date;
 			deleteObject.displayName = recordData.displayName;
@@ -760,32 +736,25 @@
 
 			var jsonData = JSON.stringify(deleteObject);
 
-			$.ajax({
-				url : "${contextPath}/schedules/subview/slaapdienst/deleteRecord",
-				type : "DELETE",
-				//dataType : "text",
-				contentType : "application/json",
-				data : jsonData,
-				success : function(data) {
-					if (data.status) {
-						$(selectedRecord).text("");
-						$(selectedRecord).removeData("sp-data");
+			angedaViewObject.modalDienstDeleteClickHandler("vvvdienst", jsonData, deleteCallBack)
+			
+			function deleteCallBack(data)
+			{
+				if (data.status) {
+					$(selectedRecord).text("");
+					$(selectedRecord).removeData("sp-data");
 
-						$(viewProperties.selectedTableCell).removeClass("active");
-						$(".slaap-dienst .bt-my-edit").addClass("disabled");
-						$(".slaap-dienst .bt-my-remove").addClass("disabled");
+					$(viewProperties.selectedTableCell).removeClass("active");
+					$(".agenda-dienst .bt-my-edit").addClass("disabled");
+					$(".agenda-dienst .bt-my-remove").addClass("disabled");
 
-						$(".my-popover-delete").popover('hide');
+					$(".my-popover-delete").popover('hide');
 
-						viewProperties.selectedTableCell = "";
-					} else {
-						alert('Data was not saved');
-					}
-				},
-				error : function(jqXHR, textStatus, errorThrown) {
-					alert('Error save data from ajax');
+					viewProperties.selectedTableCell = "";
+				} else {
+					alert('Data was not saved');
 				}
-			});
+			}
 		}
 	}
 
@@ -806,23 +775,18 @@
 		var firstDay = moment().startOf('isoWeek').format('YYYY-MM-DD');
 		var lastDay = moment().endOf('isoWeek').format('YYYY-MM-DD');
 
-		$.ajax({
-			url : "${contextPath}/schedules/subview/vvvdienst/getAllRecords/?start=" + firstDay + "&end=" + lastDay,
-			type : "GET",
-			success : function(data) {
+		angedaViewObject.modalDienstGetAllClickHandler("vvvdienst", firstDay, lastDay)
 
-				var tableData = JSON.parse(data);
+		function deleteCallBack()
+		{
+			var tableData = JSON.parse(data);
 
-				cleanContentTableRecords();
-				fillInDaysInTableHeader(firstDayMoment);
+			cleanContentTableRecords();
+			fillInDaysInTableHeader(firstDayMoment);
 
-				var data = tableData.vvvdienst; //VVV Dienst
-				fillInDienstTableData(data);
-			},
-			error : function(jqXHR, textStatus, errorThrown) {
-				alert('Error get data from ajax');
-			}
-		});
+			var data = tableData.vvvdienst; //VVV Dienst
+			fillInDienstTableData(data);
+		}
 	}
 
 	function cleanContentTableRecords() {
